@@ -42,7 +42,7 @@ This portfolio website includes:
 - **Content**: MDX with syntax highlighting
 - **Deployment**: Vercel
 - **Analytics**: Vercel Speed Insights & Web Analytics
-- **Font**: Geist (Sans & Mono)  
+- **Font**: Geist (Sans & Mono)
 
 ## Development
 
@@ -61,6 +61,22 @@ pnpm build
 # Start production server
 pnpm start
 ```
+
+## Favicon Setup
+
+To create a favicon from your image:
+
+1. **Use an online favicon generator** like favicon.io or realfavicongenerator.net
+2. **Upload your image** (itamar-mizrahi.jpg)
+3. **Download the generated files** and place them in the `public/` directory:
+   - `favicon.ico`
+   - `favicon-16x16.png`
+   - `favicon-32x32.png`
+   - `apple-touch-icon.png`
+   - `android-chrome-192x192.png`
+   - `android-chrome-512x512.png`
+
+The website is already configured to use these favicon files.
 
 ## Deployment
 

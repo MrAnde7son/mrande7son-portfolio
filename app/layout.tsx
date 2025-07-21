@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   keywords: ['cybersecurity', 'engineering leadership', 'Tenable', 'Cymptom', 'attack path validation', 'VP Engineering', 'security entrepreneur'],
   authors: [{ name: 'Itamar Mizrahi' }],
   creator: 'Itamar Mizrahi',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     title: 'Itamar Mizrahi — Cybersecurity Leader, VP Engineering @ Tenable',
     description: 'Tech entrepreneur, open-source creator, and VP Engineering leading exposure management at Tenable. Former Co-founder and CEO of Cymptom (acquired by Tenable).',
