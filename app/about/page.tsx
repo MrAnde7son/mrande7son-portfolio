@@ -1,8 +1,22 @@
 import Image from 'next/image'
+import { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'About - Itamar Mizrahi',
-  description: 'Learn more about Itamar Mizrahi\'s journey in cybersecurity, from founding Cymptom to leading engineering teams at Tenable.',
+  description: 'Learn more about Itamar Mizrahi\'s journey in cybersecurity, from founding Cymptom to leading engineering teams at Tenable. Cybersecurity entrepreneur and VP Engineering.',
+  keywords: [
+    'Itamar Mizrahi about',
+    'cybersecurity entrepreneur',
+    'Cymptom founder',
+    'Tenable VP Engineering',
+    'cybersecurity leadership',
+    'attack path validation',
+    'security product development'
+  ],
+  openGraph: {
+    title: 'About Itamar Mizrahi - Cybersecurity Entrepreneur & VP Engineering',
+    description: 'Discover the journey of Itamar Mizrahi from founding Cymptom to leading engineering teams at Tenable. Expert in cybersecurity, attack path validation, and security product development.',
+  },
 }
 
 export default function About() {
@@ -15,7 +29,7 @@ export default function About() {
           <div className="flex-shrink-0">
             <Image
               src="/itamar-mizrahi.jpg"
-              alt="Itamar Mizrahi - Cybersecurity Leader and VP Engineering at Tenable"
+              alt="Itamar Mizrahi - Cybersecurity Entrepreneur and VP Engineering at Tenable - Professional portrait"
               width={250}
               height={250}
               className="rounded-lg shadow-lg"
@@ -110,11 +124,11 @@ export default function About() {
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">💻 Technologies</h3>
               <ul className="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
-                <li>• PowerShell, Python, JavaScript</li>
+                <li>• Python, Typescript, Go</li>
                 <li>• AWS, Azure, GCP</li>
                 <li>• Docker, Kubernetes</li>
-                <li>• SIEM & Security Tools</li>
                 <li>• CI/CD & Automation</li>
+                <li>• Artificial Intelligence</li>
               </ul>
             </div>
           </div>

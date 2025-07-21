@@ -11,13 +11,29 @@ import { baseUrl } from './sitemap'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Itamar Mizrahi — Cybersecurity Leader, VP Engineering @ Tenable',
+    default: 'Itamar Mizrahi – Cybersecurity Entrepreneur | VP Engineering',
     template: '%s | Itamar Mizrahi',
   },
-  description: 'Tech entrepreneur, open-source creator, and VP Engineering leading exposure management at Tenable. Former Co-founder and CEO of Cymptom (acquired by Tenable).',
-  keywords: ['cybersecurity', 'engineering leadership', 'Tenable', 'Cymptom', 'attack path validation', 'VP Engineering', 'security entrepreneur'],
+  description: 'Itamar Mizrahi is a cybersecurity entrepreneur and technology leader. Co-founder of Cymptom (acquired by Tenable), he leads innovation in exposure management, AI security, and attack path analysis.',
+  keywords: [
+    'cybersecurity entrepreneur',
+    'VP Engineering',
+    'Tenable',
+    'Cymptom',
+    'attack path analysis',
+    'exposure management',
+    'AI security',
+    'cybersecurity speaker',
+    'security technology leader',
+    'cybersecurity innovation',
+    'attack path validation',
+    'security product development'
+  ],
   authors: [{ name: 'Itamar Mizrahi' }],
   creator: 'Itamar Mizrahi',
+  publisher: 'Itamar Mizrahi',
+  category: 'Technology',
+  classification: 'Cybersecurity',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
@@ -25,8 +41,8 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   openGraph: {
-    title: 'Itamar Mizrahi — Cybersecurity Leader, VP Engineering @ Tenable',
-    description: 'Tech entrepreneur, open-source creator, and VP Engineering leading exposure management at Tenable. Former Co-founder and CEO of Cymptom (acquired by Tenable).',
+    title: 'Itamar Mizrahi – Cybersecurity Entrepreneur',
+    description: 'Former CEO and Co-founder of Cymptom, now VP Engineering at Tenable. Driving innovation in cybersecurity, AI risk, and exposure management.',
     url: baseUrl,
     siteName: 'Itamar Mizrahi',
     locale: 'en_US',
@@ -36,15 +52,16 @@ export const metadata: Metadata = {
         url: `${baseUrl}/og`,
         width: 1200,
         height: 630,
-        alt: 'Itamar Mizrahi - Cybersecurity Leader',
+        alt: 'Itamar Mizrahi - Cybersecurity Entrepreneur',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Itamar Mizrahi — Cybersecurity Leader, VP Engineering @ Tenable',
-    description: 'Tech entrepreneur, open-source creator, and VP Engineering leading exposure management at Tenable.',
+    title: 'Itamar Mizrahi – Cybersecurity Entrepreneur',
+    description: 'Former CEO and Co-founder of Cymptom, VP Engineering at Tenable. Cybersecurity thought leader.',
     images: [`${baseUrl}/og`],
+    creator: '@itamarmizrahi',
   },
   robots: {
     index: true,
@@ -57,9 +74,13 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  alternates: {
+    canonical: baseUrl,
+  },
+  verification: {
+    google: 'your-google-verification-code', // Add your Google Search Console verification code
+  },
 }
-
-const cx = (...classes) => classes.filter(Boolean).join(' ')
 
 export default function RootLayout({
   children,
@@ -67,22 +88,85 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={cx(
-        'text-black bg-white dark:text-white dark:bg-black',
-        GeistSans.variable,
-        GeistMono.variable
-      )}
-    >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+    <html lang="en" className={GeistSans.variable}>
+      <head>
+        {/* Structured Data for Person */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Itamar Mizrahi",
+              "jobTitle": "VP Engineering",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Tenable",
+                "url": "https://www.tenable.com"
+              },
+              "alumniOf": {
+                "@type": "Organization",
+                "name": "Cymptom",
+                "description": "Exposure validation platform (acquired by Tenable)"
+              },
+              "description": "Cybersecurity entrepreneur and technology leader. Co-founder & CEO of Cymptom, now VP Engineering at Tenable.",
+              "url": baseUrl,
+              "sameAs": [
+                "https://www.linkedin.com/in/itamarmizrahi/",
+                "https://github.com/MrAnde7son/MrAnde7son"
+              ],
+              "knowsAbout": [
+                "Cybersecurity",
+                "Attack Path Analysis",
+                "Exposure Management",
+                "AI Security",
+                "Security Product Development",
+                "Engineering Leadership"
+              ],
+              "hasOccupation": {
+                "@type": "Occupation",
+                "name": "VP Engineering",
+                "occupationLocation": {
+                  "@type": "Place",
+                  "name": "Tenable"
+                }
+              },
+              "image": `${baseUrl}/itamar-mizrahi.jpg`
+            })
+          }}
+        />
+        
+        {/* Structured Data for Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Itamar Mizrahi - Cybersecurity Entrepreneur",
+              "url": baseUrl,
+              "logo": `${baseUrl}/itamar-mizrahi.jpg`,
+              "description": "Personal website and blog of Itamar Mizrahi, cybersecurity entrepreneur and VP Engineering at Tenable.",
+              "founder": {
+                "@type": "Person",
+                "name": "Itamar Mizrahi"
+              },
+              "sameAs": [
+                "https://www.linkedin.com/in/itamarmizrahi/",
+                "https://github.com/MrAnde7son/MrAnde7son"
+              ]
+            })
+          }}
+        />
+      </head>
+      <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto">
+        <main className="flex-auto min-w-0 flex flex-col px-2 md:px-0">
           <Navbar />
           {children}
           <Footer />
-          <Analytics />
-          <SpeedInsights />
         </main>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

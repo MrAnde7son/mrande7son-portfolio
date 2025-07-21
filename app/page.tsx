@@ -10,7 +10,7 @@ export default function Page() {
         <div className="flex-shrink-0">
           <Image
             src="/itamar-mizrahi.jpg"
-            alt="Itamar Mizrahi - Cybersecurity Leader and VP Engineering at Tenable"
+            alt="Itamar Mizrahi - Cybersecurity Entrepreneur and VP Engineering at Tenable"
             width={200}
             height={200}
             className="rounded-lg shadow-lg"
