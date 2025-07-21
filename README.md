@@ -8,6 +8,8 @@ I'm a seasoned technology leader and entrepreneur with extensive experience in c
 
 My passion lies in building high-impact security products that protect organizations from evolving cyber threats. I enjoy mentoring the next generation of security professionals and sharing insights from my experience in both startup and enterprise environments.
 
+In my free time, I like surfing and traveling.
+
 ## Website Features
 
 This portfolio website includes:
@@ -40,7 +42,7 @@ This portfolio website includes:
 - **Content**: MDX with syntax highlighting
 - **Deployment**: Vercel
 - **Analytics**: Vercel Speed Insights & Web Analytics
-- **Font**: Geist (Sans & Mono)
+- **Font**: Geist (Sans & Mono)  
 
 ## Development
 
