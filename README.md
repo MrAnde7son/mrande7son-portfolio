@@ -1,42 +1,73 @@
-# Portfolio Blog Starter
+# Itamar Mizrahi - Personal Portfolio & Blog
 
-This is a porfolio site template complete with a blog. Includes:
+Welcome to my personal website and blog where I share insights about cybersecurity, engineering leadership, and building security products. 
 
-- MDX and Markdown support
-- Optimized for SEO (sitemap, robots, JSON-LD schema)
-- RSS Feed
-- Dynamic OG images
-- Syntax highlighting
-- Tailwind v4
-- Vercel Speed Insights / Web Analytics
-- Geist font
+## About Me
 
-## Demo
+I'm a seasoned technology leader and entrepreneur with extensive experience in cybersecurity. I have a proven track record in building and scaling software products from inception to growth. As the former Co-founder and CEO of Cymptom (acquired by Tenable), I've experienced the full journey of building security products from startup to enterprise scale.
 
-https://portfolio-blog-starter.vercel.app
+My passion lies in building high-impact security products that protect organizations from evolving cyber threats. I enjoy mentoring the next generation of security professionals and sharing insights from my experience in both startup and enterprise environments.
 
-## How to Use
+## Website Features
 
-You can choose from one of the following two methods to use this repository:
+This portfolio website includes:
 
-### One-Click Deploy
+- **Personal Blog** - Cybersecurity insights and leadership lessons
+- **MDX and Markdown support** - Rich content with code highlighting
+- **SEO Optimized** - Sitemap, robots.txt, and JSON-LD schema
+- **RSS Feed** - Subscribe to blog updates
+- **Dynamic OG images** - Optimized social media sharing
+- **Syntax highlighting** - For code snippets and technical content
+- **Tailwind CSS** - Modern, responsive design
+- **Vercel Analytics** - Performance monitoring and insights
+- **Geist font** - Clean, professional typography
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+## Blog Posts
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/blog&project-name=blog&repository-name=blog)
+- [Building Security Teams That Scale](/blog/cybersecurity-leadership) - Lessons learned from leading engineering teams in cybersecurity startups and enterprises
+- [From Startup to Enterprise: The Cybersecurity Journey](/blog/startup-to-enterprise) - Reflections on building Cymptom from the ground up and scaling security products in enterprise environments  
+- [Building Security Products That Actually Work](/blog/security-product-development) - Practical insights on developing cybersecurity solutions that solve real problems and deliver measurable value
 
-### Clone and Deploy
+## Connect With Me
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
+- **LinkedIn**: [Itamar Mizrahi](https://www.linkedin.com/in/itamarmizrahi/)
+- **GitHub**: [MrAnde7son](https://github.com/MrAnde7son/MrAnde7son)
+
+## Technology Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS v4
+- **Content**: MDX with syntax highlighting
+- **Deployment**: Vercel
+- **Analytics**: Vercel Speed Insights & Web Analytics
+- **Font**: Geist (Sans & Mono)
+
+## Development
+
+To run this website locally:
 
 ```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/blog blog
-```
+# Install dependencies
+pnpm install
 
-Then, run Next.js in development mode:
-
-```bash
+# Start development server
 pnpm dev
+
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).
+## Deployment
+
+This website is designed to be deployed on Vercel with zero configuration. Simply connect your GitHub repository to Vercel for automatic deployments.
+
+## License
+
+© 2024 MrAnde7son. All rights reserved.
+
+---
+
+*This website is built on the Next.js Portfolio Blog Starter template, customized for my personal brand and professional experience in cybersecurity.*
