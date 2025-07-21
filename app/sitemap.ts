@@ -1,11 +1,12 @@
 import { getBlogPosts } from 'app/blog/utils'
 
-export const baseUrl = 'https://portfolio-blog-starter.vercel.app'
+export const baseUrl = 'https://mrander7son-portfolio.vercel.app'
 
 export default async function sitemap() {
-  let blogs = getBlogPosts().map((post) => ({
+  let blogs = await getBlogPosts()
+  let posts = blogs.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
+    lastModified: post.metadata.date,
   }))
 
   let routes = ['', '/blog'].map((route) => ({
@@ -13,5 +14,5 @@ export default async function sitemap() {
     lastModified: new Date().toISOString().split('T')[0],
   }))
 
-  return [...routes, ...blogs]
+  return [...routes, ...posts]
 }

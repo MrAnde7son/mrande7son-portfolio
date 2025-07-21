@@ -6,7 +6,7 @@ export async function GET() {
 
   const itemsXml = allBlogs
     .sort((a, b) => {
-      if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
+      if (new Date(a.metadata.date) > new Date(b.metadata.date)) {
         return -1
       }
       return 1
@@ -16,9 +16,9 @@ export async function GET() {
         `<item>
           <title>${post.metadata.title}</title>
           <link>${baseUrl}/blog/${post.slug}</link>
-          <description>${post.metadata.summary || ''}</description>
+          <description>${post.metadata.description || ''}</description>
           <pubDate>${new Date(
-            post.metadata.publishedAt
+            post.metadata.date
           ).toUTCString()}</pubDate>
         </item>`
     )
@@ -27,9 +27,9 @@ export async function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">
     <channel>
-        <title>My Portfolio</title>
+        <title>Itamar Mizrahi - Entrepreneur, Leader & Engineering</title>
         <link>${baseUrl}</link>
-        <description>This is my portfolio RSS feed</description>
+        <description>Cybersecurity insights and leadership lessons from Itamar Mizrahi</description>
         ${itemsXml}
     </channel>
   </rss>`
