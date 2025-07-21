@@ -15,12 +15,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }): Promise<Metadata> {
   let post = (await getBlogPosts()).find((post) => post.slug === params.slug)
   if (!post) {
-    return
+    return {
+      title: 'Post Not Found',
+      description: 'The requested blog post could not be found.',
+    }
   }
 
   let {
     title,
-    publishedAt: publishedTime,
+    date: publishedTime,
     description,
     image,
   } = post.metadata
