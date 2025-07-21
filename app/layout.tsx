@@ -11,17 +11,34 @@ import { baseUrl } from './sitemap'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Itamar Mizrahi - Entrepreneur, Leader & Engineering',
+    default: 'Itamar Mizrahi — Cybersecurity Leader, VP Engineering @ Tenable',
     template: '%s | Itamar Mizrahi',
   },
-  description: 'Cybersecurity entrepreneur, VP Product Growth @ Tenable, ex-CEO & Co-founder @ Cymptom',
+  description: 'Tech entrepreneur, open-source creator, and VP Engineering leading exposure management at Tenable. Former Co-founder and CEO of Cymptom (acquired by Tenable).',
+  keywords: ['cybersecurity', 'engineering leadership', 'Tenable', 'Cymptom', 'attack path validation', 'VP Engineering', 'security entrepreneur'],
+  authors: [{ name: 'Itamar Mizrahi' }],
+  creator: 'Itamar Mizrahi',
   openGraph: {
-    title: 'Itamar Mizrahi - Entrepreneur, Leader & Engineering',
-    description: 'Cybersecurity entrepreneur, VP Product Growth @ Tenable, ex-CEO & Co-founder @ Cymptom',
+    title: 'Itamar Mizrahi — Cybersecurity Leader, VP Engineering @ Tenable',
+    description: 'Tech entrepreneur, open-source creator, and VP Engineering leading exposure management at Tenable. Former Co-founder and CEO of Cymptom (acquired by Tenable).',
     url: baseUrl,
     siteName: 'Itamar Mizrahi',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: `${baseUrl}/og`,
+        width: 1200,
+        height: 630,
+        alt: 'Itamar Mizrahi - Cybersecurity Leader',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Itamar Mizrahi — Cybersecurity Leader, VP Engineering @ Tenable',
+    description: 'Tech entrepreneur, open-source creator, and VP Engineering leading exposure management at Tenable.',
+    images: [`${baseUrl}/og`],
   },
   robots: {
     index: true,

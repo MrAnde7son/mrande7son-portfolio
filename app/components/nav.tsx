@@ -4,8 +4,14 @@ const navItems = {
   '/': {
     name: 'home',
   },
+  '/about': {
+    name: 'about',
+  },
   '/blog': {
     name: 'blog',
+  },
+  '/contact': {
+    name: 'contact',
   },
   'https://www.linkedin.com/in/itamarmizrahi/': {
     name: 'linkedin',
