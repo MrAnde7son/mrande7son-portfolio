@@ -12,13 +12,7 @@ const navItems = {
   },
   '/contact': {
     name: 'contact',
-  },
-  'https://www.linkedin.com/in/itamarmizrahi/': {
-    name: 'linkedin',
-  },
-  'https://github.com/MrAnde7son/MrAnde7son': {
-    name: 'github',
-  },
+  }
 }
 
 export function Navbar() {
