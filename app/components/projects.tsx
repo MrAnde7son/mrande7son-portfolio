@@ -2,6 +2,18 @@ import Link from 'next/link'
 
 const projects = [
   {
+    title: 'Impacket',
+    description: '🔐 Contributed to the leading Python library for network protocol analysis and penetration testing. Used by 6,000+ repositories with 14.6k+ stars.',
+    github: 'https://github.com/fortra/impacket',
+    tags: ['Python', 'Network Security', 'Penetration Testing', 'Open Source'],
+  },
+  {
+    title: 'MITRE ATT&CK',
+    description: '🎯 Contributed to the global cybersecurity knowledge base of adversary tactics and techniques. Used by governments, enterprises, and security teams worldwide.',
+    github: 'https://attack.mitre.org/',
+    tags: ['Threat Intelligence', 'Cybersecurity Framework', 'Global Standard'],
+  },
+  {
     title: 'PowerShell Toolkit',
     description: '🔧 Active Directory red team & audit scripts for security testing and compliance.',
     github: 'https://github.com/MrAnde7son/PowerShell-AD-Audit',
