@@ -1,0 +1,161 @@
+---
+title: 'AI as a New Attack Surface: Why Exposure Management is More Critical Than Ever'
+description: 'As organizations rapidly adopt AI technologies, they're creating new attack vectors that traditional security approaches can't address. Here's why exposure management programs are now essential for AI security.'
+date: '2025-06-19'
+---
+
+# AI as a New Attack Surface: Why Exposure Management is More Critical Than Ever
+
+The rapid adoption of artificial intelligence across organizations has created a paradigm shift in cybersecurity. While AI promises to revolutionize business operations, it's also introducing entirely new attack surfaces that traditional security approaches are ill-equipped to handle. As someone who has spent years building exposure management solutions, I've seen firsthand how organizations struggle to understand and secure their attack surfaces—and AI is making this challenge exponentially more complex.
+
+## The AI Attack Surface Explosion
+
+### Traditional Attack Surfaces vs. AI Attack Surfaces
+
+Traditional cybersecurity focused on protecting well-defined assets: servers, networks, applications, and data. The attack surface was relatively static and predictable. AI changes this fundamentally by introducing:
+
+- **Model Vulnerabilities**: AI models can be poisoned, backdoored, or manipulated through training data
+- **API Exposures**: AI services expose new APIs that can be exploited for data exfiltration or service abuse
+- **Data Pipeline Risks**: The complex data flows feeding AI systems create new points of compromise
+- **Model Inversion Attacks**: Attackers can extract sensitive training data from deployed models
+- **Adversarial Inputs**: Malicious inputs designed to fool AI systems and cause incorrect outputs
+
+### The Scale of the Problem
+
+Consider a typical enterprise AI deployment:
+- **Multiple AI models** across different business functions
+- **Complex data pipelines** feeding these models
+- **API endpoints** exposing AI capabilities
+- **Third-party AI services** integrated into core systems
+- **Continuous model updates** and retraining cycles
+
+Each of these components represents a potential attack vector, and traditional vulnerability scanning tools simply can't identify these risks.
+
+## Why Traditional Security Approaches Fall Short
+
+### The Limitations of Point-in-Time Assessments
+
+Traditional security assessments provide a snapshot of vulnerabilities at a specific moment. But AI systems are dynamic—models are continuously updated, data pipelines change, and new AI services are integrated regularly. A vulnerability assessment from last month might miss:
+
+- New AI models deployed in production
+- Changes to data processing pipelines
+- Updated API endpoints with different security controls
+- New integrations with third-party AI services
+
+### The Blind Spots of Traditional Tools
+
+Most security tools were designed for traditional IT infrastructure. They can't effectively identify:
+
+- **Model-specific vulnerabilities** like prompt injection or training data poisoning
+- **Data pipeline exposures** that could lead to model compromise
+- **API abuse patterns** specific to AI services
+- **Model drift** that could indicate tampering or degradation
+
+## The Exposure Management Imperative
+
+### What Exposure Management Brings to AI Security
+
+Exposure management provides continuous visibility into your entire attack surface, including AI components. It helps organizations:
+
+1. **Discover AI Assets**: Automatically identify all AI models, APIs, and data pipelines
+2. **Assess AI-Specific Risks**: Evaluate vulnerabilities unique to AI systems
+3. **Monitor for Changes**: Detect when new AI components are added or existing ones are modified
+4. **Prioritize Remediation**: Focus on the AI exposures that pose the greatest risk
+
+### Real-World Impact
+
+During my time at Cymptom and Tenable, I've seen organizations discover critical AI-related exposures that traditional security tools missed:
+
+- **Unsecured AI APIs** exposing sensitive business logic
+- **Data pipeline vulnerabilities** that could allow model poisoning
+- **Over-privileged AI service accounts** with access to production systems
+- **AI model repositories** accessible to unauthorized users
+
+## Building an AI-Aware Exposure Management Program
+
+### 1. AI Asset Discovery and Inventory
+
+The first step is understanding what AI assets you have:
+
+- **AI Models**: Identify all deployed models, their versions, and their business functions
+- **AI APIs**: Catalog all AI service endpoints and their access controls
+- **Data Pipelines**: Map the data flows that feed your AI systems
+- **Third-Party AI Services**: Document all external AI integrations
+
+### 2. AI-Specific Risk Assessment
+
+Develop assessment criteria specific to AI systems:
+
+- **Model Security**: Evaluate training data integrity, model validation, and deployment security
+- **API Security**: Assess authentication, authorization, rate limiting, and input validation
+- **Data Security**: Review data handling, encryption, and access controls
+- **Operational Security**: Examine monitoring, logging, and incident response capabilities
+
+### 3. Continuous Monitoring and Detection
+
+Implement continuous monitoring for AI-specific threats:
+
+- **Model Performance Monitoring**: Detect unusual model behavior that might indicate compromise
+- **API Usage Analysis**: Identify suspicious patterns in AI service usage
+- **Data Pipeline Monitoring**: Monitor for unauthorized access to training data
+- **Model Drift Detection**: Identify when models behave unexpectedly
+
+### 4. Incident Response Planning
+
+Develop incident response procedures for AI-specific incidents:
+
+- **Model Compromise Response**: Procedures for detecting and responding to model tampering
+- **Data Breach Response**: Plans for AI-related data exposures
+- **Service Disruption Response**: Procedures for AI service outages or abuse
+
+## The Business Case for AI Exposure Management
+
+### Risk Reduction
+
+Organizations that implement AI-aware exposure management can:
+
+- **Prevent AI-related breaches** that could expose sensitive data or business logic
+- **Avoid model compromise** that could lead to incorrect business decisions
+- **Protect against AI service abuse** that could impact performance or costs
+- **Maintain regulatory compliance** in industries with strict AI governance requirements
+
+### Competitive Advantage
+
+Beyond risk reduction, effective AI exposure management provides:
+
+- **Faster AI Deployment**: Confidence to deploy AI solutions more rapidly
+- **Better AI Governance**: Improved oversight and control of AI initiatives
+- **Enhanced Trust**: Stakeholder confidence in AI system security
+- **Regulatory Compliance**: Meeting emerging AI security requirements
+
+## Looking Ahead: The Future of AI Security
+
+### Emerging Threats
+
+As AI technology evolves, new attack vectors will emerge:
+
+- **Federated Learning Attacks**: Exploiting vulnerabilities in distributed AI training
+- **Model Extraction**: Stealing proprietary AI models through API interactions
+- **Supply Chain Attacks**: Compromising AI through vulnerable dependencies
+- **Adversarial Machine Learning**: Sophisticated attacks designed to fool AI systems
+
+### The Role of Exposure Management
+
+Exposure management will become even more critical as AI systems become more complex and integrated. Organizations need to:
+
+- **Adapt Assessment Methods**: Develop new techniques for evaluating AI-specific risks
+- **Enhance Monitoring**: Implement AI-aware detection and response capabilities
+- **Improve Collaboration**: Work with AI teams to integrate security into the development lifecycle
+- **Stay Current**: Keep pace with emerging AI security threats and countermeasures
+
+## Conclusion
+
+The integration of AI into business operations has created a new frontier in cybersecurity. Traditional security approaches, while still valuable, are insufficient for protecting AI systems. Organizations need to adopt exposure management programs that specifically address AI attack surfaces.
+
+The urgency is real. Every day that organizations operate AI systems without proper exposure management is another day they're vulnerable to AI-specific attacks. The cost of inaction—data breaches, model compromise, regulatory violations, and reputational damage—far exceeds the investment in proper AI exposure management.
+
+As we continue to build and deploy AI systems, we must also build the security foundation to protect them. Exposure management isn't just a nice-to-have for AI security—it's essential for any organization serious about leveraging AI safely and effectively.
+
+---
+
+*This post reflects my personal experiences and observations from working with organizations deploying AI systems. The AI security landscape is rapidly evolving, and organizations should stay current with the latest threats and countermeasures.* 
