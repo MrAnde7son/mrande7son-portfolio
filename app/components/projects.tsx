@@ -22,13 +22,13 @@ const projects = [
   {
     title: 'PowerShell Toolkit',
     description: '🔧 Active Directory red team & audit scripts for security testing and compliance.',
-    github: 'https://github.com/MrAnde7son/PowerShell-AD-Audit',
+    github: 'https://github.com/MrAnde7son/PowerShell',
     tags: ['PowerShell', 'Active Directory', 'Security Testing'],
   },
   {
     title: 'Snort Converter',
     description: '🛡️ Agentless rule converter for FortiGate firewall integration.',
-    github: 'https://github.com/MrAnde7son/snort-converter',
+    github: 'https://github.com/MrAnde7son/Snort',
     tags: ['Network Security', 'FortiGate', 'Rule Conversion'],
   },
 ]
