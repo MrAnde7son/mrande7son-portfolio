@@ -3,19 +3,19 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'About - Itamar Mizrahi',
-  description: 'Learn more about Itamar Mizrahi\'s journey in cybersecurity, from founding Cymptom to leading engineering teams at Tenable. Cybersecurity entrepreneur and VP Engineering.',
+  description: 'Learn more about Itamar Mizrahi\'s journey in cybersecurity, from founding Cymptom to leading product growth at Tenable. Cybersecurity entrepreneur and VP Product Growth.',
   keywords: [
     'Itamar Mizrahi about',
     'cybersecurity entrepreneur',
     'Cymptom founder',
-    'Tenable VP Engineering',
+    'Tenable VP Product Growth',
     'cybersecurity leadership',
     'attack path validation',
     'security product development'
   ],
   openGraph: {
-    title: 'About Itamar Mizrahi - Cybersecurity Entrepreneur & VP Engineering',
-    description: 'Discover the journey of Itamar Mizrahi from founding Cymptom to leading engineering teams at Tenable. Expert in cybersecurity, attack path validation, and security product development.',
+    title: 'About Itamar Mizrahi - Cybersecurity Entrepreneur & VP Product Growth',
+    description: 'Discover the journey of Itamar Mizrahi from founding Cymptom to leading product growth at Tenable. Expert in cybersecurity, attack path validation, and security product development.',
   },
 }
 
@@ -29,7 +29,7 @@ export default function About() {
           <div className="flex-shrink-0">
             <Image
               src="/itamar-mizrahi.jpg"
-              alt="Itamar Mizrahi - Cybersecurity Entrepreneur and VP Engineering at Tenable - Professional portrait"
+              alt="Itamar Mizrahi - Cybersecurity Entrepreneur and VP Product Growth at Tenable - Professional portrait"
               width={250}
               height={250}
               className="rounded-lg shadow-lg"
@@ -37,7 +37,7 @@ export default function About() {
           </div>
           <div className="flex-1">
             <p className="text-lg text-neutral-700 dark:text-neutral-300 mb-6">
-              🔒 I'm a cybersecurity entrepreneur and technology leader with over a decade of experience building security products that protect organizations from evolving threats.
+              🔒 I'm a seasoned technology leader and entrepreneur with extensive experience in cybersecurity. Former Co-founder and CEO of Cymptom (acquired by Tenable), now leading product growth at Tenable.
             </p>
           </div>
         </div>
@@ -48,13 +48,25 @@ export default function About() {
           <div className="space-y-6">
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+                🚀 VP Product Growth @ Tenable
+              </h3>
+              <p className="text-neutral-600 dark:text-neutral-400 mb-2">
+                Leading product growth strategy and execution for Tenable's Exposure Management platform, driving market expansion and customer adoption.
+              </p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                July 2025 - Present
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
                 🏢 VP Engineering @ Tenable
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
-                Leading engineering teams building cutting-edge exposure management solutions that help organizations understand and reduce their attack surface.
+                Led product and engineering for Tenable One, Tenable's Exposure Management platform. Scaled and managed a global team of 60+ across engineering, product, and data science. Successfully integrated Cymptom's technology to become a core component of Tenable One and Attack Path Analysis.
               </p>
               <p className="text-sm text-neutral-500 dark:text-neutral-500">
-                Current
+                February 2022 - July 2025
               </p>
             </div>
 
@@ -63,22 +75,74 @@ export default function About() {
                 🚀 Co-founder & CEO @ Cymptom
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
-                Built and scaled an attack path validation platform from concept to acquisition. Led product development, team growth, and strategic partnerships.
+                Built and scaled Cymptom, a leader in Exposure Validation, allowing organizations to eliminate attack paths before they occur. Led the company from concept to successful acquisition by Tenable.
               </p>
               <p className="text-sm text-neutral-500 dark:text-neutral-500">
-                2018 - 2022 (Acquired by Tenable)
+                March 2019 - February 2022 (Acquired by Tenable)
               </p>
             </div>
 
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                🔧 Security Engineer & Consultant
+                🎓 Instructor @ John Bryce
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
-                Developed security tools and conducted penetration testing for enterprise clients. Created open-source security utilities used by the community.
+                Provided cybersecurity training for SOC analysts, sharing expertise and best practices with the next generation of security professionals.
+              </p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                August 2017 - January 2020
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+                🔧 Red Team Specialist @ CyberArk
+              </h3>
+              <p className="text-neutral-600 dark:text-neutral-400 mb-2">
+                Conducted red team assessments for Fortune 500 companies to demonstrate the value and necessity of CyberArk's privileged access management solutions.
+              </p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                October 2015 - July 2017
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+                🛡️ Security Researcher @ Israel Defense Forces
+              </h3>
+              <p className="text-neutral-600 dark:text-neutral-400 mb-2">
+                Founded and led a cybersecurity department within a classified unit, developing critical security capabilities and threat intelligence.
+              </p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                December 2011 - September 2015
+              </p>
+            </div>
+          </div>
+
+          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">🎓 Education</h2>
+          
+          <div className="space-y-4">
+            <div>
+              <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+                🎓 Bachelor of Science (B.Sc.), Computer Science
+              </h3>
+              <p className="text-neutral-600 dark:text-neutral-400 mb-2">
+                The College of Management - Academic Studies
               </p>
               <p className="text-sm text-neutral-500 dark:text-neutral-500">
                 2015 - 2018
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
+                🤖 Robotics Technology/Technician
+              </h3>
+              <p className="text-neutral-600 dark:text-neutral-400 mb-2">
+                ORT Colleges
+              </p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-500">
+                2009 - 2011
               </p>
             </div>
           </div>
@@ -118,7 +182,7 @@ export default function About() {
                 <li>Active Directory Security & Red Teaming</li>
                 <li>Cloud Security & DevSecOps</li>
                 <li>Threat Intelligence & Detection</li>
-                <li>Artificial Intelligence</li>
+                <li>Privileged Access Management</li>
               </ul>
             </div>
             
@@ -129,7 +193,7 @@ export default function About() {
                 <li>AWS, Azure, GCP</li>
                 <li>Docker, Kubernetes</li>
                 <li>CI/CD & Automation</li>
-                <li>Artificial Intelligence</li>
+                <li>Product Growth & Analytics</li>
               </ul>
             </div>
           </div>
