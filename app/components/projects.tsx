@@ -20,6 +20,12 @@ const projects = [
     tags: ['Python', 'Neo4j', 'Graph Database', 'Open Source'],
   },
   {
+    title: 'PowerSploit',
+    description: '⚡ Contributed to the legendary PowerShell post-exploitation framework used by red teams worldwide. 12.5k+ stars with 4.7k+ forks.',
+    github: 'https://github.com/PowerShellMafia/PowerSploit',
+    tags: ['PowerShell', 'Post-Exploitation', 'Red Teaming', 'Open Source'],
+  },
+  {
     title: 'PowerShell Toolkit',
     description: '🔧 Active Directory red team & audit scripts for security testing and compliance.',
     github: 'https://github.com/MrAnde7son/PowerShell',
