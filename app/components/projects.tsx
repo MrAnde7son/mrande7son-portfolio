@@ -14,6 +14,12 @@ const projects = [
     tags: ['Threat Intelligence', 'Cybersecurity Framework', 'Global Standard'],
   },
   {
+    title: 'Neomodel',
+    description: '🗺️ Contributed to the popular Python Object Graph Mapper (OGM) for Neo4j graph database. Used by 1,100+ repositories with 1k+ stars.',
+    github: 'https://github.com/neo4j-contrib/neomodel',
+    tags: ['Python', 'Neo4j', 'Graph Database', 'Open Source'],
+  },
+  {
     title: 'PowerShell Toolkit',
     description: '🔧 Active Directory red team & audit scripts for security testing and compliance.',
     github: 'https://github.com/MrAnde7son/PowerShell-AD-Audit',
