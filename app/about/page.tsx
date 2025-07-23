@@ -113,22 +113,23 @@ export default function About() {
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">🔐 Security Domains</h3>
               <ul className="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
-                <li>• Attack Path Validation & Exposure Management</li>
-                <li>• Network Security & Firewall Technologies</li>
-                <li>• Active Directory Security & Red Teaming</li>
-                <li>• Cloud Security & DevSecOps</li>
-                <li>• Threat Intelligence & Detection</li>
+                <li>Attack Path Validation & Exposure Management</li>
+                <li>Network Security & Firewall Technologies</li>
+                <li>Active Directory Security & Red Teaming</li>
+                <li>Cloud Security & DevSecOps</li>
+                <li>Threat Intelligence & Detection</li>
+                <li>Artificial Intelligence</li>
               </ul>
             </div>
             
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">💻 Technologies</h3>
               <ul className="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
-                <li>• Python, Typescript, Go</li>
-                <li>• AWS, Azure, GCP</li>
-                <li>• Docker, Kubernetes</li>
-                <li>• CI/CD & Automation</li>
-                <li>• Artificial Intelligence</li>
+                <li>Python, Typescript, Go</li>
+                <li>AWS, Azure, GCP</li>
+                <li>Docker, Kubernetes</li>
+                <li>CI/CD & Automation</li>
+                <li>Artificial Intelligence</li>
               </ul>
             </div>
           </div>
@@ -140,10 +141,10 @@ export default function About() {
           </p>
           
           <ul className="text-neutral-600 dark:text-neutral-400 space-y-2">
-            <li>• <strong>🏄‍♂️ Surfing</strong> - Catching waves helps me stay balanced and creative</li>
-            <li>• <strong>✈️ Traveling</strong> - Exploring new cultures and perspectives</li>
-            <li>• <strong>🔧 Open Source</strong> - Contributing to security tools and utilities</li>
-            <li>• <strong>🎤 Community</strong> - Speaking at conferences and security meetups</li>
+            <li><strong>🏄‍♂️ Surfing</strong> - Catching waves helps me stay balanced and creative</li>
+            <li><strong>✈️ Traveling</strong> - Exploring new cultures and perspectives</li>
+            <li><strong>🔧 Open Source</strong> - Contributing to security tools and utilities</li>
+            <li><strong>🎤 Community</strong> - Speaking at conferences and security meetups</li>
           </ul>
         </div>
       </div>

@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: 'Itamar Mizrahi – Cybersecurity Entrepreneur',
     description: 'Former CEO and Co-founder of Cymptom, VP Engineering at Tenable. Cybersecurity thought leader.',
     images: [`${baseUrl}/og`],
-    creator: '@itamarmizrahi',
+    creator: '@MrAnde7son',
   },
   robots: {
     index: true,
