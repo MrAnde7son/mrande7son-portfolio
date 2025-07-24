@@ -1,6 +1,6 @@
 import { getBlogPosts } from 'app/blog/utils'
 
-export const baseUrl = 'https://mrander7son-portfolio.vercel.app'
+export const baseUrl = 'https://www.mrande7son.com'
 
 export default async function sitemap() {
   let blogs = await getBlogPosts()
