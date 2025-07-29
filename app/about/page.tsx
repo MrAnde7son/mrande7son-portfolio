@@ -37,7 +37,7 @@ export default function About() {
           </div>
           <div className="flex-1">
             <p className="text-lg text-neutral-700 dark:text-neutral-300 mb-6">
-              🔒 I'm a seasoned technology leader and entrepreneur with extensive experience in cybersecurity. Former Co-founder and CEO of Cymptom (acquired by Tenable), now leading product growth at Tenable.
+              I'm a seasoned technology leader and entrepreneur with extensive experience in cybersecurity. Former Co-founder and CEO of Cymptom (acquired by Tenable), now leading product growth at Tenable.
             </p>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function About() {
           <div className="space-y-6">
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                🚀 VP Product Growth @ Tenable
+                VP Product Growth @ Tenable
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 Leading product growth strategy and execution for Tenable's Exposure Management platform, driving market expansion and customer adoption.
@@ -60,7 +60,7 @@ export default function About() {
 
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                🏢 VP Engineering @ Tenable
+                VP Engineering @ Tenable
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 Led product and engineering for Tenable One, Tenable's Exposure Management platform. Scaled and managed a global team of 60+ across engineering, product, and data science. Successfully integrated Cymptom's technology to become a core component of Tenable One and Attack Path Analysis.
@@ -72,7 +72,7 @@ export default function About() {
 
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                🚀 Co-founder & CEO @ Cymptom
+                Co-founder & CEO @ Cymptom
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 Built and scaled Cymptom, a leader in Exposure Validation, allowing organizations to eliminate attack paths before they occur. Led the company from concept to successful acquisition by Tenable.
@@ -84,7 +84,7 @@ export default function About() {
 
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                🎓 Instructor @ John Bryce
+                Instructor @ John Bryce
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 Provided cybersecurity training for SOC analysts, sharing expertise and best practices with the next generation of security professionals.
@@ -96,7 +96,7 @@ export default function About() {
 
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                🔧 Red Team Specialist @ CyberArk
+                Red Team Specialist @ CyberArk
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 Conducted red team assessments for Fortune 500 companies to demonstrate the value and necessity of CyberArk's privileged access management solutions.
@@ -108,7 +108,7 @@ export default function About() {
 
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                🛡️ Security Researcher @ Israel Defense Forces
+                Security Researcher @ Israel Defense Forces
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 Founded and led a cybersecurity department within a classified unit, developing critical security capabilities and threat intelligence.
@@ -124,7 +124,7 @@ export default function About() {
           <div className="space-y-4">
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                🎓 Bachelor of Science (B.Sc.), Computer Science
+                Bachelor of Science (B.Sc.), Computer Science
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 The College of Management - Academic Studies
@@ -136,7 +136,7 @@ export default function About() {
 
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                🤖 Robotics Technology/Technician
+                Robotics Technology/Technician
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-2">
                 ORT Colleges
@@ -159,15 +159,15 @@ export default function About() {
           
           <div className="space-y-4">
             <p className="text-neutral-600 dark:text-neutral-400">
-              <strong>🛡️ Building Impactful Security Products:</strong> I believe that effective security solutions should be both powerful and accessible. My focus is on creating tools that security teams actually want to use and that provide measurable value to organizations.
+              <strong>Building Impactful Security Products:</strong> I believe that effective security solutions should be both powerful and accessible. My focus is on creating tools that security teams actually want to use and that provide measurable value to organizations.
             </p>
             
             <p className="text-neutral-600 dark:text-neutral-400">
-              <strong>🤝 Mentoring the Next Generation:</strong> I'm passionate about helping emerging security professionals develop their skills and navigate their careers. Whether through open-source contributions, speaking engagements, or direct mentorship, I believe in paying forward the knowledge I've gained.
+              <strong>Mentoring the Next Generation:</strong> I'm passionate about helping emerging security professionals develop their skills and navigate their careers. Whether through open-source contributions, speaking engagements, or direct mentorship, I believe in paying forward the knowledge I've gained.
             </p>
             
             <p className="text-neutral-600 dark:text-neutral-400">
-              <strong>📚 Continuous Learning:</strong> The cybersecurity landscape evolves rapidly, and staying current requires constant learning. I'm always exploring new technologies, threat vectors, and defensive strategies to ensure the products I help build remain effective.
+              <strong>Continuous Learning:</strong> The cybersecurity landscape evolves rapidly, and staying current requires constant learning. I'm always exploring new technologies, threat vectors, and defensive strategies to ensure the products I help build remain effective.
             </p>
           </div>
 
@@ -205,10 +205,10 @@ export default function About() {
           </p>
           
           <ul className="text-neutral-600 dark:text-neutral-400 space-y-2">
-            <li><strong>🏄‍♂️ Surfing</strong> - Catching waves helps me stay balanced and creative</li>
-            <li><strong>✈️ Traveling</strong> - Exploring new cultures and perspectives</li>
-            <li><strong>🔧 Open Source</strong> - Contributing to security tools and utilities</li>
-            <li><strong>🎤 Community</strong> - Speaking at conferences and security meetups</li>
+            <li><strong>Surfing</strong> - Catching waves helps me stay balanced and creative</li>
+            <li><strong>Traveling</strong> - Exploring new cultures and perspectives</li>
+            <li><strong>Open Source</strong> - Contributing to security tools and utilities</li>
+            <li><strong>Community</strong> - Speaking at conferences and security meetups</li>
           </ul>
         </div>
       </div>
