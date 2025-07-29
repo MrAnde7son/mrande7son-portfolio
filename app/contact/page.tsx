@@ -9,7 +9,7 @@ export default function Contact() {
   return (
     <section className="space-y-8">
       <div>
-        <h1 className="text-3xl font-semibold tracking-tighter mb-6">📞 Get In Touch</h1>
+        <h1 className="text-3xl font-semibold tracking-tighter mb-6">Get In Touch</h1>
         
         <div className="prose prose-neutral dark:prose-invert max-w-none">
           <p className="text-lg text-neutral-700 dark:text-neutral-300 mb-8">
@@ -19,7 +19,7 @@ export default function Contact() {
           <div className="grid gap-8 md:grid-cols-2">
             {/* Professional Contact */}
             <div>
-              <h2 className="text-xl font-semibold tracking-tighter mb-4">💼 Professional</h2>
+              <h2 className="text-xl font-semibold tracking-tighter mb-4"Professional</h2>
               
               <div className="space-y-4">
                 <div>
@@ -66,7 +66,7 @@ export default function Contact() {
 
             {/* Technical & Open Source */}
             <div>
-              <h2 className="text-xl font-semibold tracking-tighter mb-4">🔧 Technical & Open Source</h2>
+              <h2 className="text-xl font-semibold tracking-tighter mb-4">Technical & Open Source</h2>
               
               <div className="space-y-4">
                 <div>
@@ -113,7 +113,7 @@ export default function Contact() {
           </div>
 
           <div className="mt-12 p-6 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
-            <h2 className="text-lg font-semibold tracking-tighter mb-3">⏰ Response Time</h2>
+            <h2 className="text-lg font-semibold tracking-tighter mb-3">Response Time</h2>
             <p className="text-neutral-600 dark:text-neutral-400 text-sm">
               I typically respond to professional inquiries within 24-48 hours. For urgent matters or time-sensitive opportunities, please mention this in your message.
             </p>
