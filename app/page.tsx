@@ -22,13 +22,13 @@ export default function Page() {
             Itamar Mizrahi
           </h1>
           <p className="mb-4 text-lg text-neutral-700 dark:text-neutral-300">
-            {`🔒 A seasoned technology leader and entrepreneur with extensive experience in cybersecurity. Proven track record in building and scaling software products from inception to growth. Former Co-founder and CEO of Cymptom, acquired by Tenable.`}
+            {`A seasoned technology leader and entrepreneur with extensive experience in cybersecurity. Proven track record in building and scaling software products from inception to growth. Former Co-founder and CEO of Cymptom, acquired by Tenable.`}
           </p>
           <p className="mb-4 text-neutral-600 dark:text-neutral-400">
-            {`🛡️ My passion lies in building high-impact security products that protect organizations from evolving cyber threats. I enjoy mentoring the next generation of security professionals and sharing insights from my experience in both startup and enterprise environments.`}
+            {`My passion lies in building high-impact security products that protect organizations from evolving cyber threats. I enjoy mentoring the next generation of security professionals and sharing insights from my experience in both startup and enterprise environments.`}
           </p>
           <p className="text-neutral-600 dark:text-neutral-400">
-            🌊 In my free time, I like surfing and traveling ✈️
+            In my free time, I like surfing and traveling
           </p>
         </div>
       </div>
