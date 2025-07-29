@@ -3,37 +3,37 @@ import Link from 'next/link'
 const projects = [
   {
     title: 'Impacket',
-    description: '🔐 Contributed to the leading Python library for network protocol analysis and penetration testing. Used by 6,000+ repositories with 14.6k+ stars.',
+    description: 'Contributed to the leading Python library for network protocol analysis and penetration testing. Used by 6,000+ repositories with 14.6k+ stars.',
     github: 'https://github.com/fortra/impacket',
     tags: ['Python', 'Network Security', 'Penetration Testing', 'Open Source'],
   },
   {
     title: 'MITRE ATT&CK',
-    description: '🎯 Contributed to the global cybersecurity knowledge base of adversary tactics and techniques. Used by governments, enterprises, and security teams worldwide.',
+    description: 'Contributed to the global cybersecurity knowledge base of adversary tactics and techniques. Used by governments, enterprises, and security teams worldwide.',
     github: 'https://attack.mitre.org/',
     tags: ['Threat Intelligence', 'Cybersecurity Framework', 'Global Standard'],
   },
   {
     title: 'Neomodel',
-    description: '🗺️ Contributed to the popular Python Object Graph Mapper (OGM) for Neo4j graph database. Used by 1,100+ repositories with 1k+ stars.',
+    description: 'Contributed to the popular Python Object Graph Mapper (OGM) for Neo4j graph database. Used by 1,100+ repositories with 1k+ stars.',
     github: 'https://github.com/neo4j-contrib/neomodel',
     tags: ['Python', 'Neo4j', 'Graph Database', 'Open Source'],
   },
   {
     title: 'PowerSploit',
-    description: '⚡ Contributed to the legendary PowerShell post-exploitation framework used by red teams worldwide. 12.5k+ stars with 4.7k+ forks.',
+    description: 'Contributed to the legendary PowerShell post-exploitation framework used by red teams worldwide. 12.5k+ stars with 4.7k+ forks.',
     github: 'https://github.com/PowerShellMafia/PowerSploit',
     tags: ['PowerShell', 'Post-Exploitation', 'Red Teaming', 'Open Source'],
   },
   {
     title: 'PowerShell Toolkit',
-    description: '🔧 Active Directory red team & audit scripts for security testing and compliance.',
+    description: 'Active Directory red team & audit scripts for security testing and compliance.',
     github: 'https://github.com/MrAnde7son/PowerShell',
     tags: ['PowerShell', 'Active Directory', 'Security Testing'],
   },
   {
     title: 'Snort Converter',
-    description: '🛡️ Agentless rule converter for FortiGate firewall integration.',
+    description: 'Agentless rule converter for FortiGate firewall integration.',
     github: 'https://github.com/MrAnde7son/Snort',
     tags: ['Network Security', 'FortiGate', 'Rule Conversion'],
   },
@@ -42,7 +42,7 @@ const projects = [
 export default function Projects() {
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold tracking-tighter mb-4">🚀 Key Projects</h2>
+      <h2 className="text-xl font-semibold tracking-tighter mb-4">Key Projects</h2>
       <div className="grid gap-4">
         {projects.map((project, index) => (
           <div key={index} className="border border-neutral-200 dark:border-neutral-700 rounded-lg p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors">
