@@ -38,7 +38,7 @@ export default function Page() {
 
       {/* Blog Section */}
       <div>
-        <h2 className="text-xl font-semibold tracking-tighter mb-6">📝 Latest Insights</h2>
+        <h2 className="text-xl font-semibold tracking-tighter mb-6">Latest Insights</h2>
         <BlogPosts />
       </div>
     </section>
