@@ -23,7 +23,7 @@ export default function About() {
   return (
     <section className="space-y-8">
       <div>
-        <h1 className="text-3xl font-semibold tracking-tighter mb-6">👨‍💻 About Me</h1>
+        <h1 className="text-3xl font-semibold tracking-tighter mb-6">About Me</h1>
         
         <div className="flex flex-col md:flex-row gap-8 items-start mb-8">
           <div className="flex-shrink-0">
@@ -43,7 +43,7 @@ export default function About() {
         </div>
 
         <div className="prose prose-neutral dark:prose-invert max-w-none">
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">💼 Professional Journey</h2>
+          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Professional Journey</h2>
           
           <div className="space-y-6">
             <div>
@@ -119,7 +119,7 @@ export default function About() {
             </div>
           </div>
 
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">🎓 Education</h2>
+          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Education</h2>
           
           <div className="space-y-4">
             <div>
@@ -147,7 +147,7 @@ export default function About() {
             </div>
           </div>
 
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">🎤 Speaking & Thought Leadership</h2>
+          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Speaking & Thought Leadership</h2>
           
           <div className="space-y-4">            
             <p className="text-neutral-600 dark:text-neutral-400">
@@ -155,7 +155,7 @@ export default function About() {
             </p>
           </div>
 
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">🎯 Mission & Values</h2>
+          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Mission & Values</h2>
           
           <div className="space-y-4">
             <p className="text-neutral-600 dark:text-neutral-400">
@@ -171,11 +171,11 @@ export default function About() {
             </p>
           </div>
 
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">⚡ Technical Expertise</h2>
+          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Technical Expertise</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">🔐 Security Domains</h3>
+              <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">Security Domains</h3>
               <ul className="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
                 <li>Attack Path Validation & Exposure Management</li>
                 <li>Network Security & Firewall Technologies</li>
@@ -187,7 +187,7 @@ export default function About() {
             </div>
             
             <div>
-              <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">💻 Technologies</h3>
+              <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">Technologies</h3>
               <ul className="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
                 <li>Python, Typescript, Go</li>
                 <li>AWS, Azure, GCP</li>
@@ -198,7 +198,7 @@ export default function About() {
             </div>
           </div>
 
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">🌊 Beyond Work</h2>
+          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Beyond Work</h2>
           
           <p className="text-neutral-600 dark:text-neutral-400 mb-4">
             When I'm not building security products or mentoring teams, you'll find me:
