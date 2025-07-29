@@ -13,7 +13,7 @@ export default function Contact() {
         
         <div className="prose prose-neutral dark:prose-invert max-w-none">
           <p className="text-lg text-neutral-700 dark:text-neutral-300 mb-8">
-            🤝 I'm always interested in connecting with fellow security professionals, entrepreneurs, and anyone passionate about cybersecurity. Whether you're looking for mentorship, collaboration opportunities, or just want to discuss the latest in security technology, feel free to reach out.
+            I'm always interested in connecting with fellow security professionals, entrepreneurs, and anyone passionate about cybersecurity. Whether you're looking for mentorship, collaboration opportunities, or just want to discuss the latest in security technology, feel free to reach out.
           </p>
 
           <div className="grid gap-8 md:grid-cols-2">
@@ -24,7 +24,7 @@ export default function Contact() {
               <div className="space-y-4">
                 <div>
                   <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                    🎤 Speaking & Conferences
+                    Speaking & Conferences
                   </h3>
                   <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-3">
                     Available for speaking engagements on cybersecurity leadership, startup ideation, and security product development.
@@ -44,7 +44,7 @@ export default function Contact() {
 
                 <div>
                   <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                    🎓 Mentorship & Career Guidance
+                    Mentorship & Career Guidance
                   </h3>
                   <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-3">
                     Happy to provide guidance for security professionals looking to advance their careers or start their own ventures.
@@ -71,7 +71,7 @@ export default function Contact() {
               <div className="space-y-4">
                 <div>
                   <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                    🔗 Open Source Collaboration
+                    Open Source Collaboration
                   </h3>
                   <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-3">
                     Interested in contributing to security tools or discussing new security technologies.
@@ -91,7 +91,7 @@ export default function Contact() {
 
                 <div>
                   <h3 className="font-medium text-neutral-900 dark:text-neutral-100 mb-2">
-                    🔬 Security Research
+                    Security Research
                   </h3>
                   <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-3">
                     Always interested in discussing new security research, threat intelligence, and emerging attack vectors.
