@@ -19,7 +19,7 @@ export default function Contact() {
           <div className="grid gap-8 md:grid-cols-2">
             {/* Professional Contact */}
             <div>
-              <h2 className="text-xl font-semibold tracking-tighter mb-4"Professional</h2>
+              <h2 className="text-xl font-semibold tracking-tighter mb-4"></h2>Professional</h2>
               
               <div className="space-y-4">
                 <div>
