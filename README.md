@@ -62,6 +62,14 @@ pnpm build
 pnpm start
 ```
 
+## Testing
+
+Run unit tests with:
+
+```bash
+pnpm test
+```
+
 ## Favicon Setup
 
 To create a favicon from your image:
