@@ -5,13 +5,6 @@ import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { formatDate } from 'app/blog/utils'
 
-export async function generateStaticParams() {
-  let posts = await getBlogPosts()
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
-}
-
 export async function generateMetadata({ params }): Promise<Metadata> {
   let post = (await getBlogPosts()).find((post) => post.slug === params.slug)
   if (!post) {
