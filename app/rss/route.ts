@@ -16,20 +16,17 @@ export async function GET() {
 
   const itemsXml = allBlogs
     .sort((a, b) => {
-      if (new Date(a.metadata.date) > new Date(b.metadata.date)) {
-        return -1
-      }
-      return 1
+      const dateA = a.metadata.date ? new Date(a.metadata.date) : new Date(0)
+      const dateB = b.metadata.date ? new Date(b.metadata.date) : new Date(0)
+      return dateB.getTime() - dateA.getTime()
     })
     .map(
       (post) =>
         `<item>
-          <title>${escapeXml(post.metadata.title)}</title>
+          <title>${escapeXml(post.metadata.title || '')}</title>
           <link>${baseUrl}/blog/${post.slug}</link>
           <description>${escapeXml(post.metadata.description || '')}</description>
-          <pubDate>${new Date(
-            post.metadata.date
-          ).toUTCString()}</pubDate>
+          <pubDate>${post.metadata.date ? new Date(post.metadata.date).toUTCString() : ''}</pubDate>
         </item>`
     )
     .join('\n')
