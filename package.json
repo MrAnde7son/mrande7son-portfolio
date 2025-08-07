@@ -4,7 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "tsc app/blog/utils.ts app/blog/utils.test.ts --module commonjs --esModuleInterop --skipLibCheck --target ES2018 --outDir build/test && node --test build/test/utils.test.js"
+    "test": "tsc app/blog/utils.ts app/blog/utils.test.ts lib/search.ts lib/search.test.ts app/api/search/route.ts app/api/search/route.test.ts --module commonjs --esModuleInterop --skipLibCheck --target ES2018 --outDir build/test && node --test build/test/app/blog/utils.test.js build/test/lib/search.test.js build/test/app/api/search/route.test.js"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.0.0-alpha.13",
