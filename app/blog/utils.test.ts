@@ -22,6 +22,20 @@ test('parseFrontmatter parses metadata and content correctly', () => {
   assert.strictEqual(content, 'Content goes here')
 })
 
+test('parseFrontmatter returns empty metadata when frontmatter is missing', () => {
+  const body = 'Just content'
+  const { metadata, content } = parseFrontmatter(body)
+  assert.deepStrictEqual(metadata, {})
+  assert.strictEqual(content, 'Just content')
+})
+
+test('parseFrontmatter ignores malformed lines gracefully', () => {
+  const malformed = `---\nnoColonLine\nvalid: true\n---\nBody`
+  const { metadata, content } = parseFrontmatter(malformed)
+  assert.deepStrictEqual(metadata, { valid: 'true' })
+  assert.strictEqual(content, 'Body')
+})
+
 test('formatDate handles dates within the same year', () => {
   const now = new Date()
   const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate())
@@ -35,4 +49,9 @@ test('formatDate handles dates in previous years', () => {
   const iso = lastYear.toISOString().split('T')[0]
   const formatted = formatDate(iso, true)
   assert.match(formatted, /\d+y ago\)$/)
+})
+
+test('formatDate returns empty string for missing date', () => {
+  const formatted = formatDate(undefined)
+  assert.strictEqual(formatted, '')
 })

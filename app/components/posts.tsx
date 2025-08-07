@@ -9,10 +9,13 @@ export default async function BlogPosts() {
     <div>
       {allBlogs
         .sort((a, b) => {
-          if (new Date(a.metadata.date) > new Date(b.metadata.date)) {
-            return -1
-          }
-          return 1
+          const dateA = a.metadata.date
+            ? new Date(a.metadata.date)
+            : new Date(0)
+          const dateB = b.metadata.date
+            ? new Date(b.metadata.date)
+            : new Date(0)
+          return dateB.getTime() - dateA.getTime()
         })
         .map((post) => (
           <Link
@@ -25,7 +28,7 @@ export default async function BlogPosts() {
                 {post.metadata.title}
               </p>
               <p className="text-neutral-500 dark:text-neutral-400">
-                {formatDate(post.metadata.date, false)}
+                {formatDate(post.metadata.date)}
               </p>
             </div>
           </Link>
