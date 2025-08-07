@@ -25,25 +25,37 @@ export default function Search() {
 
   return (
     <div className="relative">
+      <svg
+        className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500 dark:text-neutral-400"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M8.5 2a6.5 6.5 0 104.033 11.593l4.437 4.437a.75.75 0 101.06-1.06l-4.437-4.438A6.5 6.5 0 008.5 2zm0 1.5a5 5 0 100 10 5 5 0 000-10z"
+        />
+      </svg>
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search..."
-        className="px-2 py-1 rounded-md border bg-neutral-100 dark:bg-neutral-800"
+        className="w-32 sm:w-48 md:w-64 rounded-md border border-neutral-200 bg-neutral-50 px-8 py-1.5 text-sm placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 dark:placeholder-neutral-500 dark:focus:ring-neutral-700"
       />
       {query && (
-        <ul className="absolute right-0 mt-1 w-64 max-h-60 overflow-auto bg-white dark:bg-neutral-900 border rounded-md shadow-md z-50">
+        <ul className="absolute right-0 mt-2 max-h-60 w-64 overflow-auto rounded-md border border-neutral-200 bg-white shadow-lg dark:border-neutral-700 dark:bg-neutral-900 z-50">
           {results.map((item) => (
             <li key={item.url}>
               <Link
                 href={item.url}
-                className="block px-2 py-1 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                className="block px-3 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 onClick={() => setQuery('')}
               >
-                <div className="font-medium">{item.title}</div>
+                <div className="font-medium text-neutral-800 dark:text-neutral-200">{item.title}</div>
                 {item.description && (
-                  <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  <p className="text-neutral-600 dark:text-neutral-400">
                     {item.description}
                   </p>
                 )}
@@ -51,7 +63,9 @@ export default function Search() {
             </li>
           ))}
           {results.length === 0 && (
-            <li className="px-2 py-1 text-sm">No results.</li>
+            <li className="px-3 py-2 text-sm text-neutral-600 dark:text-neutral-400">
+              No results.
+            </li>
           )}
         </ul>
       )}
