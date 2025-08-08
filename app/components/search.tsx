@@ -2,26 +2,26 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { SearchItem, searchItems } from '../../lib/search'
+import { SearchItem } from '../../lib/search'
 
 export default function Search() {
-  const [data, setData] = useState<SearchItem[]>([])
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<SearchItem[]>([])
-
-  useEffect(() => {
-    fetch('/api/search')
-      .then((res) => res.json())
-      .then((items: SearchItem[]) => setData(items))
-  }, [])
 
   useEffect(() => {
     if (!query) {
       setResults([])
       return
     }
-    setResults(searchItems(data, query))
-  }, [query, data])
+    const controller = new AbortController()
+    fetch(`/api/search?q=${encodeURIComponent(query)}`, {
+      signal: controller.signal,
+    })
+      .then((res) => res.json())
+      .then((items: SearchItem[]) => setResults(items))
+      .catch(() => setResults([]))
+    return () => controller.abort()
+  }, [query])
 
   return (
     <div className="relative">
