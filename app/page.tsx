@@ -38,13 +38,13 @@ export default function Page() {
         </div>
       </BentoCard>
 
-      <BentoCard>
-        <h2 className="text-xl font-semibold tracking-tighter mb-6">Career Timeline</h2>
+      <BentoCard className="md:col-span-2">
+        <h2 className="text-xl font-semibold tracking-tighter mb-6 text-neutral-900 dark:text-white">Career Timeline</h2>
         <Timeline />
       </BentoCard>
 
       <BentoCard className="md:col-span-2">
-        <h2 className="text-xl font-semibold tracking-tighter mb-6">Key Projects</h2>
+        <h2 className="text-xl font-semibold tracking-tighter mb-6 text-neutral-900 dark:text-white">Key Projects</h2>
         <div className="grid gap-4 md:grid-cols-6 auto-rows-[200px]">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
@@ -52,7 +52,7 @@ export default function Page() {
         </div>
       </BentoCard>
       <BentoCard>
-        <h2 className="text-xl font-semibold tracking-tighter mb-6">Latest Insights</h2>
+        <h2 className="text-xl font-semibold tracking-tighter mb-6 text-neutral-900 dark:text-white">Latest Insights</h2>
         <BlogPosts />
       </BentoCard>
 
