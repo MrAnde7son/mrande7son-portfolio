@@ -19,7 +19,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div
-      className={`flex flex-col border border-neutral-200 dark:border-neutral-700 rounded-lg p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors ${className}`}
+      className={`flex flex-col border border-neutral-200 dark:border-neutral-700 rounded-lg p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-600 transition-colors transition-transform transform hover:scale-[1.02] ${className}`}
     >
       <div className="flex items-start justify-between mb-2">
         <h3 className="font-medium text-neutral-900 dark:text-neutral-100">{title}</h3>

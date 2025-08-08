@@ -42,7 +42,7 @@ export function Navbar() {
             <button
               aria-label="Toggle Theme"
               onClick={toggleTheme}
-              className="p-2 rounded hover:text-yellow-500 transition-colors"
+              className="p-2 rounded hover:text-orange-500 transition-colors"
             >
               {theme === 'dark' ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
             </button>

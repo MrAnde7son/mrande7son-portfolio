@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getBlogPosts } from '../../blog/utils'
+import { projects } from '../../../lib/projects'
 
 // Basic dataset for static pages on the site
 const pages = [
@@ -17,7 +18,14 @@ export async function GET() {
     content: post.content,
   }))
 
-  const data = [...pages, ...posts]
+  const projectItems = projects.map((project) => ({
+    title: project.title,
+    description: project.description,
+    url: project.href || '#',
+    content: project.tags.join(' '),
+  }))
+
+  const data = [...pages, ...posts, ...projectItems]
 
   return NextResponse.json(data)
 }
