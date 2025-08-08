@@ -45,7 +45,7 @@ export default function Page() {
 
       <BentoCard className="md:col-span-2">
         <h2 className="text-xl font-semibold tracking-tighter mb-6 text-neutral-900 dark:text-white">Key Projects</h2>
-        <div className="grid gap-4 md:grid-cols-6 auto-rows-[200px]">
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 auto-rows-[minmax(200px,_auto)]">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
