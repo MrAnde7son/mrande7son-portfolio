@@ -41,7 +41,7 @@ export const projects: Project[] = [
     href: 'https://github.com/PowerShellMafia/PowerSploit',
     stars: 12500,
     tags: ['PowerShell', 'Post-Exploitation', 'Red Teaming', 'Open Source'],
-    className: 'md:col-span-1',
+    className: 'md:col-span-2 xl:col-span-1',
   },
   {
     title: 'PowerShell Toolkit',
