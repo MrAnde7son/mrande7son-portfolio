@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { getBlogPosts } from '../../blog/utils'
 import { projects } from '../../../lib/projects'
+import { searchItems } from '../../../lib/search'
 
 // Basic dataset for static pages on the site
 const pages = [
@@ -10,7 +11,7 @@ const pages = [
   { title: 'Contact', url: '/contact', description: 'Get in touch with Itamar' },
 ]
 
-export async function GET() {
+export async function GET(request: Request) {
   const posts = getBlogPosts().map((post) => ({
     title: post.metadata.title,
     description: post.metadata.description,
@@ -27,6 +28,10 @@ export async function GET() {
 
   const data = [...pages, ...posts, ...projectItems]
 
-  return NextResponse.json(data)
+  const { searchParams } = new URL(request.url)
+  const query = searchParams.get('q') || ''
+  const results = query ? searchItems(data, query) : data
+
+  return NextResponse.json(results)
 }
 
