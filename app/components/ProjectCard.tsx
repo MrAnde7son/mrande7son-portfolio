@@ -18,21 +18,27 @@ export default function ProjectCard({
   className = '',
 }: ProjectCardProps) {
   return (
-    <div
-      className={`flex flex-col h-full border border-neutral-200 dark:border-neutral-700 rounded-lg p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-600 transition-colors transition-transform transform hover:scale-[1.02] ${className}`}
-    >
-      <div className="flex items-start justify-between mb-2">
-        <h3 className="font-medium text-neutral-900 dark:text-white">{title}</h3>
-        {href && (
+    <div className={`card project-card transition-transform hover:scale-[1.02] ${className}`}>
+      <div className="project-card__header">
+        <h3 className="project-card__title">{title}</h3>
+      </div>
+      <p className="project-card__description">{description}</p>
+      <div className="project-card__meta">
+        <div className="project-card__badges">
+          {tags.map((tag, index) => (
+            <span key={index} className="project-card__badge">
+              {tag}
+            </span>
+          ))}
+        </div>
+        {href && stars !== undefined && (
           <Link
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-neutral-500 hover:text-neutral-700 dark:text-white dark:hover:text-white transition-colors"
+            className="muted project-card__star"
           >
-            {stars !== undefined && (
-              <span className="text-xs">{stars.toLocaleString()}</span>
-            )}
+            <span className="text-xs">{stars.toLocaleString()}</span>
             <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
               <path
                 fillRule="evenodd"
@@ -42,17 +48,6 @@ export default function ProjectCard({
             </svg>
           </Link>
         )}
-      </div>
-      <p className="text-neutral-600 dark:text-white text-sm mb-3">{description}</p>
-      <div className="mt-auto flex flex-wrap gap-2">
-        {tags.map((tag, index) => (
-          <span
-            key={index}
-            className="px-2 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-white text-xs rounded-md"
-          >
-            {tag}
-          </span>
-        ))}
       </div>
     </div>
   )
