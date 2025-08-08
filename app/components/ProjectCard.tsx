@@ -28,7 +28,7 @@ export default function ProjectCard({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-neutral-500 hover:text-neutral-700 dark:text-neutral-300 dark:hover:text-neutral-200 transition-colors"
+            className="flex items-center gap-1 text-neutral-500 hover:text-neutral-700 dark:text-white dark:hover:text-white transition-colors"
           >
             {stars !== undefined && (
               <span className="text-xs">{stars.toLocaleString()}</span>
@@ -43,12 +43,12 @@ export default function ProjectCard({
           </Link>
         )}
       </div>
-      <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-3">{description}</p>
+      <p className="text-neutral-600 dark:text-white text-sm mb-3">{description}</p>
       <div className="mt-auto flex flex-wrap gap-2">
         {tags.map((tag, index) => (
           <span
             key={index}
-            className="px-2 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 text-xs rounded-md"
+            className="px-2 py-1 bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-white text-xs rounded-md"
           >
             {tag}
           </span>

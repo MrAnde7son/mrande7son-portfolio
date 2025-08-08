@@ -27,7 +27,7 @@ export default async function BlogPosts() {
               <p className="text-neutral-900 dark:text-white tracking-tight">
                 {post.metadata.title}
               </p>
-              <p className="text-neutral-500 dark:text-neutral-300">
+              <p className="text-neutral-500 dark:text-white">
                 {formatDate(post.metadata.date)}
               </p>
             </div>

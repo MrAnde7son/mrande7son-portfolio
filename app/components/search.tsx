@@ -26,7 +26,7 @@ export default function Search() {
   return (
     <div className="relative">
       <svg
-        className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500 dark:text-neutral-300"
+        className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-500 dark:text-white"
         viewBox="0 0 20 20"
         fill="currentColor"
         aria-hidden="true"
@@ -53,9 +53,9 @@ export default function Search() {
                 className="block px-3 py-2 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 onClick={() => setQuery('')}
               >
-                <div className="font-medium text-neutral-800 dark:text-neutral-200">{item.title}</div>
+                <div className="font-medium text-neutral-800 dark:text-white">{item.title}</div>
                 {item.description && (
-                  <p className="text-neutral-600 dark:text-neutral-300">
+                  <p className="text-neutral-600 dark:text-white">
                     {item.description}
                   </p>
                 )}
@@ -63,7 +63,7 @@ export default function Search() {
             </li>
           ))}
           {results.length === 0 && (
-            <li className="px-3 py-2 text-sm text-neutral-600 dark:text-neutral-300">
+            <li className="px-3 py-2 text-sm text-neutral-600 dark:text-white">
               No results.
             </li>
           )}

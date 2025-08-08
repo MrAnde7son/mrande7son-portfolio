@@ -72,9 +72,9 @@ export default function Timeline() {
               }
             >
               <div className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg">
-                <time className="text-sm text-neutral-500 dark:text-neutral-300">{item.year}</time>
+                <time className="text-sm text-neutral-500 dark:text-white">{item.year}</time>
                 <h3 className="font-medium text-neutral-900 dark:text-white mb-1">{item.title}</h3>
-                <p className="text-neutral-600 dark:text-neutral-300 text-sm">{item.description}</p>
+                <p className="text-neutral-600 dark:text-white text-sm">{item.description}</p>
               </div>
             </div>
           </div>

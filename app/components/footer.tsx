@@ -18,10 +18,10 @@ function ArrowIcon() {
 export default function Footer() {
   return (
     <footer className="mb-16">
-      <ul className="text-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
+      <ul className="text-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-white">
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-white"
             rel="noopener noreferrer"
             target="_blank"
             href="/rss"
@@ -32,7 +32,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-white"
             rel="noopener noreferrer"
             target="_blank"
             href="https://x.com/MrAnde7son"
@@ -43,7 +43,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-white"
             rel="noopener noreferrer"
             target="_blank"
             href="https://github.com/MrAnde7son/MrAnde7son"
@@ -54,7 +54,7 @@ export default function Footer() {
         </li>
         <li>
           <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-white"
             rel="noopener noreferrer"
             target="_blank"
             href="https://www.linkedin.com/in/itamarmizrahi/"
@@ -64,7 +64,7 @@ export default function Footer() {
           </a>
         </li>
       </ul>
-      <p className="mt-8 text-neutral-600 dark:text-neutral-300">
+      <p className="mt-8 text-neutral-600 dark:text-white">
         © {new Date().getFullYear()} MrAnde7son. All rights reserved.
       </p>
     </footer>
