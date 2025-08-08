@@ -1,32 +1,37 @@
 import { NextResponse } from 'next/server'
 import { getBlogPosts } from '../../blog/utils'
 import { projects } from '../../../lib/projects'
+import { searchItems, type SearchItem } from '../../../lib/search'
 
 // Basic dataset for static pages on the site
-const pages = [
+const pages: SearchItem[] = [
   { title: 'Home', url: '/', description: 'Welcome page of Itamar Mizrahi' },
   { title: 'About', url: '/about', description: 'Learn more about Itamar Mizrahi' },
   { title: 'Blog', url: '/blog', description: 'List of blog posts and insights' },
   { title: 'Contact', url: '/contact', description: 'Get in touch with Itamar' },
 ]
 
-export async function GET() {
-  const posts = getBlogPosts().map((post) => ({
-    title: post.metadata.title,
-    description: post.metadata.description,
+export async function GET(request: Request) {
+  const posts: SearchItem[] = getBlogPosts().map((post) => ({
+    title: post.metadata.title ?? '',
+    description: post.metadata.description ?? '',
     url: `/blog/${post.slug}`,
-    content: post.content,
+    ...(post.content ? { content: post.content } : {}),
   }))
 
-  const projectItems = projects.map((project) => ({
+  const projectItems: SearchItem[] = projects.map((project) => ({
     title: project.title,
     description: project.description,
     url: project.href || '#',
     content: project.tags.join(' '),
   }))
 
-  const data = [...pages, ...posts, ...projectItems]
+  const data: SearchItem[] = [...pages, ...posts, ...projectItems]
 
-  return NextResponse.json(data)
+  const { searchParams } = new URL(request.url)
+  const query = searchParams.get('q') || ''
+  const results = query ? searchItems(data, query) : data
+
+  return NextResponse.json(results)
 }
 
