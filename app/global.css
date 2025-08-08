@@ -17,6 +17,18 @@
   --sh-entity: #e25a1c;
 }
 
+body {
+  --bg: #ffffff;
+  --text: #000000;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.dark {
+  --bg: #000000;
+  --text: #ffffff;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --sh-class: #4c97f8;
