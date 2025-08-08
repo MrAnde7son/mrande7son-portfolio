@@ -56,10 +56,6 @@ export default function Page() {
         <BlogPosts />
       </BentoCard>
 
-      <BentoCard>
-        <h2 className="text-xl font-semibold tracking-tighter mb-6">Interactive Data</h2>
-        <InteractiveChart />
-      </BentoCard>
     </BentoGrid>
   )
 }
