@@ -12,7 +12,7 @@ export function BentoGrid({ children }: { children: React.ReactNode }) {
 export function BentoCard({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   return (
     <div
-      className={`p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-[var(--bg)] text-[var(--text)] ${className}`}
+      className={`p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 ${className}`}
     >
       {children}
     </div>
