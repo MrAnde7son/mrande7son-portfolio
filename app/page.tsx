@@ -1,10 +1,9 @@
 import BlogPosts from 'app/components/posts'
-import ProjectCard from 'app/components/ProjectCard'
 import Timeline from 'app/components/Timeline'
 import Image from 'next/image'
 import { BentoGrid, BentoCard } from 'app/components/bento'
 import InteractiveChart from 'app/components/interactive-chart'
-import { projects } from '../lib/projects'
+import ProjectsGrid from 'app/components/ProjectsGrid'
 
 export default function Page() {
   return (
@@ -25,13 +24,13 @@ export default function Page() {
             <h1 className="mb-6 text-3xl font-semibold tracking-tighter">
               Itamar Mizrahi
             </h1>
-            <p className="mb-4 text-lg text-neutral-700 dark:text-white">
+            <p className="mb-4 text-lg">
               {`A seasoned technology leader and entrepreneur with extensive experience in cybersecurity. Proven track record in building and scaling software products from inception to growth. Former Co-founder and CEO of Cymptom, acquired by Tenable.`}
             </p>
-            <p className="mb-4 text-neutral-600 dark:text-white">
+            <p className="mb-4 muted">
               {`My passion lies in building high-impact security products that protect organizations from evolving cyber threats. I enjoy mentoring the next generation of security professionals and sharing insights from my experience in both startup and enterprise environments.`}
             </p>
-            <p className="text-neutral-600 dark:text-white">
+            <p className="muted">
               In my free time, I like surfing and traveling
             </p>
           </div>
@@ -39,20 +38,16 @@ export default function Page() {
       </BentoCard>
 
       <BentoCard className="md:col-span-2">
-        <h2 className="text-xl font-semibold tracking-tighter mb-6 text-neutral-900 dark:text-white">Career Timeline</h2>
+        <h2 className="text-xl font-semibold tracking-tighter mb-6">Career Timeline</h2>
         <Timeline />
       </BentoCard>
 
       <BentoCard className="md:col-span-2">
-        <h2 className="text-xl font-semibold tracking-tighter mb-6 text-neutral-900 dark:text-white">Key Projects</h2>
-        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 auto-rows-[minmax(200px,_auto)]">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </div>
+        <h2 className="text-xl font-semibold tracking-tighter mb-6">Key Projects</h2>
+        <ProjectsGrid />
       </BentoCard>
       <BentoCard>
-        <h2 className="text-xl font-semibold tracking-tighter mb-6 text-neutral-900 dark:text-white">Latest Insights</h2>
+        <h2 className="text-xl font-semibold tracking-tighter mb-6">Latest Insights</h2>
         <BlogPosts />
       </BentoCard>
 
