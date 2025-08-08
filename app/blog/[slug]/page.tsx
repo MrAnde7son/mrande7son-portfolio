@@ -88,10 +88,10 @@ export default async function Blog({ params }) {
         {post.metadata.title}
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-neutral-600 dark:text-neutral-400">
+        <p className="text-neutral-600 dark:text-neutral-300">
           {formatDate(post.metadata.date)}
         </p>
-        <p className="text-neutral-600 dark:text-neutral-400">
+        <p className="text-neutral-600 dark:text-neutral-300">
           {Math.ceil(post.content.length / 1000)} min read
         </p>
       </div>
