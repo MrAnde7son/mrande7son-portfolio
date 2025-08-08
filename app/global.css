@@ -64,7 +64,7 @@ html {
 }
 
 .prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
+  @apply text-neutral-300 dark:text-neutral-500;
   content: '#';
 }
 
