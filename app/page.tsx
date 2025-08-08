@@ -105,7 +105,6 @@ export default function Page() {
           ))}
         </div>
       </BentoCard>
-
       <BentoCard>
         <h2 className="text-xl font-semibold tracking-tighter mb-6">Latest Insights</h2>
         <BlogPosts />
