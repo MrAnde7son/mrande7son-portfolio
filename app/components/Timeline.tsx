@@ -1,3 +1,6 @@
+'use client'
+import { useEffect, useRef, useState } from 'react'
+
 interface TimelineItem {
   year: string
   title: string
@@ -38,8 +41,25 @@ const timeline: TimelineItem[] = [
 ]
 
 export default function Timeline() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setVisible(true)
+        observer.disconnect()
+      }
+    })
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <div className="relative py-8">
+    <div
+      ref={ref}
+      className={`relative py-8 transition-opacity duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}
+    >
       <div className="hidden md:block absolute inset-y-0 left-1/2 w-px bg-neutral-200 dark:bg-neutral-700"></div>
       <div className="space-y-8">
         {timeline.map((item, index) => (
