@@ -43,14 +43,15 @@ export default function Page() {
         </BentoCard>
       </div>
 
-      <section className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px] items-start">
+      <section className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px] items-start isolate">
         <div>
           <h2 className="text-xl font-semibold tracking-tighter mb-6">Key Projects</h2>
           <ProjectsGrid id="projects" />
         </div>
 
         <aside
-          className="sticky top-24 h-fit p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100"
+          id="insights"
+          className="sticky top-24 h-fit p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 relative z-10"
         >
           <h2 className="text-xl font-semibold tracking-tighter mb-6">Latest Insights</h2>
           <BlogPosts />

@@ -24,10 +24,10 @@ export default async function BlogPosts() {
             href={`/blog/${post.slug}`}
           >
             <div className="w-full flex flex-col">
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+              <p className="tracking-tight text-neutral-900 dark:text-neutral-50">
                 {post.metadata.title}
               </p>
-              <p className="text-neutral-600 dark:text-neutral-300">
+              <p className="text-neutral-600 dark:text-neutral-200">
                 {formatDate(post.metadata.date)}
               </p>
             </div>
