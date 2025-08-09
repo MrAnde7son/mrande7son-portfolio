@@ -7,6 +7,7 @@
 
 /* Theme variables */
 :root {
+  color-scheme: light dark;
   /* Light theme */
   --bg: #ffffff;
   --fg: #0e1116;
@@ -49,7 +50,6 @@ html,
 body {
   background: var(--bg);
   color: var(--fg);
-  color-scheme: light dark;
 }
 
 a {
@@ -58,12 +58,6 @@ a {
 
 .muted {
   color: var(--muted-fg);
-}
-
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
 }
 
 html[data-theme='light'] {
