@@ -15,8 +15,8 @@ export default async function BlogPosts() {
         .map((post) => (
           <PostCard
             key={post.slug}
-            title={post.metadata.title}
-            description={post.metadata.description}
+            title={post.metadata.title ?? ''}
+            description={post.metadata.description ?? ''}
             date={post.metadata.date}
             href={`/blog/${post.slug}`}
           />
