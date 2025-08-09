@@ -63,7 +63,7 @@ export default async function Blog({ params }) {
   }
 
   return (
-    <section>
+    <section className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -88,14 +88,14 @@ export default async function Blog({ params }) {
         {post.metadata.title}
       </h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-neutral-600 dark:text-white">
+        <p className="text-neutral-600 dark:text-neutral-200">
           {formatDate(post.metadata.date)}
         </p>
-        <p className="text-neutral-600 dark:text-white">
+        <p className="text-neutral-600 dark:text-neutral-200">
           {Math.ceil(post.content.length / 1000)} min read
         </p>
       </div>
-      <article className="prose prose-neutral dark:prose-invert">
+      <article className="prose prose-neutral dark:prose-invert max-w-none">
         <MDXRemote source={post.content} />
       </article>
     </section>
