@@ -1,10 +1,15 @@
 import ProjectCard from './ProjectCard'
 import { projects } from '../../lib/projects'
 
-export default function ProjectsGrid() {
+interface ProjectsGridProps {
+  id?: string
+  className?: string
+}
+
+export default function ProjectsGrid({ id, className = '' }: ProjectsGridProps) {
   return (
     <section className="projectsSection mx-auto px-5 max-w-[1320px]">
-      <div className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(280px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))]">
+      <div id={id} className={`grid gap-5 grid-cols-[repeat(auto-fit,minmax(280px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(320px,1fr))] ${className}`}>
         {projects.map((project, index) => (
           <ProjectCard
             key={index}
