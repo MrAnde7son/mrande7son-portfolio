@@ -44,7 +44,7 @@ export default function Page() {
       </div>
 
       <section className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px] items-start isolate">
-        <div>
+        <div className="min-w-0">
           <h2 className="text-xl font-semibold tracking-tighter mb-6">Key Projects</h2>
           <ProjectsGrid id="projects" />
         </div>
