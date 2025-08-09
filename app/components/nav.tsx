@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import Search from './search'
 import { useTheme } from '../theme-context'
 
@@ -19,30 +20,38 @@ const navItems = {
 }
 
 export function Navbar() {
+  const pathname = usePathname()
   const { theme, toggleTheme } = useTheme()
   return (
     <aside className="-ml-[8px] mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">
         <nav
-          className="flex flex-row items-center justify-between relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
+          className="relative flex items-center justify-between w-full rounded-full border border-neutral-200 bg-white/60 px-4 py-2 shadow-md backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/60"
           id="nav"
         >
-          <div className="flex flex-row space-x-0">
-            {Object.entries(navItems).map(([path, { name }]) => (
-              <Link
-                key={path}
-                href={path}
-                className="transition-all hover:text-neutral-800 dark:hover:text-white flex align-middle relative py-1 px-2 m-1"
-              >
-                {name}
-              </Link>
-            ))}
+          <div className="flex items-center space-x-1">
+            {Object.entries(navItems).map(([path, { name }]) => {
+              const isActive = path === '/' ? pathname === '/' : pathname.startsWith(path)
+              return (
+                <Link
+                  key={path}
+                  href={path}
+                  className={`capitalize px-3 py-1.5 text-sm transition-colors rounded-full ${
+                    isActive
+                      ? 'bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100'
+                      : 'text-neutral-600 hover:bg-neutral-200 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100'
+                  }`}
+                >
+                  {name}
+                </Link>
+              )
+            })}
           </div>
           <div className="flex items-center space-x-2">
             <button
               aria-label="Toggle Theme"
               onClick={toggleTheme}
-              className="p-2 rounded hover:text-orange-500 transition-colors"
+              className="p-2 rounded-full text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-800 transition-colors"
             >
               {theme === 'dark' ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
             </button>
