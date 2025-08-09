@@ -1,38 +1,27 @@
-import Link from 'next/link'
 import { getBlogPosts } from 'app/blog/utils'
-import { formatDate } from 'app/blog/utils'
+import PostCard from './PostCard'
 
 export default async function BlogPosts() {
   let allBlogs = await getBlogPosts()
 
   return (
-    <div>
+    <div className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(320px,1fr))]">
       {allBlogs
         .sort((a, b) => {
-          const dateA = a.metadata.date
-            ? new Date(a.metadata.date)
-            : new Date(0)
-          const dateB = b.metadata.date
-            ? new Date(b.metadata.date)
-            : new Date(0)
+          const dateA = a.metadata.date ? new Date(a.metadata.date) : new Date(0)
+          const dateB = b.metadata.date ? new Date(b.metadata.date) : new Date(0)
           return dateB.getTime() - dateA.getTime()
         })
         .map((post) => (
-          <Link
+          <PostCard
             key={post.slug}
-            className="flex flex-col space-y-1 mb-4"
+            title={post.metadata.title ?? ''}
+            description={post.metadata.description ?? ''}
+            date={post.metadata.date}
             href={`/blog/${post.slug}`}
-          >
-            <div className="w-full flex flex-col">
-              <p className="tracking-tight text-neutral-900 dark:text-neutral-50">
-                {post.metadata.title}
-              </p>
-              <p className="text-neutral-600 dark:text-neutral-200">
-                {formatDate(post.metadata.date)}
-              </p>
-            </div>
-          </Link>
+          />
         ))}
     </div>
   )
 }
+
