@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Search from './search'
 import { useTheme } from '../theme-context'
+import { useEffect, useState } from 'react'
 
 const navItems = {
   '/': {
@@ -22,11 +23,27 @@ const navItems = {
 export function Navbar() {
   const pathname = usePathname()
   const { theme, toggleTheme } = useTheme()
+  const [showNav, setShowNav] = useState(true)
+
+  useEffect(() => {
+    let lastY = window.scrollY
+    const onScroll = () => {
+      if (window.scrollY > lastY && window.scrollY > 50) {
+        setShowNav(false)
+      } else {
+        setShowNav(true)
+      }
+      lastY = window.scrollY
+    }
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <aside className="-ml-[8px] mb-16 tracking-tight">
       <div className="lg:sticky lg:top-20">
         <nav
-          className="relative flex items-center justify-between w-full rounded-full border border-neutral-200 bg-white/60 px-4 py-2 shadow-md backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/60"
+          className={`relative flex items-center justify-between w-full rounded-full border border-neutral-200 bg-white/60 px-4 py-2 shadow-md backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/60 transition-transform duration-300 ${showNav ? 'translate-y-0' : '-translate-y-full'}`}
           id="nav"
         >
           <div className="flex items-center space-x-1">
@@ -39,7 +56,7 @@ export function Navbar() {
                   className={`capitalize px-3 py-1.5 text-sm transition-colors rounded-full ${
                     isActive
                       ? 'bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100'
-                      : 'text-neutral-600 hover:bg-neutral-200 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100'
+                      : 'text-neutral-600 hover:bg-neutral-200 hover:text-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-100'
                   }`}
                 >
                   {name}
