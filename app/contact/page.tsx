@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import SubscribeForm from './SubscribeForm'
 
 export const metadata = {
   title: 'Contact - Itamar Mizrahi',
@@ -118,8 +119,13 @@ export default function Contact() {
               I typically respond to professional inquiries within 24-48 hours. For urgent matters or time-sensitive opportunities, please mention this in your message.
             </p>
           </div>
+
+          <div className="mt-12">
+            <h2 className="text-lg font-semibold tracking-tighter mb-4">Subscribe</h2>
+            <SubscribeForm />
+          </div>
         </div>
       </div>
     </section>
   )
-} 
+}
