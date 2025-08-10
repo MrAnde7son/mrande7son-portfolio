@@ -3,7 +3,6 @@ import { useState } from 'react'
 
 export default function SubscribeForm() {
   const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -13,12 +12,11 @@ export default function SubscribeForm() {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, message }),
+        body: JSON.stringify({ email }),
       })
       if (res.ok) {
         setStatus('success')
         setEmail('')
-        setMessage('')
       } else {
         setStatus('error')
       }
@@ -39,19 +37,6 @@ export default function SubscribeForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-3 py-2 border border-neutral-300 rounded-md bg-white dark:bg-neutral-900 dark:border-neutral-700"
-        />
-      </div>
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-1">
-          Message
-        </label>
-        <textarea
-          id="message"
-          required
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          rows={4}
           className="w-full px-3 py-2 border border-neutral-300 rounded-md bg-white dark:bg-neutral-900 dark:border-neutral-700"
         />
       </div>
