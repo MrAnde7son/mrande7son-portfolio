@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server'
 export async function POST(request: Request) {
   const { email, message } = await request.json()
 
-  if (!email || !message) {
-    return NextResponse.json({ error: 'Email and message are required' }, { status: 400 })
+  if (!email) {
+    return NextResponse.json({ error: 'Email is required' }, { status: 400 })
   }
 
   const apiKey = process.env.RESEND_API_KEY
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       to: ['mizrahi.itamar@gmail.com'],
       reply_to: email,
       subject: 'New contact subscription',
-      text: message,
+      text: message ?? 'New subscriber',
     }),
   })
 
