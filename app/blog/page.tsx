@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <section className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
+    <section className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
       <h1 className="font-semibold text-2xl mb-8 tracking-tighter">Blog</h1>
       <BlogPosts />
     </section>
