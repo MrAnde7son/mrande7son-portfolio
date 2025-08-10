@@ -4,6 +4,7 @@ import { useState } from 'react'
 export default function SubscribeForm() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [error, setError] = useState('')
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -14,13 +15,18 @@ export default function SubscribeForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       })
+
       if (res.ok) {
         setStatus('success')
         setEmail('')
+        setError('')
       } else {
+        const data = await res.json().catch(() => null)
+        setError(data?.error || 'Something went wrong. Please try again.')
         setStatus('error')
       }
     } catch {
+      setError('Something went wrong. Please try again.')
       setStatus('error')
     }
   }
@@ -51,7 +57,7 @@ export default function SubscribeForm() {
         <p className="text-sm text-green-600 dark:text-green-400">Message sent!</p>
       )}
       {status === 'error' && (
-        <p className="text-sm text-red-600 dark:text-red-400">Something went wrong. Please try again.</p>
+        <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
       )}
     </form>
   )
