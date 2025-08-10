@@ -45,7 +45,7 @@ export default function Search() {
         className="w-32 sm:w-48 md:w-64 rounded-md border border-neutral-200 bg-neutral-50 px-8 py-1.5 text-sm placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 dark:placeholder-neutral-500 dark:focus:ring-neutral-700"
       />
       {query && (
-        <ul className="absolute right-0 mt-2 max-h-60 w-64 overflow-auto rounded-md border border-neutral-200 bg-white shadow-lg dark:border-neutral-700 dark:bg-neutral-900 z-50">
+        <ul className="absolute right-0 top-full mt-2 max-h-60 w-64 overflow-auto rounded-md border border-neutral-200 bg-white shadow-lg dark:border-neutral-700 dark:bg-neutral-900 z-50">
           {results.map((item) => (
             <li key={item.url}>
               <Link
