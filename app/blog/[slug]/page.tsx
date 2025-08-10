@@ -63,7 +63,7 @@ export default async function Blog({ params }) {
   }
 
   return (
-    <section className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
+    <section className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100">
       <script
         type="application/ld+json"
         suppressHydrationWarning
