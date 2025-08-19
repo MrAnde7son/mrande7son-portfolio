@@ -24,6 +24,7 @@ export function Navbar() {
   const pathname = usePathname()
   const { theme, toggleTheme } = useTheme()
   const [showNav, setShowNav] = useState(true)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     let lastY = window.scrollY
@@ -47,22 +48,31 @@ export function Navbar() {
           id="nav"
         >
           <div className="flex items-center space-x-1">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              const isActive = path === '/' ? pathname === '/' : pathname.startsWith(path)
-              return (
-                <Link
-                  key={path}
-                  href={path}
-                  className={`capitalize px-3 py-1.5 text-sm transition-colors rounded-full ${
-                    isActive
-                      ? 'bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100'
-                      : 'text-neutral-600 hover:bg-neutral-200 hover:text-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-100'
-                  }`}
-                >
-                  {name}
-                </Link>
-              )
-            })}
+            <button
+              aria-label="Toggle Menu"
+              onClick={() => setMenuOpen((o) => !o)}
+              className="p-2 rounded-full text-neutral-600 hover:bg-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-800 transition-colors sm:hidden"
+            >
+              {menuOpen ? <CloseIcon className="h-4 w-4" /> : <MenuIcon className="h-4 w-4" />}
+            </button>
+            <div className="hidden sm:flex items-center space-x-1">
+              {Object.entries(navItems).map(([path, { name }]) => {
+                const isActive = path === '/' ? pathname === '/' : pathname.startsWith(path)
+                return (
+                  <Link
+                    key={path}
+                    href={path}
+                    className={`capitalize px-3 py-1.5 text-sm transition-colors rounded-full ${
+                      isActive
+                        ? 'bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100'
+                        : 'text-neutral-600 hover:bg-neutral-200 hover:text-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-100'
+                    }`}
+                  >
+                    {name}
+                  </Link>
+                )
+              })}
+            </div>
           </div>
           <div className="flex items-center space-x-2">
             <button
@@ -76,6 +86,27 @@ export function Navbar() {
               <Search />
             </div>
           </div>
+          {menuOpen && (
+            <div className="absolute top-full left-0 w-full mt-2 flex flex-col space-y-1 rounded-xl border border-neutral-200 bg-white/95 p-2 shadow-md dark:border-neutral-800 dark:bg-neutral-900/95 sm:hidden">
+              {Object.entries(navItems).map(([path, { name }]) => {
+                const isActive = path === '/' ? pathname === '/' : pathname.startsWith(path)
+                return (
+                  <Link
+                    key={path}
+                    href={path}
+                    onClick={() => setMenuOpen(false)}
+                    className={`capitalize px-3 py-2 text-sm rounded-lg transition-colors ${
+                      isActive
+                        ? 'bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100'
+                        : 'text-neutral-600 hover:bg-neutral-200 hover:text-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:hover:text-neutral-100'
+                    }`}
+                  >
+                    {name}
+                  </Link>
+                )
+              })}
+            </div>
+          )}
         </nav>
       </div>
     </aside>
@@ -124,3 +155,39 @@ function MoonIcon(props: React.SVGProps<SVGSVGElement>) {
   )
 }
 
+function MenuIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  )
+}
+
+function CloseIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+  )
+}
