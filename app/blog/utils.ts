@@ -6,6 +6,7 @@ type Metadata = {
   date: string
   description: string
   image?: string
+  tags?: string[]
 }
 
 export function parseFrontmatter(fileContent: string): {
@@ -30,7 +31,19 @@ export function parseFrontmatter(fileContent: string): {
     let [key, ...valueArr] = line.split(':')
     let value = valueArr.join(':').trim()
     value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value
+    let normalizedKey = key.trim() as keyof Metadata
+
+    if (normalizedKey === 'tags') {
+      let tags = value
+        .split(',')
+        .map((tag) => tag.trim())
+        .filter(Boolean)
+
+      metadata.tags = tags
+      return
+    }
+
+    metadata[normalizedKey] = value
   })
 
   return { metadata: metadata as Metadata, content }

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { formatDate } from 'app/blog/utils'
+import { formatDate } from '../blog/utils'
 
 interface PostCardProps {
   title: string
@@ -7,6 +7,7 @@ interface PostCardProps {
   date?: string
   href: string
   className?: string
+  tags?: string[]
 }
 
 export default function PostCard({
@@ -15,6 +16,7 @@ export default function PostCard({
   date,
   href,
   className = '',
+  tags = [],
 }: PostCardProps) {
   return (
     <Link href={href} className="block">
@@ -29,6 +31,18 @@ export default function PostCard({
         <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-200 line-clamp-3">
           {description}
         </p>
+        {tags.length > 0 && (
+          <ul className="mt-3 flex flex-wrap gap-2 text-xs text-neutral-700 dark:text-neutral-200" aria-label="Topics">
+            {tags.map((tag) => (
+              <li
+                key={tag}
+                className="rounded-full bg-neutral-100 px-3 py-1 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
         {date && (
           <p className="mt-4 text-xs text-neutral-600 dark:text-neutral-300">
             {formatDate(date)}

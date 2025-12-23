@@ -1,8 +1,14 @@
 import { getBlogPosts } from 'app/blog/utils'
 import PostCard from './PostCard'
 
-export default async function BlogPosts() {
-  let allBlogs = await getBlogPosts()
+type BlogPost = Awaited<ReturnType<typeof getBlogPosts>>[number]
+
+export default async function BlogPosts({
+  posts,
+}: {
+  posts?: BlogPost[]
+}) {
+  let allBlogs = posts ?? (await getBlogPosts())
 
   return (
     <div className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(320px,1fr))]">
@@ -19,6 +25,7 @@ export default async function BlogPosts() {
             description={post.metadata.description ?? ''}
             date={post.metadata.date}
             href={`/blog/${post.slug}`}
+            tags={post.metadata.tags}
           />
         ))}
     </div>
