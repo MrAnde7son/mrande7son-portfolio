@@ -2,8 +2,8 @@ import { getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { MDXRemote } from 'next-mdx-remote/rsc'
 import { formatDate } from 'app/blog/utils'
+import { CustomMDX, createHeading } from 'app/components/mdx'
 
 export async function generateStaticParams() {
   let posts = await getBlogPosts()
@@ -31,6 +31,9 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   return {
     title,
     description,
+    alternates: {
+      canonical: `${baseUrl}/blog/${post.slug}`,
+    },
     openGraph: {
       title,
       description,
@@ -60,6 +63,10 @@ export default async function Blog({ params }) {
 
   if (!post) {
     notFound()
+  }
+
+  let components = {
+    h1: createHeading(2),
   }
 
   return (
@@ -96,7 +103,7 @@ export default async function Blog({ params }) {
         </p>
       </div>
       <article className="prose prose-neutral dark:prose-invert max-w-none">
-        <MDXRemote source={post.content} />
+        <CustomMDX source={post.content} components={components} />
       </article>
     </section>
   )

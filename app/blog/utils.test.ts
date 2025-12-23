@@ -8,6 +8,7 @@ title: 'Hello'
 description: 'World'
 date: '2024-02-01'
 image: 'test.png'
+tags: security, leadership ,  ai safety
 ---
 Content goes here`
 
@@ -17,7 +18,8 @@ test('parseFrontmatter parses metadata and content correctly', () => {
     title: 'Hello',
     description: 'World',
     date: '2024-02-01',
-    image: 'test.png'
+    image: 'test.png',
+    tags: ['security', 'leadership', 'ai safety'],
   })
   assert.strictEqual(content, 'Content goes here')
 })
@@ -33,6 +35,13 @@ test('parseFrontmatter ignores malformed lines gracefully', () => {
   const malformed = `---\nnoColonLine\nvalid: true\n---\nBody`
   const { metadata, content } = parseFrontmatter(malformed)
   assert.deepStrictEqual(metadata, { valid: 'true' })
+  assert.strictEqual(content, 'Body')
+})
+
+test('parseFrontmatter handles empty tags gracefully', () => {
+  const malformedTags = `---\ntags:   ,   , security\n---\nBody`
+  const { metadata, content } = parseFrontmatter(malformedTags)
+  assert.deepStrictEqual(metadata, { tags: ['security'] })
   assert.strictEqual(content, 'Body')
 })
 
