@@ -26,6 +26,14 @@ export const projects: Project[] = [
     className: 'md:col-span-3',
   },
   {
+    title: 'Atomic Red Team',
+    description:
+      'Contributed to an open-source library of adversary emulation tests for defensive validation and purple team exercises.',
+    href: 'https://github.com/redcanaryco/atomic-red-team',
+    tags: ['Red Teaming', 'Detection Engineering', 'Attack Simulation', 'Open Source'],
+    className: 'md:col-span-2',
+  },
+  {
     title: 'Neomodel',
     description:
       'Contributed to the popular Python Object Graph Mapper (OGM) for Neo4j graph database. Used by 1,100+ repositories with 1k+ stars.',
@@ -61,4 +69,3 @@ export const projects: Project[] = [
     className: 'md:col-span-3',
   },
 ]
-
