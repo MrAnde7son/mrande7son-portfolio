@@ -4,7 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "tsc --project tsconfig.json --noEmit false --module commonjs --esModuleInterop --skipLibCheck --target ES2018 --jsx react-jsx --outDir build/test && node --test build/test/app/blog/utils.test.js build/test/lib/search.test.js build/test/lib/projects.test.js build/test/app/api/search/route.test.js build/test/app/api/subscribe/route.test.js build/test/app/components/PostCard.test.js build/test/app/components/ProjectCard.test.js build/test/app/components/Timeline.test.js"
+    "test": "tsc --project tsconfig.json --noEmit false --module commonjs --esModuleInterop --skipLibCheck --target ES2018 --jsx react-jsx --outDir build/test && node --test build/test/app/blog/utils.test.js build/test/lib/search.test.js build/test/lib/projects.test.js build/test/app/api/search/route.test.js build/test/app/api/subscribe/route.test.js build/test/app/components/PostCard.test.js build/test/app/components/ProjectCard.test.js build/test/app/components/Timeline.test.js build/test/app/components/Patents.test.js"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.0.0-alpha.13",
