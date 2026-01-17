@@ -3,6 +3,7 @@ import Timeline from 'app/components/Timeline'
 import Image from 'next/image'
 import { BentoCard } from 'app/components/bento'
 import ProjectsGrid from 'app/components/ProjectsGrid'
+import Patents from 'app/components/Patents'
 
 export default function Page() {
   return (
@@ -40,6 +41,11 @@ export default function Page() {
         <BentoCard className="md:col-span-2">
           <h2 className="text-xl font-semibold tracking-tighter mb-6">Career Timeline</h2>
           <Timeline />
+        </BentoCard>
+
+        <BentoCard className="md:col-span-2">
+          <h2 className="text-xl font-semibold tracking-tighter mb-6">Patents</h2>
+          <Patents />
         </BentoCard>
       </div>
 
