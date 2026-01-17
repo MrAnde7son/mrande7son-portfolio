@@ -50,7 +50,8 @@ test('formatDate handles dates within the same year', () => {
   const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate())
   const iso = lastMonth.toISOString().split('T')[0]
   const formatted = formatDate(iso, true)
-  assert.match(formatted, /\d+mo ago\)$/)
+  const expectedPattern = now.getMonth() === 0 ? /\d+y ago\)$/ : /\d+mo ago\)$/
+  assert.match(formatted, expectedPattern)
 })
 
 test('formatDate handles dates in previous years', () => {

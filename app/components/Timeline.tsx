@@ -38,6 +38,12 @@ const timeline: TimelineItem[] = [
     description:
       'Conducted red team assessments for Fortune 500 companies.',
   },
+  {
+    year: '2011-2015',
+    title: 'Security Researcher @ IDF',
+    description:
+      'Founded a cybersecurity department within a classified unit, focused on mission-critical security research.',
+  },
 ]
 
 export default function Timeline() {
