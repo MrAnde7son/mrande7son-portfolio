@@ -15,25 +15,25 @@ const timeline: TimelineItem[] = [
       'Leading product growth strategy and execution for Tenable\'s Exposure Management platform.',
   },
   {
-    year: '2022',
+    year: '2022-2025',
     title: 'VP Engineering @ Tenable',
     description:
       'Scaled a global team and integrated Cymptom\'s technology into Tenable One and Attack Path Analysis.',
   },
   {
-    year: '2019',
+    year: '2019-2022',
     title: 'Co-founder & CEO @ Cymptom',
     description:
       'Built Cymptom from concept to acquisition, enabling organizations to eliminate attack paths.',
   },
   {
-    year: '2017',
+    year: '2017-2020',
     title: 'Instructor @ John Bryce',
     description:
       'Provided cybersecurity training for SOC analysts and security professionals.',
   },
   {
-    year: '2015',
+    year: '2015-2017',
     title: 'Red Team Specialist @ CyberArk',
     description:
       'Conducted red team assessments for Fortune 500 companies.',
