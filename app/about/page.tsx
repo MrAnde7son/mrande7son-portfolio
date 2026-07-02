@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     'Itamar Mizrahi about',
     'cybersecurity entrepreneur',
     'Cymptom founder',
-    'Tenable VP Product Growth',
+    'Tenable VP',
     'cybersecurity leadership',
     'attack path validation',
-    'security product development'
+    'security product'
   ],
   openGraph: {
     title: 'About Itamar Mizrahi - Cybersecurity Entrepreneur & VP Product Growth',
@@ -29,7 +29,7 @@ export default function About() {
           <div className="flex-shrink-0">
             <Image
               src="/itamar-mizrahi.jpg"
-              alt="Itamar Mizrahi - Cybersecurity Entrepreneur and VP Product Growth at Tenable - Professional portrait"
+              alt="Itamar Mizrahi - Cybersecurity Entrepreneur"
               width={250}
               height={250}
               className="rounded-lg shadow-lg"
