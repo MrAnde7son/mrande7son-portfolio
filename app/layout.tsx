@@ -12,13 +12,12 @@ import { ThemeProvider } from './theme-context'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Itamar Mizrahi – Cybersecurity Entrepreneur | VP Engineering',
+    default: 'Itamar Mizrahi – Cybersecurity Entrepreneur',
     template: '%s | Itamar Mizrahi',
   },
   description: 'Itamar Mizrahi is a cybersecurity entrepreneur and technology leader. Co-founder of Cymptom (acquired by Tenable), he leads innovation in exposure management, AI security, and attack path analysis.',
   keywords: [
     'cybersecurity entrepreneur',
-    'VP Engineering',
     'Tenable',
     'Cymptom',
     'attack path analysis',
