@@ -9,6 +9,13 @@ interface ProjectCardProps {
   className?: string
 }
 
+/** 14600 -> "14.6k", 1000 -> "1k", 950 -> "950" */
+function formatStars(stars: number) {
+  if (stars < 1000) return String(stars)
+  const thousands = stars / 1000
+  return `${thousands % 1 === 0 ? thousands : thousands.toFixed(1)}k`
+}
+
 export default function ProjectCard({
   title,
   description,
@@ -18,42 +25,74 @@ export default function ProjectCard({
   className = '',
 }: ProjectCardProps) {
   const card = (
-    <article
-      className={`relative z-0 h-full p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 flex flex-col ${className}`}
-    >
-      <header className="flex items-center gap-2 min-w-0">
-        <h3 className="min-w-0 text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-100 truncate">
+    <article className="surface flex h-full flex-col p-5">
+      <header className="flex items-start gap-3">
+        <h3 className="min-w-0 flex-1 text-base leading-snug font-semibold tracking-tight transition-colors group-hover:text-[var(--accent)]">
           {title}
         </h3>
         {stars !== undefined && (
-          <span className="ml-auto shrink-0 text-sm text-neutral-600 dark:text-neutral-300">
-            {stars}★
+          <span
+            className="subtle inline-flex shrink-0 items-center gap-1 text-xs"
+            title={`${stars.toLocaleString('en-US')} GitHub stars`}
+          >
+            <StarIcon className="h-3.5 w-3.5" />
+            {formatStars(stars)}
           </span>
+        )}
+        {href && (
+          <ExternalIcon className="subtle mt-0.5 h-3.5 w-3.5 shrink-0 transition-colors group-hover:text-[var(--accent)]" />
         )}
       </header>
 
-      <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-200 line-clamp-3">
+      <p className="muted mt-2 line-clamp-3 text-sm leading-relaxed">
         {description}
       </p>
 
-      <div className="mt-auto flex flex-wrap gap-2">
-        {tags.map((t) => (
-          <span
-            key={t}
-            className="text-xs px-2 py-1 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200"
-          >
-            {t}
-          </span>
+      <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Technologies">
+        {tags.map((tag) => (
+          <li key={tag} className="chip">
+            {tag}
+          </li>
         ))}
-      </div>
+      </ul>
     </article>
   )
 
   return href ? (
-    <Link href={href} target="_blank" rel="noopener noreferrer" className="block">
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`card-link group ${className}`}
+    >
       {card}
     </Link>
   ) : (
-    card
+    <div className={className}>{card}</div>
+  )
+}
+
+function StarIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M12 2.5l2.9 5.9 6.5.95-4.7 4.58 1.11 6.47L12 17.4l-5.81 3-1.11-6.47L.38 9.35l6.5-.95L12 2.5z" />
+    </svg>
+  )
+}
+
+function ExternalIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M7 17L17 7M8 7h9v9" />
+    </svg>
   )
 }

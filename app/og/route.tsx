@@ -1,16 +1,91 @@
 import { ImageResponse } from 'next/og'
 
+export const runtime = 'edge'
+
+const SITE = 'mrande7son.com'
+
 export function GET(request: Request) {
-  let url = new URL(request.url)
-  let title = url.searchParams.get('title') || 'Next.js Portfolio Starter'
+  const url = new URL(request.url)
+  const title = url.searchParams.get('title')?.slice(0, 120) || 'Itamar Mizrahi'
+  const subtitle =
+    url.searchParams.get('subtitle')?.slice(0, 90) ||
+    'Cybersecurity entrepreneur · Exposure management'
+
+  // Long titles need to step down a size or they overflow the card.
+  const titleSize = title.length > 75 ? 52 : title.length > 45 ? 62 : 74
 
   return new ImageResponse(
     (
-      <div tw="flex flex-col w-full h-full items-center justify-center bg-white">
-        <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8">
-          <h2 tw="flex flex-col text-4xl font-bold tracking-tight text-left">
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          width: '100%',
+          height: '100%',
+          padding: '72px 80px',
+          background: '#0a0d13',
+          // Satori only parses a subset of CSS gradients — keep this to the
+          // plain `linear-gradient(<angle>, <stops>)` form it supports.
+          backgroundImage:
+            'linear-gradient(135deg, #0a0d13 0%, #141d33 55%, #0a0d13 100%)',
+          color: '#e9edf4',
+          fontFamily: 'sans-serif',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <div
+            style={{
+              width: 14,
+              height: 14,
+              borderRadius: 999,
+              background: '#7fa5ff',
+            }}
+          />
+          <div
+            style={{
+              fontSize: 24,
+              letterSpacing: 2,
+              textTransform: 'uppercase',
+              color: '#9aa4b8',
+            }}
+          >
+            {SITE}
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div
+            style={{
+              fontSize: titleSize,
+              fontWeight: 700,
+              lineHeight: 1.12,
+              letterSpacing: -1.8,
+            }}
+          >
             {title}
-          </h2>
+          </div>
+          <div style={{ marginTop: 26, fontSize: 30, color: '#9aa4b8' }}>
+            {subtitle}
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 16,
+            paddingTop: 28,
+            borderTop: '1px solid #232a38',
+            fontSize: 24,
+            color: '#9aa4b8',
+          }}
+        >
+          <span style={{ color: '#e9edf4', fontWeight: 600 }}>
+            Itamar Mizrahi
+          </span>
+          <span>·</span>
+          <span>VP Product Growth @ Tenable</span>
         </div>
       </div>
     ),

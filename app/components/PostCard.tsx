@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { formatDate } from '../blog/utils'
+import { formatDate, readingTime } from '../blog/utils'
 
 interface PostCardProps {
   title: string
@@ -8,6 +8,9 @@ interface PostCardProps {
   href: string
   className?: string
   tags?: string[]
+  /** Post body, used to show an estimated reading time. */
+  content?: string
+  featured?: boolean
 }
 
 export default function PostCard({
@@ -17,39 +20,46 @@ export default function PostCard({
   href,
   className = '',
   tags = [],
+  content,
+  featured = false,
 }: PostCardProps) {
+  const minutes = content ? readingTime(content) : undefined
+
   return (
-    <Link href={href} className="block">
-      <article
-        className={`relative z-0 h-full p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 flex flex-col ${className}`}
-      >
-        <header className="flex items-center gap-2 min-w-0">
-          <h3 className="min-w-0 text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-100 truncate">
-            {title}
-          </h3>
-        </header>
-        <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-200 line-clamp-3">
-          {description}
-        </p>
+    <Link href={href} className={`card-link group ${className}`}>
+      <article className="surface flex h-full flex-col p-5">
+        {featured && (
+          <span className="chip chip-accent mb-3 self-start font-medium">
+            Featured
+          </span>
+        )}
+
+        <h3 className="text-base leading-snug font-semibold tracking-tight transition-colors group-hover:text-[var(--accent)] sm:text-lg">
+          {title}
+        </h3>
+
+        {description && (
+          <p className="muted mt-2 line-clamp-3 text-sm leading-relaxed">
+            {description}
+          </p>
+        )}
+
         {tags.length > 0 && (
-          <ul className="mt-3 flex flex-wrap gap-2 text-xs text-neutral-700 dark:text-neutral-200" aria-label="Topics">
-            {tags.map((tag) => (
-              <li
-                key={tag}
-                className="rounded-full bg-neutral-100 px-3 py-1 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100"
-              >
+          <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Topics">
+            {tags.slice(0, 3).map((tag) => (
+              <li key={tag} className="chip">
                 {tag}
               </li>
             ))}
           </ul>
         )}
-        {date && (
-          <p className="mt-4 text-xs text-neutral-600 dark:text-neutral-300">
-            {formatDate(date)}
-          </p>
-        )}
+
+        <p className="subtle mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 pt-1 text-xs">
+          {date && <time dateTime={date}>{formatDate(date)}</time>}
+          {date && minutes ? <span aria-hidden="true">·</span> : null}
+          {minutes ? <span>{minutes} min read</span> : null}
+        </p>
       </article>
     </Link>
   )
 }
-

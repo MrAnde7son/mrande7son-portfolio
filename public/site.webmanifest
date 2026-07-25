@@ -1,20 +1,22 @@
 {
-  "name": "Itamar Mizrahi - Cybersecurity Leader",
+  "name": "Itamar Mizrahi — Cybersecurity Entrepreneur",
   "short_name": "Itamar Mizrahi",
-  "description": "Cybersecurity entrepreneur and VP Engineering at Tenable",
+  "description": "Exposure management, CTEM and AI security — writing and work by Itamar Mizrahi.",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
+      "src": "/icon",
+      "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "src": "/apple-icon",
+      "sizes": "180x180",
       "type": "image/png"
     }
   ],
-  "theme_color": "#000000",
+  "theme_color": "#0a0d13",
   "background_color": "#ffffff",
   "display": "standalone"
-} 
+}

@@ -1,32 +1,37 @@
 'use client'
 import { useState } from 'react'
 
+type Status = 'idle' | 'loading' | 'success' | 'error'
+
 export default function SubscribeForm() {
   const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [message, setMessage] = useState('')
+  const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState('')
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
     setStatus('loading')
+    setError('')
+
     try {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, message }),
       })
 
       if (res.ok) {
         setStatus('success')
         setEmail('')
-        setError('')
+        setMessage('')
       } else {
         const data = await res.json().catch(() => null)
         setError(data?.error || 'Something went wrong. Please try again.')
         setStatus('error')
       }
     } catch {
-      setError('Something went wrong. Please try again.')
+      setError('Could not reach the server. Please try again.')
       setStatus('error')
     }
   }
@@ -34,31 +39,56 @@ export default function SubscribeForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-1">
+        <label htmlFor="email" className="mb-1.5 block text-sm font-medium">
           Email
         </label>
         <input
           id="email"
+          name="email"
           type="email"
+          autoComplete="email"
           required
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-3 py-2 border border-neutral-300 rounded-md bg-white dark:bg-neutral-900 dark:border-neutral-700"
+          onChange={(event) => setEmail(event.target.value)}
+          placeholder="you@company.com"
+          className="field"
         />
       </div>
+
+      <div>
+        <label htmlFor="message" className="mb-1.5 block text-sm font-medium">
+          Message{' '}
+          <span className="subtle font-normal">(optional)</span>
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows={4}
+          maxLength={2000}
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+          placeholder="What would you like to talk about?"
+          className="field resize-y"
+        />
+      </div>
+
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="px-4 py-2 rounded-md bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900"
+        className="btn btn-primary"
       >
-        {status === 'loading' ? 'Sending...' : 'Subscribe'}
+        {status === 'loading' ? 'Sending…' : 'Send'}
       </button>
-      {status === 'success' && (
-        <p className="text-sm text-green-600 dark:text-green-400">Message sent!</p>
-      )}
-      {status === 'error' && (
-        <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
-      )}
+
+      {/* Announced to assistive technology as soon as the result arrives. */}
+      <p aria-live="polite" className="text-sm">
+        {status === 'success' && (
+          <span className="accent">Thanks — your message is on its way.</span>
+        )}
+        {status === 'error' && (
+          <span className="text-red-600 dark:text-red-400">{error}</span>
+        )}
+      </p>
     </form>
   )
 }

@@ -1,217 +1,205 @@
 import Image from 'next/image'
-import { Metadata } from 'next'
+import Link from 'next/link'
+import type { Metadata } from 'next'
+import { Container, Section } from 'app/components/container'
+import { education, expertise, roles } from '../../lib/career'
+import { person, social } from 'app/site'
+import { baseUrl } from 'app/sitemap'
+import { ogImageUrl } from 'app/og-url'
+
+const description =
+  'Itamar Mizrahi’s path through cybersecurity: security research in the IDF, red teaming at CyberArk, founding Cymptom and its acquisition by Tenable, and now leading product growth for Tenable’s exposure management platform.'
+
+const ogImage = ogImageUrl('About Itamar Mizrahi', person.tagline)
 
 export const metadata: Metadata = {
-  title: 'About - Itamar Mizrahi',
-  description: 'Learn more about Itamar Mizrahi\'s journey in cybersecurity, from founding Cymptom to leading product growth at Tenable. Cybersecurity entrepreneur and VP Product Growth.',
+  title: 'About',
+  description,
+  alternates: { canonical: '/about' },
   keywords: [
-    'Itamar Mizrahi about',
-    'cybersecurity entrepreneur',
+    'Itamar Mizrahi',
     'Cymptom founder',
-    'Tenable VP',
+    'Tenable',
     'cybersecurity leadership',
-    'attack path validation',
-    'security product'
+    'exposure management',
   ],
   openGraph: {
-    title: 'About Itamar Mizrahi - Cybersecurity Entrepreneur & VP Product Growth',
-    description: 'Discover the journey of Itamar Mizrahi from founding Cymptom to leading product growth at Tenable. Expert in cybersecurity, attack path validation, and security product development.',
+    title: `About ${person.name}`,
+    description,
+    type: 'profile',
+    url: `${baseUrl}/about`,
+    images: [{ url: ogImage, width: 1200, height: 630, alt: `About ${person.name}` }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `About ${person.name}`,
+    description,
+    images: [ogImage],
   },
 }
 
 export default function About() {
   return (
-    <section className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-semibold tracking-tighter mb-6">About Me</h1>
-        
-        <div className="flex flex-col md:flex-row gap-8 items-start mb-8">
-          <div className="flex-shrink-0">
-            <Image
-              src="/itamar-mizrahi.jpg"
-              alt="Itamar Mizrahi - Cybersecurity Entrepreneur"
-              width={250}
-              height={250}
-              className="rounded-lg shadow-lg"
-            />
-          </div>
-          <div className="flex-1">
-            <p className="text-lg mb-6">
-              I'm a seasoned technology leader and entrepreneur with extensive experience in cybersecurity. Former Co-founder and CEO of Cymptom (acquired by Tenable), now leading product growth at Tenable.
-            </p>
-          </div>
-        </div>
-
-        <article className="prose prose-neutral dark:prose-invert max-w-none">
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Professional Journey</h2>
-          
-          <div className="space-y-6">
-            <div>
-              <h3 className="font-medium mb-2">
-                VP Product Growth @ Tenable
-              </h3>
-              <p className="mb-2">
-                Leading product growth strategy and execution for Tenable's Exposure Management platform, driving market expansion and customer adoption.
-              </p>
-              <p className="text-sm">
-                July 2025 - Present
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-medium mb-2">
-                VP Engineering @ Tenable
-              </h3>
-              <p className="mb-2">
-                Led product and engineering for Tenable One, Tenable's Exposure Management platform. Scaled and managed a global team of 60+ across engineering, product, and data science. Successfully integrated Cymptom's technology to become a core component of Tenable One and Attack Path Analysis.
-              </p>
-              <p className="text-sm">
-                February 2022 - July 2025
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-medium mb-2">
-                Co-founder & CEO @ Cymptom
-              </h3>
-              <p className="mb-2">
-                Built and scaled Cymptom, a leader in Exposure Validation, allowing organizations to eliminate attack paths before they occur. Led the company from concept to successful acquisition by Tenable.
-              </p>
-              <p className="text-sm">
-                March 2019 - February 2022 (Acquired by Tenable)
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-medium mb-2">
-                Instructor @ John Bryce
-              </h3>
-              <p className="mb-2">
-                Provided cybersecurity training for SOC analysts, sharing expertise and best practices with the next generation of security professionals.
-              </p>
-              <p className="text-sm">
-                August 2017 - January 2020
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-medium mb-2">
-                Red Team Specialist @ CyberArk
-              </h3>
-              <p className="mb-2">
-                Conducted red team assessments for Fortune 500 companies to demonstrate the value and necessity of CyberArk's privileged access management solutions.
-              </p>
-              <p className="text-sm">
-                October 2015 - July 2017
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-medium mb-2">
-                Security Researcher @ Israel Defense Forces
-              </h3>
-              <p className="mb-2">
-                Founded and led a cybersecurity department within a classified unit, developing critical security capabilities and threat intelligence.
-              </p>
-              <p className="text-sm">
-                December 2011 - September 2015
-              </p>
-            </div>
-          </div>
-
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Education</h2>
-          
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-medium mb-2">
-                Bachelor of Science (B.Sc.), Computer Science
-              </h3>
-              <p className="mb-2">
-                The College of Management - Academic Studies
-              </p>
-              <p className="text-sm">
-                2015 - 2018
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-medium mb-2">
-                Robotics Technology/Technician
-              </h3>
-              <p className="mb-2">
-                ORT Colleges
-              </p>
-              <p className="text-sm">
-                2009 - 2011
-              </p>
-            </div>
-          </div>
-
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Speaking & Thought Leadership</h2>
-          
-          <div className="space-y-4">            
-            <p>
-              Available for speaking engagements on cybersecurity leadership, startup scaling, security product development, and emerging threat landscapes.
-            </p>
-          </div>
-
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Mission & Values</h2>
-          
-          <div className="space-y-4">
-            <p>
-              <strong>Building Impactful Security Products:</strong> I believe that effective security solutions should be both powerful and accessible. My focus is on creating tools that security teams actually want to use and that provide measurable value to organizations.
-            </p>
-            
-            <p>
-              <strong>Mentoring the Next Generation:</strong> I'm passionate about helping emerging security professionals develop their skills and navigate their careers. Whether through open-source contributions, speaking engagements, or direct mentorship, I believe in paying forward the knowledge I've gained.
-            </p>
-            
-            <p>
-              <strong>Continuous Learning:</strong> The cybersecurity landscape evolves rapidly, and staying current requires constant learning. I'm always exploring new technologies, threat vectors, and defensive strategies to ensure the products I help build remain effective.
-            </p>
-          </div>
-
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Technical Expertise</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <h3 className="font-medium mb-2">Security Domains</h3>
-              <ul className="text-sm space-y-1">
-                <li>Attack Path Validation & Exposure Management</li>
-                <li>Network Security & Firewall Technologies</li>
-                <li>Active Directory Security & Red Teaming</li>
-                <li>Cloud Security & DevSecOps</li>
-                <li>Threat Intelligence & Detection</li>
-                <li>Privileged Access Management</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="font-medium mb-2">Technologies</h3>
-              <ul className="text-sm space-y-1">
-                <li>Python, Typescript, Go</li>
-                <li>AWS, Azure, GCP</li>
-                <li>Docker, Kubernetes</li>
-                <li>CI/CD & Automation</li>
-                <li>Product Growth & Analytics</li>
-              </ul>
-            </div>
-          </div>
-
-          <h2 className="text-xl font-semibold tracking-tighter mt-8 mb-4">Beyond Work</h2>
-          
-          <p className="mb-4">
-            When I'm not building security products or mentoring teams, you'll find me:
+    <Container width="page" className="pt-12 pb-20 sm:pt-16">
+      <header className="flex flex-col-reverse gap-8 sm:flex-row sm:items-center sm:gap-10">
+        <div className="min-w-0 flex-1">
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            About
+          </h1>
+          <p className="mt-5 text-lg leading-relaxed">{person.summary}</p>
+          <p className="muted mt-4 leading-relaxed">
+            Most of my career has been spent on one question: given everything
+            an organisation exposes, what actually matters right now? Answering
+            it well means graph data, adversary tradecraft and product judgement
+            in equal measure — and it is why I keep coming back to exposure
+            management.
           </p>
-          
-          <ul className="space-y-2">
-            <li><strong>Surfing</strong> - Catching waves helps me stay balanced and creative</li>
-            <li><strong>Traveling</strong> - Exploring new cultures and perspectives</li>
-            <li><strong>Open Source</strong> - Contributing to security tools and utilities</li>
-            <li><strong>Community</strong> - Speaking at conferences and security meetups</li>
+        </div>
+        <Image
+          src="/itamar-mizrahi.jpg"
+          alt={`Portrait of ${person.name}`}
+          width={200}
+          height={200}
+          className="h-32 w-32 shrink-0 rounded-2xl object-cover sm:h-44 sm:w-44"
+          style={{ boxShadow: 'var(--shadow-card-hover)' }}
+          priority
+        />
+      </header>
+
+      <div className="mt-16 space-y-16">
+        <Section title="Experience">
+          <ol className="space-y-4">
+            {roles.map((role) => (
+              <li key={role.label} className="surface p-5 sm:p-6">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <h3 className="font-semibold tracking-tight">
+                    {role.title}{' '}
+                    <span className="muted font-normal">@ {role.company}</span>
+                  </h3>
+                  <time
+                    dateTime={role.start}
+                    className="subtle font-mono text-xs whitespace-nowrap"
+                  >
+                    {role.period}
+                  </time>
+                </div>
+
+                {role.note && (
+                  <span className="chip chip-accent mt-3 font-medium">
+                    {role.note}
+                  </span>
+                )}
+
+                <p className="muted mt-3 leading-relaxed">{role.summary}</p>
+
+                {role.highlights && (
+                  <ul className="muted mt-3 space-y-1.5 text-sm">
+                    {role.highlights.map((highlight) => (
+                      <li key={highlight} className="flex gap-2.5">
+                        <span aria-hidden="true" className="accent mt-px">
+                          ▹
+                        </span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ol>
+        </Section>
+
+        <Section title="What I work on">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {expertise.map((group) => (
+              <div key={group.heading} className="surface p-5 sm:p-6">
+                <h3 className="font-semibold tracking-tight">{group.heading}</h3>
+                <ul className="muted mt-3 space-y-1.5 text-sm">
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        <Section title="Education">
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {education.map((entry) => (
+              <li key={entry.degree} className="surface p-5">
+                <h3 className="font-semibold tracking-tight">{entry.degree}</h3>
+                <p className="muted mt-1.5 text-sm">{entry.institution}</p>
+                <p className="subtle mt-1 font-mono text-xs">{entry.period}</p>
+              </li>
+            ))}
           </ul>
-        </article>
+        </Section>
+
+        <Section
+          title="How I work"
+          description="Three things that shape most of the decisions I make."
+        >
+          <div className="grid gap-4 sm:grid-cols-3">
+            <Value title="Security products people use">
+              A control nobody adopts protects nothing. I optimise for the tool
+              a security team reaches for on a Tuesday morning, not the one that
+              demos well.
+            </Value>
+            <Value title="Evidence over noise">
+              Exposure data is overwhelming by default. The work is proving what
+              is genuinely reachable and exploitable, then ranking it honestly.
+            </Value>
+            <Value title="Teaching what I learn">
+              I have taught SOC analysts, mentored founders and contributed to
+              open source. The knowledge compounds fastest when it circulates.
+            </Value>
+          </div>
+        </Section>
+
+        <Section
+          title="Speaking & mentoring"
+          description="Cybersecurity leadership, scaling startups, security product development and the changing threat landscape."
+        >
+          <div className="surface flex flex-wrap items-center gap-3 p-6">
+            <Link href="/contact" className="btn btn-primary">
+              Get in touch
+            </Link>
+            <a
+              href={social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+            >
+              Connect on LinkedIn
+            </a>
+          </div>
+        </Section>
+
+        <Section title="Beyond work">
+          <p className="muted leading-relaxed">
+            Off the clock I surf, travel, and spend more time than I should
+            reading other people’s security research. Surfing in particular has
+            been the most reliable way I have found to think clearly about a
+            hard problem — usually by not thinking about it at all.
+          </p>
+        </Section>
       </div>
-    </section>
+    </Container>
   )
-} 
+}
+
+function Value({
+  title,
+  children,
+}: {
+  title: string
+  children: React.ReactNode
+}) {
+  return (
+    <div className="surface-subtle p-5">
+      <h3 className="font-semibold tracking-tight">{title}</h3>
+      <p className="muted mt-2 text-sm leading-relaxed">{children}</p>
+    </div>
+  )
+}

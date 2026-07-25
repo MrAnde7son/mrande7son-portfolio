@@ -1,7 +1,7 @@
 import { baseUrl } from 'app/sitemap'
-import { getBlogPosts } from 'app/blog/utils'
+import { getBlogPosts, sortPostsByDate } from 'app/blog/utils'
+import { person } from 'app/site'
 
-// Function to escape XML special characters
 function escapeXml(text: string): string {
   return text
     .replace(/&/g, '&amp;')
@@ -12,38 +12,46 @@ function escapeXml(text: string): string {
 }
 
 export async function GET() {
-  let allBlogs = await getBlogPosts()
+  const posts = sortPostsByDate(await getBlogPosts())
 
-  const itemsXml = allBlogs
-    .sort((a, b) => {
-      const dateA = a.metadata.date ? new Date(a.metadata.date) : new Date(0)
-      const dateB = b.metadata.date ? new Date(b.metadata.date) : new Date(0)
-      return dateB.getTime() - dateA.getTime()
+  const itemsXml = posts
+    .map((post) => {
+      const link = `${baseUrl}/blog/${post.slug}`
+      return `    <item>
+      <title>${escapeXml(post.metadata.title || '')}</title>
+      <link>${link}</link>
+      <guid isPermaLink="true">${link}</guid>
+      <description>${escapeXml(post.metadata.description || '')}</description>
+      ${(post.metadata.tags ?? [])
+        .map((tag) => `<category>${escapeXml(tag)}</category>`)
+        .join('\n      ')}
+      <pubDate>${
+        post.metadata.date ? new Date(post.metadata.date).toUTCString() : ''
+      }</pubDate>
+    </item>`
     })
-    .map(
-      (post) =>
-        `<item>
-          <title>${escapeXml(post.metadata.title || '')}</title>
-          <link>${baseUrl}/blog/${post.slug}</link>
-          <description>${escapeXml(post.metadata.description || '')}</description>
-          <pubDate>${post.metadata.date ? new Date(post.metadata.date).toUTCString() : ''}</pubDate>
-        </item>`
-    )
     .join('\n')
 
+  const latest = posts[0]?.metadata.date
+  const lastBuildDate = (latest ? new Date(latest) : new Date()).toUTCString()
+
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
-  <rss version="2.0">
-    <channel>
-        <title>Itamar Mizrahi - Entrepreneur, Leader &amp; Engineering</title>
-        <link>${baseUrl}</link>
-        <description>Cybersecurity insights and leadership lessons from Itamar Mizrahi</description>
-        ${itemsXml}
-    </channel>
-  </rss>`
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${escapeXml(person.name)} — Writing</title>
+    <link>${baseUrl}/blog</link>
+    <atom:link href="${baseUrl}/rss" rel="self" type="application/rss+xml" />
+    <description>Deep dives on exposure management, AI security and building security products.</description>
+    <language>en-us</language>
+    <lastBuildDate>${lastBuildDate}</lastBuildDate>
+${itemsXml}
+  </channel>
+</rss>`
 
   return new Response(rssFeed, {
     headers: {
-      'Content-Type': 'text/xml',
+      'Content-Type': 'application/rss+xml; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
     },
   })
 }

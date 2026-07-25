@@ -4,17 +4,25 @@ import { projects } from '../../lib/projects'
 interface ProjectsGridProps {
   id?: string
   className?: string
+  /** Render at most this many projects. */
+  limit?: number
 }
 
-export default function ProjectsGrid({ id, className = '' }: ProjectsGridProps) {
+export default function ProjectsGrid({
+  id,
+  className = '',
+  limit,
+}: ProjectsGridProps) {
+  const shown = limit ? projects.slice(0, limit) : projects
+
   return (
     <div
       id={id}
-      className={`grid gap-5 grid-cols-[repeat(auto-fit,minmax(320px,1fr))] ${className}`}
+      className={`grid gap-4 sm:grid-cols-2 ${className}`}
     >
-      {projects.map((project, index) => (
+      {shown.map((project) => (
         <ProjectCard
-          key={index}
+          key={project.title}
           title={project.title}
           description={project.description}
           tags={project.tags}

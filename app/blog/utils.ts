@@ -58,6 +58,23 @@ function readMDXFile(filePath) {
   return parseFrontmatter(rawContent)
 }
 
+/**
+ * Drops a leading `# Heading` when it just repeats the frontmatter title.
+ *
+ * Every post opens with its own title, which the page template already
+ * renders as the <h1> — without this the reader sees the same headline twice.
+ */
+export function stripDuplicateTitle(content: string, title?: string) {
+  const match = /^\s*#\s+(.+?)\s*(?:\n|$)/.exec(content)
+  if (!match || !title) return content
+
+  const normalise = (value: string) =>
+    value.toLowerCase().replace(/[^a-z0-9]+/g, '')
+
+  if (normalise(match[1]) !== normalise(title)) return content
+  return content.slice(match[0].length).trimStart()
+}
+
 function getMDXData(dir) {
   let mdxFiles = getMDXFiles(dir)
   return mdxFiles.map((file) => {
@@ -67,13 +84,64 @@ function getMDXData(dir) {
     return {
       metadata,
       slug,
-      content,
+      content: stripDuplicateTitle(content, metadata.title),
     }
   })
 }
 
 export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+}
+
+export type BlogPost = ReturnType<typeof getBlogPosts>[number]
+
+/** Newest first. Posts without a date sort last. */
+export function sortPostsByDate<T extends { metadata: { date?: string } }>(
+  posts: T[]
+): T[] {
+  return [...posts].sort((a, b) => {
+    const dateA = a.metadata.date ? new Date(a.metadata.date).getTime() : 0
+    const dateB = b.metadata.date ? new Date(b.metadata.date).getTime() : 0
+    return dateB - dateA
+  })
+}
+
+const WORDS_PER_MINUTE = 200
+
+/**
+ * Estimated reading time in whole minutes.
+ *
+ * The previous implementation divided the character count by 1000, which
+ * under-reported every post by roughly a factor of five.
+ */
+export function readingTime(content: string) {
+  const words = content
+    .replace(/```[\s\S]*?```/g, ' ') // code blocks read differently
+    .replace(/[#*_>`\[\]()]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean).length
+
+  return Math.max(1, Math.round(words / WORDS_PER_MINUTE))
+}
+
+/**
+ * Posts that share the most tags with the given post, newest first among ties.
+ */
+export function relatedPosts<
+  T extends { slug: string; metadata: { tags?: string[]; date?: string } }
+>(post: T, all: T[], limit = 2): T[] {
+  const tags = new Set(post.metadata.tags ?? [])
+
+  return sortPostsByDate(all)
+    .filter((candidate) => candidate.slug !== post.slug)
+    .map((candidate) => ({
+      candidate,
+      shared: (candidate.metadata.tags ?? []).filter((tag) => tags.has(tag))
+        .length,
+    }))
+    .sort((a, b) => b.shared - a.shared)
+    .slice(0, limit)
+    .map(({ candidate }) => candidate)
 }
 
 export function formatDate(date?: string, includeRelative = false) {

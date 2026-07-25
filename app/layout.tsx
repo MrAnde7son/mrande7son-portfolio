@@ -1,5 +1,5 @@
 import './global.css'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Navbar } from './components/nav'
@@ -8,60 +8,60 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
 import { ThemeProvider } from './theme-context'
+import { person, social } from './site'
+import { ogImageUrl } from './og-url'
+
+const title = 'Itamar Mizrahi – Cybersecurity Entrepreneur'
+const description =
+  'Itamar Mizrahi builds and scales exposure management products. Co-founder and CEO of Cymptom (acquired by Tenable), now VP Product Growth at Tenable. Writing on CTEM, AI security, and attack path analysis.'
+
+const homeOgImage = ogImageUrl(person.name, person.tagline)
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Itamar Mizrahi – Cybersecurity Entrepreneur',
+    default: title,
     template: '%s | Itamar Mizrahi',
   },
-  description: 'Itamar Mizrahi is a cybersecurity entrepreneur and technology leader. Co-founder of Cymptom (acquired by Tenable), he leads innovation in exposure management, AI security, and attack path analysis.',
+  description,
   keywords: [
+    'Itamar Mizrahi',
     'cybersecurity entrepreneur',
-    'Tenable',
-    'Cymptom',
-    'attack path analysis',
     'exposure management',
+    'attack path analysis',
+    'CTEM',
     'AI security',
-    'cybersecurity speaker',
-    'security technology leader',
-    'cybersecurity innovation',
-    'attack path validation',
-    'security product development'
+    'Cymptom',
+    'Tenable',
+    'security product development',
   ],
-  authors: [{ name: 'Itamar Mizrahi' }],
-  creator: 'Itamar Mizrahi',
-  publisher: 'Itamar Mizrahi',
+  authors: [{ name: person.name, url: baseUrl }],
+  creator: person.name,
+  publisher: person.name,
   category: 'Technology',
-  classification: 'Cybersecurity',
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
-  },
   manifest: '/site.webmanifest',
   openGraph: {
-    title: 'Itamar Mizrahi – Cybersecurity Entrepreneur',
-    description: 'Former CEO and Co-founder of Cymptom, now VP Engineering at Tenable. Driving innovation in cybersecurity, AI risk, and exposure management.',
+    title,
+    description,
     url: baseUrl,
-    siteName: 'Itamar Mizrahi',
+    siteName: person.name,
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: `${baseUrl}/og`,
+        url: homeOgImage,
         width: 1200,
         height: 630,
-        alt: 'Itamar Mizrahi - Cybersecurity Entrepreneur',
+        alt: `${person.name} – ${person.role}`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Itamar Mizrahi – Cybersecurity Entrepreneur',
-    description: 'Former CEO and Co-founder of Cymptom, VP Engineering at Tenable. Cybersecurity thought leader.',
-    images: [`${baseUrl}/og`],
-    creator: '@MrAnde7son',
+    title,
+    description,
+    images: [homeOgImage],
+    creator: social.twitterHandle,
   },
   robots: {
     index: true,
@@ -75,11 +75,72 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: baseUrl,
+    canonical: '/',
+    types: {
+      'application/rss+xml': `${baseUrl}/rss`,
+    },
   },
-  verification: {
-    google: 'your-google-verification-code', // Add your Google Search Console verification code
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0d13' },
+  ],
+}
+
+/*
+ * Runs before first paint so the resolved theme is on <html> for the very
+ * first frame — no flash, and the `dark:` variants (keyed on data-theme in
+ * global.css) agree with the toggle from the start.
+ */
+const themeScript = `(function(){try{var s=localStorage.getItem('theme');var t=(s==='light'||s==='dark')?s:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${baseUrl}/#person`,
+  name: person.name,
+  jobTitle: person.role,
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Tenable',
+    url: 'https://www.tenable.com',
   },
+  alumniOf: [
+    {
+      '@type': 'Organization',
+      name: 'Cymptom',
+      description: 'Exposure validation platform (acquired by Tenable)',
+    },
+    {
+      '@type': 'CollegeOrUniversity',
+      name: 'The College of Management – Academic Studies',
+    },
+  ],
+  description,
+  url: baseUrl,
+  image: `${baseUrl}/itamar-mizrahi.jpg`,
+  sameAs: [social.linkedin, social.github, social.twitter],
+  knowsAbout: [
+    'Exposure Management',
+    'Attack Path Analysis',
+    'Continuous Threat Exposure Management',
+    'AI Security',
+    'Security Product Development',
+    'Engineering Leadership',
+  ],
+}
+
+const siteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${baseUrl}/#website`,
+  url: baseUrl,
+  name: `${person.name} – ${person.role}`,
+  description,
+  inLanguage: 'en-US',
+  publisher: { '@id': `${baseUrl}/#person` },
 }
 
 export default function RootLayout({
@@ -88,84 +149,32 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={GeistSans.variable}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
+    >
       <head>
-        {/* Structured Data for Person */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Itamar Mizrahi",
-              "jobTitle": "VP Engineering",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Tenable",
-                "url": "https://www.tenable.com"
-              },
-              "alumniOf": {
-                "@type": "Organization",
-                "name": "Cymptom",
-                "description": "Exposure validation platform (acquired by Tenable)"
-              },
-              "description": "Cybersecurity entrepreneur and technology leader. Co-founder & CEO of Cymptom, now VP Engineering at Tenable.",
-              "url": baseUrl,
-              "sameAs": [
-                "https://www.linkedin.com/in/itamarmizrahi/",
-                "https://github.com/MrAnde7son/MrAnde7son"
-              ],
-              "knowsAbout": [
-                "Cybersecurity",
-                "Attack Path Analysis",
-                "Exposure Management",
-                "AI Security",
-                "Security Product Development",
-                "Engineering Leadership"
-              ],
-              "hasOccupation": {
-                "@type": "Occupation",
-                "name": "VP Engineering",
-                "occupationLocation": {
-                  "@type": "Place",
-                  "name": "Tenable"
-                }
-              },
-              "image": `${baseUrl}/itamar-mizrahi.jpg`
-            })
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
-        
-        {/* Structured Data for Organization */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Itamar Mizrahi - Cybersecurity Entrepreneur",
-              "url": baseUrl,
-              "logo": `${baseUrl}/itamar-mizrahi.jpg`,
-              "description": "Personal website and blog of Itamar Mizrahi, cybersecurity entrepreneur and VP Engineering at Tenable.",
-              "founder": {
-                "@type": "Person",
-                "name": "Itamar Mizrahi"
-              },
-              "sameAs": [
-                "https://www.linkedin.com/in/itamarmizrahi/",
-                "https://github.com/MrAnde7son/MrAnde7son"
-              ]
-            })
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
         />
       </head>
-      <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto">
+      <body className="antialiased font-sans min-h-screen flex flex-col">
         <ThemeProvider>
-          <main className="flex-auto min-w-0 flex flex-col px-2 md:px-0">
-            <Navbar />
+          <a href="#main" className="skip-link">
+            Skip to content
+          </a>
+          <Navbar />
+          <main id="main" className="flex-auto w-full">
             {children}
-            <Footer />
           </main>
+          <Footer />
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

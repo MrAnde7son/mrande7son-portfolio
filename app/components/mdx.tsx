@@ -5,10 +5,10 @@ import { highlight } from 'sugar-high'
 import React from 'react'
 
 function Table({ data }) {
-  let headers = data.headers.map((header, index) => (
+  const headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
   ))
-  let rows = data.rows.map((row, index) => (
+  const rows = data.rows.map((row, index) => (
     <tr key={index}>
       {row.map((cell, cellIndex) => (
         <td key={cellIndex}>{cell}</td>
@@ -16,20 +16,24 @@ function Table({ data }) {
     </tr>
   ))
 
+  // Wrapped so a wide table scrolls inside its own box instead of forcing
+  // the whole page to scroll sideways on mobile.
   return (
-    <table>
-      <thead>
-        <tr>{headers}</tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
+    <div className="table-wrap">
+      <table>
+        <thead>
+          <tr>{headers}</tr>
+        </thead>
+        <tbody>{rows}</tbody>
+      </table>
+    </div>
   )
 }
 
 function CustomLink(props) {
-  let href = props.href
+  const href = props.href
 
-  if (href.startsWith('/')) {
+  if (href?.startsWith('/')) {
     return (
       <Link href={href} {...props}>
         {props.children}
@@ -37,7 +41,7 @@ function CustomLink(props) {
     )
   }
 
-  if (href.startsWith('#')) {
+  if (href?.startsWith('#')) {
     return <a {...props} />
   }
 
@@ -49,7 +53,7 @@ function RoundedImage(props) {
 }
 
 function Code({ children, ...props }) {
-  let codeHTML = highlight(children)
+  const codeHTML = highlight(children)
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
 }
 
@@ -57,16 +61,16 @@ export function slugify(str) {
   return str
     .toString()
     .toLowerCase()
-    .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .trim()
+    .replace(/\s+/g, '-') // spaces to dashes
+    .replace(/&/g, '-and-')
+    .replace(/[^\w\-]+/g, '') // drop remaining non-word characters
+    .replace(/\-\-+/g, '-')
 }
 
 export function createHeading(level) {
   const Heading = ({ children }) => {
-    let slug = slugify(children)
+    const slug = slugify(children)
     return React.createElement(
       `h${level}`,
       { id: slug },
@@ -74,6 +78,7 @@ export function createHeading(level) {
         href: `#${slug}`,
         key: `link-${slug}`,
         className: 'anchor',
+        'aria-label': `Link to section: ${children}`,
       }),
       children
     )
@@ -84,7 +89,7 @@ export function createHeading(level) {
   return Heading
 }
 
-let components = {
+const components = {
   h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
