@@ -8,7 +8,7 @@ import { baseUrl } from 'app/sitemap'
 import { ogImageUrl } from 'app/og-url'
 
 const description =
-  'Itamar Mizrahi’s path through cybersecurity: security research in the IDF, red teaming at CyberArk, founding Cymptom and its acquisition by Tenable, and now leading product growth for Tenable’s exposure management platform.'
+  'Fifteen years in security: research in the IDF from 2011, red teaming at CyberArk, founding Cymptom and selling it to Tenable, three years growing the Tenable One team past 70 people, and now a new company.'
 
 const ogImage = ogImageUrl('About Itamar Mizrahi', person.tagline)
 
@@ -48,11 +48,11 @@ export default function About() {
           </h1>
           <p className="mt-5 text-lg leading-relaxed">{person.summary}</p>
           <p className="muted mt-4 leading-relaxed">
-            Most of my career has been spent on one question: given everything
-            an organisation exposes, what actually matters right now? Answering
-            it well means graph data, adversary tradecraft and product judgement
-            in equal measure — and it is why I keep coming back to exposure
-            management.
+            One question has taken up most of that time: out of everything
+            you are exposed to, what should you fix first? I spent years
+            answering it as the attacker, and years more building the tools
+            that answer it for defenders. Both jobs pointed the same way. The
+            answer is almost never the longest list.
           </p>
         </div>
         <Image
@@ -73,8 +73,10 @@ export default function About() {
               <li key={role.label} className="surface p-5 sm:p-6">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h3 className="font-semibold tracking-tight">
-                    {role.title}{' '}
-                    <span className="muted font-normal">@ {role.company}</span>
+                    {role.title}
+                    {role.company && (
+                      <span className="muted font-normal"> @ {role.company}</span>
+                    )}
                   </h3>
                   <time
                     dateTime={role.start}
@@ -109,7 +111,7 @@ export default function About() {
           </ol>
         </Section>
 
-        <Section title="What I work on">
+        <Section title="What I know">
           <div className="grid gap-4 sm:grid-cols-2">
             {expertise.map((group) => (
               <div key={group.heading} className="surface p-5 sm:p-6">
@@ -137,29 +139,29 @@ export default function About() {
         </Section>
 
         <Section
-          title="How I work"
-          description="Three things that shape most of the decisions I make."
+          title="What I believe about this work"
         >
           <div className="grid gap-4 sm:grid-cols-3">
-            <Value title="Security products people use">
-              A control nobody adopts protects nothing. I optimise for the tool
-              a security team reaches for on a Tuesday morning, not the one that
-              demos well.
+            <Value title="A tool nobody opens protects nobody">
+              I care whether a security team reaches for it on a Tuesday
+              morning. Plenty of products win the bake-off and then sit unused.
             </Value>
-            <Value title="Evidence over noise">
-              Exposure data is overwhelming by default. The work is proving what
-              is genuinely reachable and exploitable, then ranking it honestly.
+            <Value title="Reachable beats severe">
+              Every scanner will hand you thousands of findings. The useful
+              question is which ones an attacker can actually get to, and that
+              is a much shorter list.
             </Value>
-            <Value title="Teaching what I learn">
-              I have taught SOC analysts, mentored founders and contributed to
-              open source. The knowledge compounds fastest when it circulates.
+            <Value title="Explaining it is how you learn it">
+              Three years teaching SOC analysts taught me more than any course
+              I took. Same with open source — you find out what you actually
+              understand when someone reviews your patch.
             </Value>
           </div>
         </Section>
 
         <Section
           title="Speaking & mentoring"
-          description="Cybersecurity leadership, scaling startups, security product development and the changing threat landscape."
+          description="Happy to talk about founding and selling a company, running security engineering teams, or why exposure management is harder than it looks."
         >
           <div className="surface flex flex-wrap items-center gap-3 p-6">
             <Link href="/contact" className="btn btn-primary">
@@ -178,10 +180,9 @@ export default function About() {
 
         <Section title="Beyond work">
           <p className="muted leading-relaxed">
-            Off the clock I surf, travel, and spend more time than I should
-            reading other people’s security research. Surfing in particular has
-            been the most reliable way I have found to think clearly about a
-            hard problem — usually by not thinking about it at all.
+            I surf and I travel. Surfing is the only thing I have found that
+            reliably stops me thinking about a problem, which is usually when
+            I work out the answer.
           </p>
         </Section>
       </div>

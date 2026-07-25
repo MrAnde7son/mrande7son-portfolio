@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="max-w-xs">
             <p className="font-semibold tracking-tight">{person.name}</p>
             <p className="muted mt-2 text-sm leading-relaxed">
-              {person.tagline}. Currently {person.role}.
+              {person.tagline}. Now building something new.
             </p>
           </div>
 
