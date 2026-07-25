@@ -16,7 +16,11 @@ export async function GET(request: Request) {
     title: post.metadata.title ?? '',
     description: post.metadata.description ?? '',
     url: `/blog/${post.slug}`,
-    ...(post.content ? { content: post.content } : {}),
+    // Tags join the haystack so a search for a topic like "CTEM" finds posts
+    // filed under it even when the body never spells the acronym out.
+    content: [post.metadata.tags?.join(' '), post.content]
+      .filter(Boolean)
+      .join(' '),
   }))
 
   const projectItems: SearchItem[] = projects.map((project) => ({

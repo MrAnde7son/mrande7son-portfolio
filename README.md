@@ -1,99 +1,102 @@
-# Itamar Mizrahi - Personal Portfolio & Blog
+# Itamar Mizrahi — Portfolio & Blog
 
-Welcome to my personal website and blog where I share insights about cybersecurity, engineering leadership, and building security products. 
+Personal site and writing on exposure management, CTEM, AI security and building
+security products. Live at [mrande7son.com](https://www.mrande7son.com).
 
-## About Me
+## Stack
 
-I'm a seasoned technology leader and entrepreneur with extensive experience in cybersecurity. I have a proven track record in building and scaling software products from inception to growth. As the former Co-founder and CEO of Cymptom (acquired by Tenable), I've experienced the full journey of building security products from startup to enterprise scale.
-
-My passion lies in building high-impact security products that protect organizations from evolving cyber threats. I enjoy mentoring the next generation of security professionals and sharing insights from my experience in both startup and enterprise environments.
-
-In my free time, I like surfing and traveling.
-
-## Website Features
-
-This portfolio website includes:
-
-- **Personal Blog** - Cybersecurity insights and leadership lessons
-- **MDX and Markdown support** - Rich content with code highlighting
-- **SEO Optimized** - Sitemap, robots.txt, and JSON-LD schema
-- **RSS Feed** - Subscribe to blog updates
-- **Dynamic OG images** - Optimized social media sharing
-- **Syntax highlighting** - For code snippets and technical content
-- **Tailwind CSS** - Modern, responsive design
-- **Vercel Analytics** - Performance monitoring and insights
-- **Geist font** - Clean, professional typography
-
-## Blog Posts
-
-- [Building Security Teams That Scale](/blog/cybersecurity-leadership) - Lessons learned from leading engineering teams in cybersecurity startups and enterprises
-- [From Startup to Enterprise: The Cybersecurity Journey](/blog/startup-to-enterprise) - Reflections on building Cymptom from the ground up and scaling security products in enterprise environments  
-- [Building Security Products That Actually Work](/blog/security-product-development) - Practical insights on developing cybersecurity solutions that solve real problems and deliver measurable value
-
-## Connect With Me
-
-- **LinkedIn**: [Itamar Mizrahi](https://www.linkedin.com/in/itamarmizrahi/)
-- **GitHub**: [MrAnde7son](https://github.com/MrAnde7son/MrAnde7son)
-
-## Technology Stack
-
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS v4
-- **Content**: MDX with syntax highlighting
-- **Deployment**: Vercel
-- **Analytics**: Vercel Speed Insights & Web Analytics
-- **Font**: Geist (Sans & Mono)
+| Concern    | Choice                                              |
+| ---------- | --------------------------------------------------- |
+| Framework  | Next.js 14 (App Router, React Server Components)     |
+| Styling    | Tailwind CSS v4 + a CSS custom-property design system |
+| Content    | MDX via `next-mdx-remote`, `sugar-high` highlighting |
+| Fonts      | Geist Sans & Geist Mono                             |
+| Analytics  | Vercel Web Analytics & Speed Insights               |
+| Hosting    | Vercel                                              |
 
 ## Development
 
-To run this website locally:
-
 ```bash
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Start production server
-pnpm start
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build
+npm start          # serve the production build
+npm test           # typecheck + node:test unit tests
+npm run typecheck  # types only
 ```
+
+## Architecture notes
+
+### One source of truth per concern
+
+| File                       | Owns                                               |
+| -------------------------- | -------------------------------------------------- |
+| `app/site.ts`              | Name, role, tagline, social URLs, hero highlights   |
+| `lib/career.ts`            | Roles, education, expertise — used by the home timeline *and* the about page |
+| `lib/projects.ts`          | Open-source projects                                |
+| `app/global.css`           | Design tokens, semantic classes, prose styles       |
+| `app/sitemap.ts`           | `baseUrl`, exported and reused by RSS/robots/metadata |
+
+Adding a role or changing a job title means editing one file, not three.
+
+### Theming
+
+Dark mode is driven by a `data-theme` attribute on `<html>`:
+
+1. A small inline script in `app/layout.tsx` runs **before first paint**,
+   resolving `localStorage` → `prefers-color-scheme` and setting the attribute.
+   That is what prevents a flash of the wrong theme.
+2. `app/global.css` redefines the token set under `[data-theme='dark']`.
+3. `@custom-variant dark (&:where([data-theme='dark'], …))` re-points Tailwind's
+   `dark:` variant at the same attribute, so utilities and the in-page toggle
+   can never disagree. (Tailwind v4's default is `prefers-color-scheme`, which
+   ignores an explicit user choice.)
+
+Prefer the semantic helpers — `.surface`, `.muted`, `.chip`, `.btn` — over
+hard-coded `neutral-*` / `dark:neutral-*` pairs when adding UI. They read from
+the tokens, so both themes stay correct by construction.
+
+### Writing a post
+
+Create `app/blog/posts/<slug>.mdx`:
+
+```mdx
+---
+title: 'Post title'
+description: 'One or two sentences — this is the search + social preview.'
+date: '2025-01-30'
+tags: Exposure Management, AI Security
+---
+
+Opening paragraph…
+```
+
+Everything else is derived automatically: routing, the blog index, RSS, the
+sitemap, JSON-LD, reading time, related posts and an Open Graph card rendered
+by `app/og/route.tsx`. A leading `# Title` in the body that duplicates the
+frontmatter title is stripped, so posts never show their headline twice.
+
+### Icons & Open Graph
+
+Icons are generated at request time by `app/icon.tsx` and `app/apple-icon.tsx`
+— there are no static favicon files to keep in sync. Social cards come from
+`/og?title=…&subtitle=…`; build the URL with the `ogImageUrl()` helper in
+`app/og-url.ts`.
 
 ## Testing
 
-Run unit tests with:
+Unit tests are plain `node:test` files compiled by `tsc` first, covering
+frontmatter parsing, date formatting, reading time, related-post selection,
+search ranking and server rendering of the card components.
 
-```bash
-pnpm test
-```
+## Possible next steps
 
-## Favicon Setup
-
-To create a favicon from your image:
-
-1. **Use an online favicon generator** like favicon.io or realfavicongenerator.net
-2. **Upload your image** (itamar-mizrahi.jpg)
-3. **Download the generated files** and place them in the `public/` directory:
-   - `favicon.ico`
-   - `favicon-16x16.png`
-   - `favicon-32x32.png`
-   - `apple-touch-icon.png`
-   - `android-chrome-192x192.png`
-   - `android-chrome-512x512.png`
-
-The website is already configured to use these favicon files.
-
-## Deployment
-
-This website is designed to be deployed on Vercel with zero configuration. Simply connect your GitHub repository to Vercel for automatic deployments.
+- Upgrade to Next.js 15/16 (needs the async `params` migration in
+  `app/blog/[slug]/page.tsx`).
+- Add a Google Search Console verification token to `app/layout.tsx` metadata.
+- Set `RESEND_API_KEY` in the Vercel project so `/api/subscribe` can deliver
+  contact messages.
 
 ## License
 
-© 2024 MrAnde7son. All rights reserved.
-
----
-
-*This website is built on the Next.js Portfolio Blog Starter template, customized for my personal brand and professional experience in cybersecurity.*
+© 2026 Itamar Mizrahi. All rights reserved.

@@ -1,72 +1,82 @@
-function ArrowIcon() {
-  return (
-    <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
-}
+import Link from 'next/link'
+import { person, social } from '../site'
+
+const siteLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Writing' },
+  { href: '/contact', label: 'Contact' },
+]
+
+const elsewhere = [
+  { href: social.linkedin, label: 'LinkedIn' },
+  { href: social.github, label: 'GitHub' },
+  { href: social.twitter, label: 'X' },
+  { href: '/rss', label: 'RSS' },
+]
 
 export default function Footer() {
   return (
-    <footer className="mb-16">
-      <ul className="text-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-white">
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-white"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="/rss"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">rss</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-white"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://x.com/MrAnde7son"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">twitter</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-white"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/MrAnde7son/MrAnde7son"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">github</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-white"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://www.linkedin.com/in/itamarmizrahi/"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">linkedin</p>
-          </a>
-        </li>
-      </ul>
-      <p className="mt-8 text-neutral-600 dark:text-white">
-        © {new Date().getFullYear()} MrAnde7son. All rights reserved.
-      </p>
+    <footer className="mt-auto border-t border-token">
+      <div className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-6">
+        <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
+          <div className="max-w-xs">
+            <p className="font-semibold tracking-tight">{person.name}</p>
+            <p className="muted mt-2 text-sm leading-relaxed">
+              {person.tagline}. Currently {person.role}.
+            </p>
+          </div>
+
+          <div className="flex gap-12 sm:gap-16">
+            <FooterColumn title="Site">
+              {siteLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="muted transition-colors hover:text-[var(--fg)]"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </FooterColumn>
+
+            <FooterColumn title="Elsewhere">
+              {elsewhere.map(({ href, label }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="muted transition-colors hover:text-[var(--fg)]"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </FooterColumn>
+          </div>
+        </div>
+
+        <p className="subtle mt-10 border-t border-token pt-6 text-xs">
+          © {new Date().getFullYear()} {person.name}. All rights reserved.
+        </p>
+      </div>
     </footer>
+  )
+}
+
+function FooterColumn({
+  title,
+  children,
+}: {
+  title: string
+  children: React.ReactNode
+}) {
+  return (
+    <div>
+      <h2 className="text-xs font-semibold tracking-wider uppercase">{title}</h2>
+      <ul className="mt-3 space-y-2 text-sm">{children}</ul>
+    </div>
   )
 }

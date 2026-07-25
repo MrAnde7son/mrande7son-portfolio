@@ -1,91 +1,43 @@
-'use client'
-import { useEffect, useRef, useState } from 'react'
+import { roles } from '../../lib/career'
 
-interface TimelineItem {
-  year: string
-  title: string
-  description: string
-}
-
-const timeline: TimelineItem[] = [
-  {
-    year: '2025',
-    title: 'VP Product Growth @ Tenable',
-    description:
-      'Leading product growth strategy and execution for Tenable\'s Exposure Management platform.',
-  },
-  {
-    year: '2022-2025',
-    title: 'VP Engineering @ Tenable',
-    description:
-      'Scaled a global team and integrated Cymptom\'s technology into Tenable One and Attack Path Analysis.',
-  },
-  {
-    year: '2019-2022',
-    title: 'Co-founder & CEO @ Cymptom',
-    description:
-      'Built Cymptom from concept to acquisition, enabling organizations to eliminate attack paths.',
-  },
-  {
-    year: '2017-2020',
-    title: 'Instructor @ John Bryce',
-    description:
-      'Provided cybersecurity training for SOC analysts and security professionals.',
-  },
-  {
-    year: '2015-2017',
-    title: 'Red Team Specialist @ CyberArk',
-    description:
-      'Conducted red team assessments for Fortune 500 companies.',
-  },
-  {
-    year: '2011-2015',
-    title: 'Security Researcher @ IDF',
-    description:
-      'Founded a cybersecurity department within a classified unit, focused on mission-critical security research.',
-  },
-]
-
+/**
+ * A single vertical rail. The previous alternating two-column layout left
+ * large empty gaps and made the reading order ambiguous; one column scans
+ * top-to-bottom at every breakpoint.
+ *
+ * Deliberately a server component with no scroll-reveal: the entries are the
+ * content, so they render immediately rather than depending on JavaScript.
+ */
 export default function Timeline() {
-  const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setVisible(true)
-        observer.disconnect()
-      }
-    })
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <div
-      ref={ref}
-      className={`relative py-8 transition-opacity duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}
-    >
-      <div className="hidden md:block absolute inset-y-0 left-1/2 w-px bg-neutral-200 dark:bg-neutral-700"></div>
-      <div className="space-y-8">
-        {timeline.map((item, index) => (
-          <div key={index} className="md:grid md:grid-cols-2 md:gap-8">
-            <div
-              className={
-                index % 2 === 0
-                  ? 'md:col-start-1 md:pr-8 md:text-right text-left'
-                  : 'md:col-start-2 md:pl-8 text-left'
-              }
-            >
-              <div className="bg-neutral-100 dark:bg-neutral-800 p-4 rounded-lg">
-                <time className="text-sm text-neutral-500 dark:text-white">{item.year}</time>
-                <h3 className="font-medium text-neutral-900 dark:text-white mb-1">{item.title}</h3>
-                <p className="text-neutral-600 dark:text-white text-sm">{item.description}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+    <ol className="relative space-y-1">
+      {/* Decorative rail; the list itself carries the semantics. */}
+      <span
+        aria-hidden="true"
+        className="absolute top-2 bottom-2 left-[7px] w-px bg-[var(--border)]"
+      />
+
+      {roles.map((role) => (
+        <li key={role.label} className="relative pb-7 pl-8 last:pb-0">
+          <span
+            aria-hidden="true"
+            className="absolute top-[7px] left-0 h-[15px] w-[15px] rounded-full border-2 border-[var(--bg)] bg-[var(--border-strong)]"
+          />
+          <time
+            dateTime={role.start}
+            className="subtle font-mono text-xs tracking-wide"
+          >
+            {role.period}
+          </time>
+          <h3 className="mt-1 leading-snug font-semibold tracking-tight">
+            {role.label}
+          </h3>
+          {role.note && (
+            <span className="chip chip-accent mt-2 font-medium">{role.note}</span>
+          )}
+          <p className="muted mt-1.5 text-sm leading-relaxed">{role.summary}</p>
+        </li>
+      ))}
+    </ol>
   )
 }

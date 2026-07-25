@@ -1,34 +1,36 @@
-import { getBlogPosts } from 'app/blog/utils'
+import { getBlogPosts, sortPostsByDate } from 'app/blog/utils'
 import PostCard from './PostCard'
 
 type BlogPost = Awaited<ReturnType<typeof getBlogPosts>>[number]
 
 export default async function BlogPosts({
   posts,
+  limit,
+  columns = 1,
+  featuredSlugs,
 }: {
   posts?: BlogPost[]
+  limit?: number
+  columns?: 1 | 2
+  featuredSlugs?: Set<string>
 }) {
-  let allBlogs = posts ?? (await getBlogPosts())
+  const allBlogs = sortPostsByDate(posts ?? (await getBlogPosts()))
+  const shown = limit ? allBlogs.slice(0, limit) : allBlogs
 
   return (
-    <div className="grid gap-5 grid-cols-[repeat(auto-fit,minmax(320px,1fr))]">
-      {allBlogs
-        .sort((a, b) => {
-          const dateA = a.metadata.date ? new Date(a.metadata.date) : new Date(0)
-          const dateB = b.metadata.date ? new Date(b.metadata.date) : new Date(0)
-          return dateB.getTime() - dateA.getTime()
-        })
-        .map((post) => (
-          <PostCard
-            key={post.slug}
-            title={post.metadata.title ?? ''}
-            description={post.metadata.description ?? ''}
-            date={post.metadata.date}
-            href={`/blog/${post.slug}`}
-            tags={post.metadata.tags}
-          />
-        ))}
+    <div className={`grid gap-4 ${columns === 2 ? 'sm:grid-cols-2' : ''}`}>
+      {shown.map((post) => (
+        <PostCard
+          key={post.slug}
+          title={post.metadata.title ?? ''}
+          description={post.metadata.description ?? ''}
+          date={post.metadata.date}
+          href={`/blog/${post.slug}`}
+          tags={post.metadata.tags}
+          content={post.content}
+          featured={featuredSlugs?.has(post.slug)}
+        />
+      ))}
     </div>
   )
 }
-

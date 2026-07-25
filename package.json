@@ -4,24 +4,24 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "tsc --project tsconfig.json --noEmit false --module commonjs --esModuleInterop --skipLibCheck --target ES2018 --jsx react-jsx --outDir build/test && node --test build/test/app/blog/utils.test.js build/test/lib/search.test.js build/test/lib/projects.test.js build/test/app/api/search/route.test.js build/test/app/api/subscribe/route.test.js build/test/app/components/PostCard.test.js build/test/app/components/ProjectCard.test.js build/test/app/components/Timeline.test.js build/test/app/components/Patents.test.js"
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "test": "tsc --project tsconfig.json --noEmit false --module commonjs --esModuleInterop --skipLibCheck --target ES2018 --jsx react-jsx --outDir build/test && node --test \"build/test/**/*.test.js\""
   },
   "dependencies": {
-    "@tailwindcss/postcss": "4.0.0-alpha.13",
+    "@tailwindcss/postcss": "4.3.3",
     "@types/node": "20.11.17",
     "@types/react": "18.2.55",
     "@types/react-dom": "18.2.19",
     "@vercel/analytics": "^1.1.3",
     "@vercel/speed-insights": "^1.0.9",
     "geist": "1.2.2",
-    "next": "canary",
+    "next": "^14.2.35",
     "next-mdx-remote": "^6.0.0",
     "postcss": "^8.4.35",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sugar-high": "^0.6.0",
-    "tailwindcss": "4.0.0-alpha.13",
+    "tailwindcss": "4.3.3",
     "typescript": "5.3.3"
-  },
-  "devDependencies": {}
+  }
 }

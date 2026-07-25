@@ -1,131 +1,103 @@
-import Link from 'next/link'
+import type { Metadata } from 'next'
 import SubscribeForm from './SubscribeForm'
+import { Container, Section } from 'app/components/container'
+import { person, social } from 'app/site'
+import { baseUrl } from 'app/sitemap'
+import { ogImageUrl } from 'app/og-url'
 
-export const metadata = {
-  title: 'Contact - Itamar Mizrahi',
-  description: 'Get in touch with Itamar Mizrahi for speaking opportunities, mentorship, or collaboration on cybersecurity projects.',
+const description =
+  'Get in touch with Itamar Mizrahi about speaking engagements, mentorship, security research or collaboration on exposure management.'
+
+const ogImage = ogImageUrl('Get in touch', person.tagline)
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description,
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    title: `Contact ${person.name}`,
+    description,
+    type: 'website',
+    url: `${baseUrl}/contact`,
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Get in touch' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Contact ${person.name}`,
+    description,
+    images: [ogImage],
+  },
 }
+
+const channels = [
+  {
+    title: 'Speaking & conferences',
+    body: 'Talks on cybersecurity leadership, going from zero to acquisition, and building security products that survive contact with real teams.',
+    action: { label: 'Message on LinkedIn', href: social.linkedin },
+  },
+  {
+    title: 'Mentorship & career guidance',
+    body: 'Happy to help security professionals moving into leadership, and founders working out whether their idea is a product or a feature.',
+    action: { label: 'Message on LinkedIn', href: social.linkedin },
+  },
+  {
+    title: 'Open source & research',
+    body: 'Contributions, tooling ideas, or a discussion about attack path analysis and detection engineering.',
+    action: { label: 'GitHub profile', href: social.github },
+  },
+  {
+    title: 'Anything else',
+    body: 'Collaboration, advisory conversations, or a question about something I have written.',
+    action: { label: `Email ${person.email}`, href: `mailto:${person.email}` },
+  },
+]
 
 export default function Contact() {
   return (
-    <section className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-semibold tracking-tighter mb-6">Get In Touch</h1>
-        
-        <div className="prose prose-neutral dark:prose-invert max-w-none">
-          <p className="text-lg text-neutral-700 dark:text-white mb-8">
-            I'm always interested in connecting with fellow security professionals, entrepreneurs, and anyone passionate about cybersecurity. Whether you're looking for mentorship, collaboration opportunities, or just want to discuss the latest in security technology, feel free to reach out.
-          </p>
+    <Container width="page" className="pt-12 pb-20 sm:pt-16">
+      <header className="max-w-2xl">
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          Get in touch
+        </h1>
+        <p className="muted mt-5 text-lg leading-relaxed">
+          I like hearing from security practitioners, founders and anyone
+          wrestling with exposure management at scale. I typically reply within
+          24–48 hours — say up front if something is time sensitive.
+        </p>
+      </header>
 
-          <div className="grid gap-8 md:grid-cols-2">
-            {/* Professional Contact */}
-            <div>
-              <h2 className="text-xl font-semibold tracking-tighter mb-4">Professional</h2>
-              
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-medium text-neutral-900 dark:text-white mb-2">
-                    Speaking & Conferences
-                  </h3>
-                  <p className="text-neutral-600 dark:text-white text-sm mb-3">
-                    Available for speaking engagements on cybersecurity leadership, startup ideation, and security product development.
-                  </p>
-                  <Link
-                    href="https://www.linkedin.com/in/itamarmizrahi/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-neutral-600 dark:text-white hover:text-neutral-900 dark:hover:text-white transition-colors"
-                  >
-                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
-                    </svg>
-                    Connect on LinkedIn
-                  </Link>
-                </div>
-
-                <div>
-                  <h3 className="font-medium text-neutral-900 dark:text-white mb-2">
-                    Mentorship & Career Guidance
-                  </h3>
-                  <p className="text-neutral-600 dark:text-white text-sm mb-3">
-                    Happy to provide guidance for security professionals looking to advance their careers or start their own ventures.
-                  </p>
-                  <Link
-                    href="https://www.linkedin.com/in/itamarmizrahi/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-neutral-600 dark:text-white hover:text-neutral-900 dark:hover:text-white transition-colors"
-                  >
-                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
-                    </svg>
-                    Message on LinkedIn
-                  </Link>
-                </div>
+      <div className="mt-14 space-y-14">
+        <Section title="What I can help with">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {channels.map((channel) => (
+              <div key={channel.title} className="surface flex flex-col p-5 sm:p-6">
+                <h3 className="font-semibold tracking-tight">{channel.title}</h3>
+                <p className="muted mt-2 flex-1 text-sm leading-relaxed">
+                  {channel.body}
+                </p>
+                <a
+                  href={channel.action.href}
+                  {...(channel.action.href.startsWith('http')
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
+                  className="accent mt-4 self-start rounded-md text-sm font-medium hover:underline"
+                >
+                  {channel.action.label} →
+                </a>
               </div>
-            </div>
-
-            {/* Technical & Open Source */}
-            <div>
-              <h2 className="text-xl font-semibold tracking-tighter mb-4">Technical & Open Source</h2>
-              
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-medium text-neutral-900 dark:text-white mb-2">
-                    Open Source Collaboration
-                  </h3>
-                  <p className="text-neutral-600 dark:text-white text-sm mb-3">
-                    Interested in contributing to security tools or discussing new security technologies.
-                  </p>
-                  <Link
-                    href="https://github.com/MrAnde7son/MrAnde7son"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-neutral-600 dark:text-white hover:text-neutral-900 dark:hover:text-white transition-colors"
-                  >
-                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
-                    </svg>
-                    GitHub Profile
-                  </Link>
-                </div>
-
-                <div>
-                  <h3 className="font-medium text-neutral-900 dark:text-white mb-2">
-                    Security Research
-                  </h3>
-                  <p className="text-neutral-600 dark:text-white text-sm mb-3">
-                    Always interested in discussing new security research, threat intelligence, and emerging attack vectors.
-                  </p>
-                  <Link
-                    href="https://www.linkedin.com/in/itamarmizrahi/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-neutral-600 dark:text-white hover:text-neutral-900 dark:hover:text-white transition-colors"
-                  >
-                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
-                    </svg>
-                    Connect for Research Discussion
-                  </Link>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
+        </Section>
 
-          <div className="mt-12 p-6 bg-neutral-50 dark:bg-neutral-800 rounded-lg">
-            <h2 className="text-lg font-semibold tracking-tighter mb-3">Response Time</h2>
-            <p className="text-neutral-600 dark:text-white text-sm">
-              I typically respond to professional inquiries within 24-48 hours. For urgent matters or time-sensitive opportunities, please mention this in your message.
-            </p>
-          </div>
-
-          <div className="mt-12">
-            <h2 className="text-lg font-semibold tracking-tighter mb-4">Subscribe</h2>
+        <Section
+          title="Send a note"
+          description="Drop your email and I will get back to you directly. No newsletter, no list."
+        >
+          <div className="surface max-w-xl p-5 sm:p-6">
             <SubscribeForm />
           </div>
-        </div>
+        </Section>
       </div>
-    </section>
+    </Container>
   )
 }
