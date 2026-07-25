@@ -3,6 +3,10 @@
 Personal site and writing on exposure management, CTEM, AI security and building
 security products. Live at [mrande7son.com](https://www.mrande7son.com).
 
+Current role, headline copy and social links live in `app/site.ts`; career
+history lives in `lib/career.ts`. Change a job there and it updates the hero,
+the timeline, the about page, the footer, the OG cards and the JSON-LD at once.
+
 ## Stack
 
 | Concern    | Choice                                              |

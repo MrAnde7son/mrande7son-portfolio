@@ -6,10 +6,13 @@
 
 export const person = {
   name: 'Itamar Mizrahi',
-  role: 'VP Product Growth @ Tenable',
-  tagline: 'Cybersecurity entrepreneur · Exposure management',
+  /** Job title on its own — used in structured data and the OG card footer. */
+  role: 'Founder',
+  /** What I'm doing now, for the hero eyebrow and footer. */
+  status: 'Founder · building something new in security',
+  tagline: 'Founder. Previously Cymptom, acquired by Tenable',
   summary:
-    'I build security products that turn overwhelming exposure data into decisions teams can act on. I co-founded Cymptom and led it to acquisition by Tenable, where its attack path technology now sits at the core of Tenable One.',
+    'Fifteen years in security: first breaking into networks, then building the products that defend them. I co-founded Cymptom in 2019 and sold it to Tenable in 2022. I stayed three more years and grew the team behind Tenable One to 70+. In 2025 I left to start something new.',
   location: 'Israel',
   email: 'mizrahi.itamar@gmail.com',
 } as const
@@ -21,9 +24,21 @@ export const social = {
   twitterHandle: '@MrAnde7son',
 } as const
 
-/** Facts surfaced in the hero. Each one is verifiable from the CV below it. */
+/** Facts surfaced in the hero. Each one is backed by the CV below it. */
 export const highlights = [
-  { value: '1', label: 'Startup founded and sold', detail: 'Cymptom → Tenable' },
-  { value: '60+', label: 'Engineers, PMs and data scientists led', detail: 'Tenable One' },
-  { value: '10+', label: 'Years in offensive & exposure security', detail: 'IDF → CyberArk → Tenable' },
+  {
+    value: '1',
+    label: 'Company founded and sold',
+    detail: 'Cymptom → Tenable, 2022',
+  },
+  {
+    value: '70+',
+    label: 'People led at Tenable',
+    detail: 'Engineering, product, data science',
+  },
+  {
+    value: '15+',
+    label: 'Years in security',
+    detail: 'Since 2011',
+  },
 ] as const

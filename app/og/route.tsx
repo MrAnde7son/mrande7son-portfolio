@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og'
+import { person } from '../site'
 
 export const runtime = 'edge'
 
@@ -6,10 +7,9 @@ const SITE = 'mrande7son.com'
 
 export function GET(request: Request) {
   const url = new URL(request.url)
-  const title = url.searchParams.get('title')?.slice(0, 120) || 'Itamar Mizrahi'
+  const title = url.searchParams.get('title')?.slice(0, 120) || person.name
   const subtitle =
-    url.searchParams.get('subtitle')?.slice(0, 90) ||
-    'Cybersecurity entrepreneur · Exposure management'
+    url.searchParams.get('subtitle')?.slice(0, 90) || person.status
 
   // Long titles need to step down a size or they overflow the card.
   const titleSize = title.length > 75 ? 52 : title.length > 45 ? 62 : 74
@@ -82,10 +82,10 @@ export function GET(request: Request) {
           }}
         >
           <span style={{ color: '#e9edf4', fontWeight: 600 }}>
-            Itamar Mizrahi
+            {person.name}
           </span>
           <span>·</span>
-          <span>VP Product Growth @ Tenable</span>
+          <span>{person.tagline}</span>
         </div>
       </div>
     ),

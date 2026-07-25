@@ -11,9 +11,9 @@ import { ThemeProvider } from './theme-context'
 import { person, social } from './site'
 import { ogImageUrl } from './og-url'
 
-const title = 'Itamar Mizrahi – Cybersecurity Entrepreneur'
+const title = 'Itamar Mizrahi – Cybersecurity Founder'
 const description =
-  'Itamar Mizrahi builds and scales exposure management products. Co-founder and CEO of Cymptom (acquired by Tenable), now VP Product Growth at Tenable. Writing on CTEM, AI security, and attack path analysis.'
+  'Itamar Mizrahi co-founded Cymptom and sold it to Tenable, then spent three years growing the team behind Tenable One past 70 people. Now building a new security company. Writing on exposure management, CTEM and AI security.'
 
 const homeOgImage = ogImageUrl(person.name, person.tagline)
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   description,
   keywords: [
     'Itamar Mizrahi',
-    'cybersecurity entrepreneur',
+    'cybersecurity founder',
     'exposure management',
     'attack path analysis',
     'CTEM',
@@ -102,12 +102,12 @@ const personSchema = {
   '@id': `${baseUrl}/#person`,
   name: person.name,
   jobTitle: person.role,
-  worksFor: {
-    '@type': 'Organization',
-    name: 'Tenable',
-    url: 'https://www.tenable.com',
-  },
   alumniOf: [
+    {
+      '@type': 'Organization',
+      name: 'Tenable',
+      url: 'https://www.tenable.com',
+    },
     {
       '@type': 'Organization',
       name: 'Cymptom',

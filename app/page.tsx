@@ -17,7 +17,7 @@ export default function Page() {
           <Section
             id="career"
             title="Career"
-            description="From offensive research inside a classified unit to running product for an exposure management platform."
+            description="IDF, CyberArk, a company of my own, then Tenable. Most recent first."
           >
             <Timeline />
           </Section>
@@ -26,7 +26,7 @@ export default function Page() {
             <Section
               id="writing"
               title="Writing"
-              description="Practitioner notes on exposure management, CTEM and AI security."
+              description="What I have learned about exposure management, CTEM and AI security, mostly the hard way."
               action={
                 <Link
                   href="/blog"
@@ -43,7 +43,7 @@ export default function Page() {
             <Section
               id="patents"
               title="Patents"
-              description="Granted work on determining and mitigating cyber attack vectors."
+              description="Filed during the Cymptom years, on working out which attack vectors matter."
             >
               <Patents />
             </Section>
@@ -53,7 +53,7 @@ export default function Page() {
         <Section
           id="projects"
           title="Open source"
-          description="Tools and libraries I have contributed to, used daily by red teams and defenders."
+          description="Projects I have contributed to. Most of them I used first, then sent patches."
         >
           <ProjectsGrid />
         </Section>
@@ -68,12 +68,14 @@ function Hero() {
       <div className="flex flex-col-reverse items-start gap-8 md:flex-row md:items-center md:gap-12">
         <div className="min-w-0 flex-1">
           <p className="accent mb-3 font-mono text-xs tracking-widest uppercase">
-            {person.role}
+            {person.status}
           </p>
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
             {person.name}
           </h1>
-          <p className="muted mt-5 max-w-xl text-lg leading-relaxed text-balance">
+          {/* No text-balance here: it is meant for headings, and on a
+              multi-line paragraph it forces an unnecessarily narrow column. */}
+          <p className="muted mt-5 max-w-2xl text-lg leading-relaxed">
             {person.summary}
           </p>
 

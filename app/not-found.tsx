@@ -8,8 +8,8 @@ export const metadata = {
 
 const suggestions = [
   { href: '/', label: 'Home', hint: 'Start from the top' },
-  { href: '/blog', label: 'Writing', hint: 'Essays on exposure management' },
-  { href: '/about', label: 'About', hint: 'Career, patents and open source' },
+  { href: '/blog', label: 'Writing', hint: 'Exposure management, CTEM, AI security' },
+  { href: '/about', label: 'About', hint: 'Fifteen years of it, in order' },
   { href: '/contact', label: 'Contact', hint: 'Speaking, mentoring, research' },
 ]
 
@@ -21,8 +21,7 @@ export default function NotFound() {
         This page does not exist
       </h1>
       <p className="muted mt-4 max-w-md leading-relaxed">
-        The link may be out of date, or the page may have moved. Here is where
-        everything else lives.
+        Either the link is stale or I moved something. Here is everything else.
       </p>
 
       <ul className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-2">

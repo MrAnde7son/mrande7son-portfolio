@@ -172,12 +172,10 @@ export default async function Blog({ params }) {
       </article>
 
       <div className="surface-subtle mt-14 p-6">
-        <h2 className="font-semibold tracking-tight">
-          Found this useful?
-        </h2>
+        <h2 className="font-semibold tracking-tight">Found this useful?</h2>
         <p className="muted mt-2 text-sm leading-relaxed">
-          I write about exposure management, CTEM and building security products
-          people actually use. Share this post, or get in touch.
+          I write about exposure management and building security products.
+          Pass it on if it helped, or tell me where I got it wrong.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <a

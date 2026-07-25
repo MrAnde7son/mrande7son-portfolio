@@ -9,7 +9,8 @@ export interface Role {
   /** Compact label used by the timeline, e.g. "VP Engineering @ Tenable". */
   label: string
   title: string
-  company: string
+  /** Omitted while a company is unannounced. */
+  company?: string
   /** Human-readable range shown to the reader. */
   period: string
   /** Machine-readable range for <time dateTime>, ISO 8601. */
@@ -22,17 +23,23 @@ export interface Role {
 
 export const roles: Role[] = [
   {
+    label: 'Founder — stealth',
+    title: 'Founder',
+    period: '2025 — Present',
+    start: '2025',
+    note: 'Building something new',
+    summary:
+      'Back to zero. Building a new security company, and not talking about it publicly yet.',
+  },
+  {
     label: 'VP Product Growth @ Tenable',
     title: 'VP Product Growth',
     company: 'Tenable',
-    period: '2025 — Present',
+    period: '2025',
     start: '2025-07',
+    end: '2025',
     summary:
-      'Leading product growth strategy and execution for Tenable’s exposure management platform, connecting product decisions to market expansion and customer adoption.',
-    highlights: [
-      'Own the growth motion for a platform used by enterprise security teams worldwide',
-      'Translate exposure management research into product bets the market can absorb',
-    ],
+      'Moved from engineering to growth for the exposure management platform — pricing, packaging and adoption rather than roadmap and delivery. A short last chapter before leaving to start my own thing.',
   },
   {
     label: 'VP Engineering @ Tenable',
@@ -42,10 +49,10 @@ export const roles: Role[] = [
     start: '2022-02',
     end: '2025-07',
     summary:
-      'Led product and engineering for Tenable One, Tenable’s exposure management platform, and scaled a global organisation of 60+ across engineering, product and data science.',
+      'Ran product and engineering for Tenable One. Took the team from the handful of us who came over with the acquisition to more than 70 engineers, product managers and data scientists.',
     highlights: [
-      'Integrated Cymptom’s technology into Tenable One and Attack Path Analysis',
-      'Grew a distributed team of 60+ engineers, product managers and data scientists',
+      'Grew the organisation past 70 people across three disciplines',
+      'Rebuilt Cymptom’s technology into Tenable One and Attack Path Analysis',
       'Shipped exposure analytics that graph attack paths across hybrid estates',
     ],
   },
@@ -58,11 +65,11 @@ export const roles: Role[] = [
     end: '2022-02',
     note: 'Acquired by Tenable',
     summary:
-      'Built Cymptom from a whiteboard idea to an exposure validation platform that let organisations eliminate attack paths before adversaries could use them — through to acquisition by Tenable.',
+      'Started Cymptom in 2019 to answer one question: which of your exposures can an attacker actually reach? Wrote the first code, raised the money, hired the team, sold to Tenable in 2022.',
     highlights: [
-      'Took the company from first line of code to acquisition',
-      'Raised capital, hired the founding team and landed the first enterprise customers',
-      'Defined an exposure validation category built on continuous attack path analysis',
+      'First line of code to acquisition in under three years',
+      'Raised the rounds, hired the founding team, closed the first enterprise deals',
+      'Built the case for exposure validation before the category had a name',
     ],
   },
   {
@@ -73,7 +80,7 @@ export const roles: Role[] = [
     start: '2017-08',
     end: '2020-01',
     summary:
-      'Trained SOC analysts and security professionals, turning field experience into curriculum for people entering the industry.',
+      'Taught SOC analysts on the side for three years. Nothing exposes the gaps in your own understanding like a room full of people asking why.',
   },
   {
     label: 'Red Team Specialist @ CyberArk',
@@ -83,7 +90,7 @@ export const roles: Role[] = [
     start: '2015-10',
     end: '2017-07',
     summary:
-      'Ran red team assessments against Fortune 500 environments, demonstrating concrete privilege escalation paths and the controls that close them.',
+      'Broke into Fortune 500 networks for a living. Domain admin was usually a few hops away, and almost never through the vulnerability anyone was tracking.',
   },
   {
     label: 'Security Researcher @ IDF',
@@ -93,7 +100,7 @@ export const roles: Role[] = [
     start: '2011-12',
     end: '2015-09',
     summary:
-      'Founded and led a cybersecurity department inside a classified unit, building offensive and defensive research capabilities from scratch.',
+      'Where I started, in 2011. Founded a cybersecurity department inside a classified unit and built its research capability from nothing.',
   },
 ]
 
@@ -118,25 +125,25 @@ export const education: Education[] = [
 
 export const expertise = [
   {
-    heading: 'Security domains',
+    heading: 'Security',
     items: [
-      'Exposure management & CTEM programs',
+      'Exposure management and CTEM programs',
       'Attack path analysis and validation',
-      'Active Directory security & red teaming',
+      'Active Directory security and red teaming',
       'Cloud security and DevSecOps',
-      'Threat intelligence & detection engineering',
+      'Threat intelligence and detection engineering',
       'Privileged access management',
     ],
   },
   {
-    heading: 'Building & shipping',
+    heading: 'Building',
     items: [
       'Python, TypeScript, Go',
       'AWS, Azure, GCP',
       'Docker, Kubernetes, CI/CD',
       'Graph data modelling (Neo4j)',
-      'Product growth & analytics',
-      'Scaling engineering organisations',
+      'Product growth and analytics',
+      'Hiring and running engineering teams',
     ],
   },
 ]

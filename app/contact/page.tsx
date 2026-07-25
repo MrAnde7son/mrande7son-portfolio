@@ -6,7 +6,7 @@ import { baseUrl } from 'app/sitemap'
 import { ogImageUrl } from 'app/og-url'
 
 const description =
-  'Get in touch with Itamar Mizrahi about speaking engagements, mentorship, security research or collaboration on exposure management.'
+  'Get in touch with Itamar Mizrahi about speaking, mentoring, security research, or anything to do with exposure management.'
 
 const ogImage = ogImageUrl('Get in touch', person.tagline)
 
@@ -31,23 +31,23 @@ export const metadata: Metadata = {
 
 const channels = [
   {
-    title: 'Speaking & conferences',
-    body: 'Talks on cybersecurity leadership, going from zero to acquisition, and building security products that survive contact with real teams.',
+    title: 'Speaking',
+    body: 'Zero to acquisition, running security engineering at scale, or why most exposure programs stall. I would rather tell you what went wrong than give the highlight reel.',
     action: { label: 'Message on LinkedIn', href: social.linkedin },
   },
   {
-    title: 'Mentorship & career guidance',
-    body: 'Happy to help security professionals moving into leadership, and founders working out whether their idea is a product or a feature.',
+    title: 'Mentoring',
+    body: 'Engineers moving into leadership, and founders trying to work out whether they have a product or a feature. I got both of those wrong before I got them right.',
     action: { label: 'Message on LinkedIn', href: social.linkedin },
   },
   {
     title: 'Open source & research',
-    body: 'Contributions, tooling ideas, or a discussion about attack path analysis and detection engineering.',
+    body: 'Attack path analysis, detection engineering, or anything in the repos I contribute to.',
     action: { label: 'GitHub profile', href: social.github },
   },
   {
     title: 'Anything else',
-    body: 'Collaboration, advisory conversations, or a question about something I have written.',
+    body: 'Advisory work, a question about something I wrote, or an argument about it.',
     action: { label: `Email ${person.email}`, href: `mailto:${person.email}` },
   },
 ]
@@ -60,9 +60,9 @@ export default function Contact() {
           Get in touch
         </h1>
         <p className="muted mt-5 text-lg leading-relaxed">
-          I like hearing from security practitioners, founders and anyone
-          wrestling with exposure management at scale. I typically reply within
-          24–48 hours — say up front if something is time sensitive.
+          I read everything that arrives. Practitioners, founders, anyone stuck
+          on exposure management at scale — all welcome. Expect a reply inside a
+          day or two. If it is urgent, say so in the first line.
         </p>
       </header>
 
@@ -91,7 +91,7 @@ export default function Contact() {
 
         <Section
           title="Send a note"
-          description="Drop your email and I will get back to you directly. No newsletter, no list."
+          description="Goes straight to my inbox. There is no mailing list and I am not building one."
         >
           <div className="surface max-w-xl p-5 sm:p-6">
             <SubscribeForm />
