@@ -32,8 +32,8 @@ export const roles: Role[] = [
       'Back to zero. Building a new security company, and not talking about it publicly yet.',
   },
   {
-    label: 'VP Product Growth @ Tenable',
-    title: 'VP Product Growth',
+    label: 'VP Growth @ Tenable',
+    title: 'VP Growth',
     company: 'Tenable',
     period: '2025',
     start: '2025-07',
