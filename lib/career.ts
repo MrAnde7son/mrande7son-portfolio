@@ -27,9 +27,8 @@ export const roles: Role[] = [
     title: 'Founder',
     period: '2025 — Present',
     start: '2025',
-    note: 'Building something new',
-    summary:
-      'Back to zero. Building a new security company, and not talking about it publicly yet.',
+    note: 'Stealth',
+    summary: 'Founder of a security company in stealth.',
   },
   {
     label: 'VP Growth @ Tenable',
@@ -39,7 +38,7 @@ export const roles: Role[] = [
     start: '2025-07',
     end: '2025',
     summary:
-      'Moved from engineering to growth for the exposure management platform — pricing, packaging and adoption rather than roadmap and delivery. A short last chapter before leaving to start my own thing.',
+      'Growth for the Tenable One exposure management platform: pricing, packaging and adoption.',
   },
   {
     label: 'VP Engineering @ Tenable',
@@ -49,11 +48,9 @@ export const roles: Role[] = [
     start: '2022-02',
     end: '2025-07',
     summary:
-      'Ran product and engineering for Tenable One. Took the team from the handful of us who came over with the acquisition to more than 70 engineers, product managers and data scientists.',
+      'Led product and engineering for Tenable One. Grew the team from the acquired Cymptom team to 70+ engineers, product managers and data scientists.',
     highlights: [
-      'Grew the organisation past 70 people across three disciplines',
-      'Rebuilt Cymptom’s technology into Tenable One and Attack Path Analysis',
-      'Shipped exposure analytics that graph attack paths across hybrid estates',
+      'Integrated Cymptom’s technology into Tenable One and Attack Path Analysis',
     ],
   },
   {
@@ -65,12 +62,7 @@ export const roles: Role[] = [
     end: '2022-02',
     note: 'Acquired by Tenable',
     summary:
-      'Started Cymptom in 2019 to answer one question: which of your exposures can an attacker actually reach? Wrote the first code, raised the money, hired the team, sold to Tenable in 2022.',
-    highlights: [
-      'First line of code to acquisition in under three years',
-      'Raised the rounds, hired the founding team, closed the first enterprise deals',
-      'Built the case for exposure validation before the category had a name',
-    ],
+      'Co-founded Cymptom, an attack path analysis and exposure validation platform. Acquired by Tenable in 2022.',
   },
   {
     label: 'Instructor @ John Bryce',
@@ -80,7 +72,7 @@ export const roles: Role[] = [
     start: '2017-08',
     end: '2020-01',
     summary:
-      'Taught SOC analysts on the side for three years. Nothing exposes the gaps in your own understanding like a room full of people asking why.',
+      'Taught SOC analyst courses.',
   },
   {
     label: 'Red Team Specialist @ CyberArk',
@@ -90,7 +82,7 @@ export const roles: Role[] = [
     start: '2015-10',
     end: '2017-07',
     summary:
-      'Broke into Fortune 500 networks for a living. Domain admin was usually a few hops away, and almost never through the vulnerability anyone was tracking.',
+      'Red team engagements against enterprise networks.',
   },
   {
     label: 'Security Researcher @ IDF',
@@ -100,7 +92,7 @@ export const roles: Role[] = [
     start: '2011-12',
     end: '2015-09',
     summary:
-      'Where I started, in 2011. Founded a cybersecurity department inside a classified unit and built its research capability from nothing.',
+      'Founded a cybersecurity department in a classified unit.',
   },
 ]
 

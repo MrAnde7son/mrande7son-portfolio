@@ -9,10 +9,10 @@ export const person = {
   /** Job title on its own — used in structured data and the OG card footer. */
   role: 'Founder',
   /** What I'm doing now, for the hero eyebrow and footer. */
-  status: 'Founder · building something new in security',
+  status: 'Founder · Stealth',
   tagline: 'Founder. Previously Cymptom, acquired by Tenable',
   summary:
-    'Fifteen years in security: first breaking into networks, then building the products that defend them. I co-founded Cymptom in 2019 and sold it to Tenable in 2022. I stayed three more years and grew the team behind Tenable One to 70+. In 2025 I left to start something new.',
+    'In security since 2011. Co-founded Cymptom in 2019; acquired by Tenable in 2022. VP Engineering, then VP Growth, for Tenable One until 2025. Now founder of a company in stealth.',
   location: 'Israel',
   email: 'mizrahi.itamar@gmail.com',
 } as const

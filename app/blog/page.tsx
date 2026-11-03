@@ -8,7 +8,7 @@ import { person } from 'app/site'
 
 const title = 'Writing'
 const description =
-  'Notes on exposure management, AI security and building security products, from someone who has been on both ends of the problem. Written between shipping things at Cymptom and Tenable.'
+  'Posts on exposure management, CTEM, AI security and building security products.'
 
 export const metadata: Metadata = {
   title,
@@ -65,8 +65,7 @@ export default async function Page() {
       <div className="mt-14 space-y-14">
         {cornerstone.length > 0 && (
           <Section
-            title="Start here"
-            description="The two longest pieces, and the ones I would point a new reader at first."
+            title="Featured"
           >
             <BlogPosts
               posts={cornerstone}

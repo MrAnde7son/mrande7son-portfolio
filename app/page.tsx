@@ -17,7 +17,6 @@ export default function Page() {
           <Section
             id="career"
             title="Career"
-            description="IDF, CyberArk, a company of my own, then Tenable. Most recent first."
           >
             <Timeline />
           </Section>
@@ -26,7 +25,6 @@ export default function Page() {
             <Section
               id="writing"
               title="Writing"
-              description="What I have learned about exposure management, CTEM and AI security, mostly the hard way."
               action={
                 <Link
                   href="/blog"
@@ -43,7 +41,6 @@ export default function Page() {
             <Section
               id="patents"
               title="Patents"
-              description="Filed during the Cymptom years, on working out which attack vectors matter."
             >
               <Patents />
             </Section>
@@ -53,7 +50,6 @@ export default function Page() {
         <Section
           id="projects"
           title="Open source"
-          description="Projects I have contributed to. Most of them I used first, then sent patches."
         >
           <ProjectsGrid />
         </Section>
@@ -81,7 +77,7 @@ function Hero() {
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <Link href="/blog" className="btn btn-primary">
-              Read the writing
+              Writing
             </Link>
             <Link href="/about" className="btn btn-secondary">
               About me
@@ -103,7 +99,7 @@ function Hero() {
             alt={`Portrait of ${person.name}`}
             width={200}
             height={200}
-            className="h-32 w-32 rounded-2xl object-cover sm:h-40 sm:w-40 md:h-48 md:w-48"
+            className="h-32 w-32 rounded-2xl object-cover object-top sm:h-40 sm:w-40 md:h-48 md:w-48"
             style={{ boxShadow: 'var(--shadow-card-hover)' }}
             priority
           />
