@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import BlogPosts from 'app/components/posts'
 import Timeline from 'app/components/Timeline'
 import ProjectsGrid from 'app/components/ProjectsGrid'
 import Patents from 'app/components/Patents'
@@ -22,22 +21,6 @@ export default function Page() {
           </Section>
 
           <div className="space-y-16">
-            <Section
-              id="writing"
-              title="Writing"
-              action={
-                <Link
-                  href="/blog"
-                  className="accent shrink-0 text-sm font-medium hover:underline"
-                >
-                  All posts →
-                </Link>
-              }
-            >
-              {/* Server component: streams the three most recent posts. */}
-              <BlogPosts limit={3} />
-            </Section>
-
             <Section
               id="patents"
               title="Patents"
@@ -76,10 +59,7 @@ function Hero() {
           </p>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <Link href="/blog" className="btn btn-primary">
-              Writing
-            </Link>
-            <Link href="/about" className="btn btn-secondary">
+            <Link href="/about" className="btn btn-primary">
               About me
             </Link>
             <a

@@ -4,7 +4,6 @@ import { person, social } from '../site'
 const siteLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/blog', label: 'Writing' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -12,7 +11,6 @@ const elsewhere = [
   { href: social.linkedin, label: 'LinkedIn' },
   { href: social.github, label: 'GitHub' },
   { href: social.twitter, label: 'X' },
-  { href: '/rss', label: 'RSS' },
 ]
 
 export default function Footer() {

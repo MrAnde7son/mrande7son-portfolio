@@ -12,7 +12,7 @@ export const person = {
   status: 'Founder · Stealth',
   tagline: 'Founder. Previously Cymptom, acquired by Tenable',
   summary:
-    'In security since 2011. Co-founded Cymptom in 2019; acquired by Tenable in 2022. VP Engineering, then VP Growth, for Tenable One until 2025. Now founder of a company in stealth.',
+    'Co-founded Cymptom in 2019; acquired by Tenable in 2022. VP Engineering, then VP Growth, for Tenable One until 2025. Now founder of a company in stealth.',
   location: 'Israel',
   email: 'mizrahi.itamar@gmail.com',
 } as const

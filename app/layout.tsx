@@ -13,7 +13,7 @@ import { ogImageUrl } from './og-url'
 
 const title = 'Itamar Mizrahi – Cybersecurity Founder'
 const description =
-  'Itamar Mizrahi: co-founder of Cymptom (acquired by Tenable), former VP Engineering for Tenable One, now founder of a company in stealth. Writing on exposure management, CTEM and AI security.'
+  'Itamar Mizrahi: co-founder of Cymptom (acquired by Tenable), former VP Engineering for Tenable One, now founder of a company in stealth.'
 
 const homeOgImage = ogImageUrl(person.name, person.tagline)
 
@@ -76,9 +76,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: '/',
-    types: {
-      'application/rss+xml': `${baseUrl}/rss`,
-    },
   },
 }
 

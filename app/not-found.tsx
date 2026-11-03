@@ -8,9 +8,8 @@ export const metadata = {
 
 const suggestions = [
   { href: '/', label: 'Home', hint: 'Start from the top' },
-  { href: '/blog', label: 'Writing', hint: 'Exposure management, CTEM, AI security' },
-  { href: '/about', label: 'About', hint: 'Fifteen years of it, in order' },
-  { href: '/contact', label: 'Contact', hint: 'Speaking, mentoring, research' },
+  { href: '/about', label: 'About', hint: 'Career, education, expertise' },
+  { href: '/contact', label: 'Contact', hint: 'Email, LinkedIn, GitHub' },
 ]
 
 export default function NotFound() {

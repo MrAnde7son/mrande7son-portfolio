@@ -1,14 +1,12 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Search from './search'
 import { useTheme } from '../theme-context'
 import { person } from '../site'
 
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/blog', label: 'Writing' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -50,7 +48,6 @@ export function Navbar() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-1.5">
-          <Search />
           <ThemeToggle />
         </div>
       </div>
